@@ -3,17 +3,17 @@ package com.api.admin.dto.request;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class GalleryPhotoUpdateRequest {
+public class MemoryUpdateRequest {
 
     public UUID mediaObjectId;
 
-    public String caption;
+    public String title;
 
-    public LocalDate photoDate;
+    public String description;
 
-    public Boolean favorite;
+    public LocalDate memoryDate;
 
-    public Boolean hidden;
+    public Boolean visible;
 
     public Integer sortOrder;
 }

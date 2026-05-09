@@ -23,4 +23,16 @@ public class GalleryPhotoRepository implements PanacheRepositoryBase<GalleryPhot
                 siteKey
         ).list();
     }
+
+    public long countBySiteKey(String siteKey) {
+        return count("siteProfile.siteKey", siteKey);
+    }
+
+    public long countFavoriteBySiteKey(String siteKey) {
+        return count("siteProfile.siteKey = ?1 and favorite = true", siteKey);
+    }
+
+    public long countHiddenBySiteKey(String siteKey) {
+        return count("siteProfile.siteKey = ?1 and hidden = true", siteKey);
+    }
 }

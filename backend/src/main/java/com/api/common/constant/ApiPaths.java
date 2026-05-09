@@ -26,4 +26,5 @@ public final class ApiPaths {
 
     // Health API
     public static final String HEALTH = API + "/health";
+    public static final String ADMIN_MEMORIES = ADMIN + "/memories";
 }

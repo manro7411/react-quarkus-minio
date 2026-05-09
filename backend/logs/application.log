@@ -1,0 +1,8 @@
+2026-05-10 00:59:24.307 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/appdb (PostgreSQL 16.13)
+2026-05-10 00:59:24.510 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 8 migrations (execution time 00:00.065s)
+2026-05-10 00:59:24.750 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 8
+2026-05-10 00:59:24.770 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
+2026-05-10 00:59:25.455 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 4.949s. Listening on: http://0.0.0.0:8080
+2026-05-10 00:59:25.456 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2026-05-10 00:59:25.457 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
+2026-05-10 00:59:33.678 WARN  [io.sma.jwt.config] (vert.x-eventloop-thread-0) SRJWT03007: Public key is configured but either the secret key or key location are also configured and will be ignored

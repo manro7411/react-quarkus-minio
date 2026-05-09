@@ -1,0 +1,81 @@
+package com.api.common.security;
+
+import com.api.common.constant.ApiPaths;
+import jakarta.annotation.Priority;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.NotAuthorizedException;
+import jakarta.ws.rs.Priorities;
+import jakarta.ws.rs.container.ContainerRequestContext;
+import jakarta.ws.rs.container.ContainerRequestFilter;
+import jakarta.ws.rs.ext.Provider;
+import org.eclipse.microprofile.jwt.JsonWebToken;
+import org.jboss.logging.Logger;
+
+@Provider
+@ApplicationScoped
+@Priority(Priorities.AUTHENTICATION)
+public class AdminAuthFilter implements ContainerRequestFilter {
+
+    private static final Logger LOG = Logger.getLogger(AdminAuthFilter.class);
+
+    @Inject
+    JsonWebToken jwt;
+
+    @Override
+    public void filter(ContainerRequestContext requestContext) {
+        String path = normalizePath(requestContext.getUriInfo().getPath());
+
+        LOG.debugf("AdminAuthFilter checking path=%s", path);
+
+        if (!path.startsWith(ApiPaths.ADMIN)) {
+            return;
+        }
+
+        if (isPublicAdminAuthPath(path)) {
+            LOG.debugf("AdminAuthFilter skipped public auth path=%s", path);
+            return;
+        }
+
+        String authorization = requestContext.getHeaderString("Authorization");
+
+        if (authorization == null || authorization.isBlank()) {
+            LOG.warnf("Missing Authorization header, path=%s", path);
+            throw new NotAuthorizedException("Missing Authorization Bearer token");
+        }
+
+        if (!authorization.startsWith("Bearer ")) {
+            LOG.warnf("Invalid Authorization header format, path=%s", path);
+            throw new NotAuthorizedException("Invalid Authorization Bearer token");
+        }
+
+        if (jwt == null || jwt.getSubject() == null || jwt.getSubject().isBlank()) {
+            LOG.warnf("Invalid or expired access token, path=%s", path);
+            throw new NotAuthorizedException("Invalid or expired access token");
+        }
+
+        LOG.debugf(
+                "AdminAuthFilter allowed request, path=%s, subject=%s",
+                path,
+                jwt.getSubject()
+        );
+    }
+
+    private String normalizePath(String rawPath) {
+        if (rawPath == null || rawPath.isBlank()) {
+            return "/";
+        }
+
+        if (rawPath.startsWith("/")) {
+            return rawPath;
+        }
+
+        return "/" + rawPath;
+    }
+
+    private boolean isPublicAdminAuthPath(String path) {
+        return path.equals(ApiPaths.ADMIN_AUTH + "/register")
+                || path.equals(ApiPaths.ADMIN_AUTH + "/login")
+                || path.equals(ApiPaths.ADMIN_AUTH + "/refresh");
+    }
+}

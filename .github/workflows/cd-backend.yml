@@ -62,12 +62,13 @@ jobs:
             podman stop react-quarkus-minio-backend || true
             podman rm react-quarkus-minio-backend || true
 
+
             podman run -d \
-              --name react-quarkus-minio-backend \
-              --restart=always \
-              -p 0.0.0.0:8080:8080 \
-              -e APP_ENV=prod \
-              -e CORS_ORIGINS="*" \
-              ghcr.io/manro7411/react-quarkus-minio-backend:latest
+            --name react-quarkus-minio-backend \
+            --restart=always \
+            -p 0.0.0.0:8080:8080 \
+            --env-file /app/react-quarkus-minio/backend/.env \
+            -v /app/react-quarkus-minio/logs/backend:/app/logs \
+            ghcr.io/manro7411/react-quarkus-minio-backend:latest
 
             podman ps --filter name=react-quarkus-minio-backend
