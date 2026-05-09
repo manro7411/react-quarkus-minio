@@ -1,4 +1,4 @@
-cat > Containerfile <<'EOF'
+Ícat > Containerfile <<'EOF'
 FROM node:20 AS frontend-build
 WORKDIR /app/frontend
 
