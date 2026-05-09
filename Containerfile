@@ -31,4 +31,3 @@ COPY --from=backend-build /app/backend/target/quarkus-app/quarkus/ ./quarkus/
 EXPOSE 8080
 
 CMD ["java", "-jar", "quarkus-run.jar"]
-EOF
