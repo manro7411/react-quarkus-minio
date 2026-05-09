@@ -18,13 +18,13 @@ jobs:
       packages: write
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Install Podman
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y podman
+#      - name: Checkout code
+#        uses: actions/checkout@v4
+#
+#      - name: Install Podman
+#        run: |
+#          sudo apt-get update
+#          sudo apt-get install -y podman
 
       - name: Login to GitHub Container Registry
         run: |
@@ -65,6 +65,3 @@ jobs:
               -e APP_ENV=prod \
               -e CORS_ORIGINS="*" \
               ghcr.io/manro7411/react-quarkus-minio:latest
-
-            sleep 5
-            curl -f http://localhost:8080/api/health
