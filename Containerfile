@@ -8,18 +8,17 @@ RUN npm ci
 COPY frontend/ ./
 RUN npm run build
 
+
 FROM maven:3.9-eclipse-temurin-21 AS backend-build
 WORKDIR /app/backend
 
 COPY backend/pom.xml ./pom.xml
-COPY backend/.mvn ./.mvn
-COPY backend/mvnw ./mvnw
 COPY backend/src ./src
 
 COPY --from=frontend-build /app/frontend/dist ./src/main/resources/META-INF/resources
 
-RUN chmod +x ./mvnw
-RUN ./mvnw package -DskipTests
+RUN mvn package -DskipTests
+
 
 FROM eclipse-temurin:21-jre
 WORKDIR /app
