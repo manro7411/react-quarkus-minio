@@ -18,13 +18,13 @@ jobs:
       packages: write
 
     steps:
-#      - name: Checkout code
-#        uses: actions/checkout@v4
-#
-#      - name: Install Podman
-#        run: |
-#          sudo apt-get update
-#          sudo apt-get install -y podman
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Podman
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y podman
 
       - name: Login to GitHub Container Registry
         run: |
