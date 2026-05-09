@@ -66,7 +66,7 @@ jobs:
             --name react-quarkus-minio-backend \
             --restart=always \
             -p 0.0.0.0:8080:8080 \
-            --env-file /app/react-quarkus-minio/backend/.env \
+            --env-file /app/react-quarkus-minio/backend/app.env \
             -v /app/react-quarkus-minio/logs/backend:/app/logs \
             ghcr.io/manro7411/react-quarkus-minio-backend:latest
 
