@@ -62,6 +62,7 @@ jobs:
             podman stop admin-portal || true
             podman rm admin-portal || true
 
+
             podman run -d \
               --name admin-portal \
               --restart=always \
