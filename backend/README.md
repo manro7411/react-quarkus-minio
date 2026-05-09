@@ -1,62 +1,141 @@
-# api-service
+## API Design
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+ระบบแบ่ง API ออกเป็น 2 กลุ่มหลัก:
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+1. **Public API** สำหรับ `user-portal`
+2. **Admin API** สำหรับ `admin-portal`
 
-## Running the application in dev mode
+---
 
-You can run your application in dev mode that enables live coding using:
+## Public API สำหรับ User Portal
 
-```shell script
-./mvnw quarkus:dev
-```
+Public API ใช้สำหรับหน้าเว็บผู้ใช้ เช่น `panpan.n9ne.cc` เพื่อดึงข้อมูลที่จะแสดงบนหน้าเว็บ
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
+Base URL ตัวอย่าง:
 
-## Packaging and running the application
+```text
+http://api.n9ne.cc
+Endpoints
+Method	Endpoint	Description
+GET	/public/site/panpan	ดึงข้อมูลรวมของ site เช่น title, subtitle, status
+GET	/public/site/panpan/hero	ดึงข้อมูล Hero section
+GET	/public/site/panpan/countdown	ดึงข้อมูล Countdown
+GET	/public/site/panpan/memories	ดึงรายการ Memories
+GET	/public/site/panpan/gallery	ดึงรายการรูปภาพ Gallery
+GET	/public/site/panpan/love-letter	ดึงข้อมูล Love Letter
+GET	/public/site/panpan/final-surprise	ดึงข้อมูล Final Surprise
+Example Request
+curl -i http://api.n9ne.cc/public/site/panpan
+curl -i http://api.n9ne.cc/public/site/panpan/gallery
+Admin API สำหรับ Admin Portal
 
-The application can be packaged using:
+Admin API ใช้สำหรับระบบหลังบ้าน เช่น admin.n9ne.cc เพื่อจัดการข้อมูลของ user portal
 
-```shell script
-./mvnw package
-```
+Base URL ตัวอย่าง:
 
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+http://api.n9ne.cc
+Authentication
+Method	Endpoint	Description
+POST	/admin/auth/login	Login เข้าระบบ admin
+Example Request
+curl -i -X POST http://api.n9ne.cc/admin/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "admin@n9ne.cc",
+    "password": "your-password"
+  }'
+Dashboard
+Method	Endpoint	Description
+GET	/admin/dashboard/stats	ดึงข้อมูลสถิติสำหรับ Dashboard
+Gallery Management
+Method	Endpoint	Description
+GET	/admin/gallery/photos	ดึงรายการรูปภาพทั้งหมด
+POST	/admin/gallery/photos	สร้างข้อมูลรูปภาพใหม่
+PUT	/admin/gallery/photos/{id}	แก้ไขข้อมูลรูปภาพ
+DELETE	/admin/gallery/photos/{id}	ลบรูปภาพ
+Example Request
+curl -i http://api.n9ne.cc/admin/gallery/photos
+curl -i -X POST http://api.n9ne.cc/admin/gallery/photos \
+  -H "Content-Type: application/json" \
+  -d '{
+    "caption": "Sunset by the beach",
+    "photoDate": "2026-05-09",
+    "favorite": true,
+    "hidden": false,
+    "sortOrder": 1,
+    "mediaObjectId": "uuid-media-object-id"
+  }'
+Media Upload
+Method	Endpoint	Description
+POST	/admin/media/upload	Upload file ไปยัง MinIO และบันทึก metadata
+Example Request
+curl -i -X POST http://api.n9ne.cc/admin/media/upload \
+  -F "file=@/path/to/photo.jpg" \
+  -F "folder=user-portal/gallery"
+Media Upload Flow
+Admin Portal
+  → POST /admin/media/upload
+  → Backend uploads file to MinIO
+  → Backend saves metadata to PostgreSQL
+  → Backend returns mediaObjectId and imageUrl
+Hero Section Management
+Method	Endpoint	Description
+GET	/admin/hero	ดึงข้อมูล Hero section
+PUT	/admin/hero	แก้ไขข้อมูล Hero section
+Countdown Management
+Method	Endpoint	Description
+GET	/admin/countdown	ดึงข้อมูล Countdown
+PUT	/admin/countdown	แก้ไขข้อมูล Countdown
+Love Letter Management
+Method	Endpoint	Description
+GET	/admin/love-letter	ดึงข้อมูล Love Letter
+PUT	/admin/love-letter	แก้ไขข้อมูล Love Letter
+Final Surprise Management
+Method	Endpoint	Description
+GET	/admin/final-surprise	ดึงข้อมูล Final Surprise
+PUT	/admin/final-surprise	แก้ไขข้อมูล Final Surprise
+API + MinIO Concept
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
+ระบบนี้ใช้ PostgreSQL และ MinIO ร่วมกัน:
 
-If you want to build an _über-jar_, execute the following command:
+PostgreSQL:
+- เก็บ metadata
+- เก็บ caption
+- เก็บวันที่
+- เก็บ object_key
+- เก็บ relationship ของข้อมูล
 
-```shell script
-./mvnw package -Dquarkus.package.jar.type=uber-jar
-```
+MinIO:
+- เก็บไฟล์รูปจริง
+- เก็บ hero image
+- เก็บ gallery photos
+- เก็บ surprise image
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
+ตัวอย่างข้อมูลที่ backend อาจส่งกลับให้ frontend:
 
-## Creating a native executable
+{
+  "id": "photo-id",
+  "caption": "Sunset by the beach",
+  "photoDate": "2026-05-09",
+  "favorite": true,
+  "hidden": false,
+  "imageUrl": "http://api.n9ne.cc/media/presigned-url-or-public-url"
+}
+Suggested API Structure
+/public/site/{siteKey}
+├─ /hero
+├─ /countdown
+├─ /memories
+├─ /gallery
+├─ /love-letter
+└─ /final-surprise
 
-You can create a native executable using:
-
-```shell script
-./mvnw package -Dnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
-
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/api-service-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
-
-## Provided Code
-
-### REST
-
-Easily start your REST Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+/admin
+├─ /auth/login
+├─ /dashboard/stats
+├─ /gallery/photos
+├─ /media/upload
+├─ /hero
+├─ /countdown
+├─ /love-letter
+└─ /final-surprise
