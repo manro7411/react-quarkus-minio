@@ -10,7 +10,7 @@ on:
       - ".github/workflows/cd-user-portal.yml"
 
 env:
-  FRONTEND_IMAGE: ghcr.io/manro7411/react-quarkus-minio-frontend
+  FRONTEND_IMAGE: ghcr.io/manro7411/react-quarkus-minio-user-portal
 
 jobs:
   build-and-deploy-frontend:
