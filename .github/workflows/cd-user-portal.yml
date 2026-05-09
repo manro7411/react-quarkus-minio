@@ -7,7 +7,7 @@ on:
     paths:
       - "frontend/**"
       - "Containerfile.frontend"
-      - ".github/workflows/cd-frontend.yml"
+      - ".github/workflows/cd-user-portal.yml"
 
 env:
   FRONTEND_IMAGE: ghcr.io/manro7411/react-quarkus-minio-frontend

@@ -1,0 +1,71 @@
+name: CD Admin Portal
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "admin-portal/**"
+      - "Containerfile.admin-portal"
+      - ".github/workflows/cd-admin-portal.yml"
+
+env:
+  ADMIN_PORTAL_IMAGE: ghcr.io/manro7411/admin-portal
+
+jobs:
+  build-and-deploy-admin-portal:
+    name: Build and Deploy Admin Portal
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Podman
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y podman
+
+      - name: Login to GitHub Container Registry
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u "${{ github.actor }}" --password-stdin
+
+      - name: Build admin portal image
+        run: |
+          podman build \
+            -t $ADMIN_PORTAL_IMAGE:${{ github.sha }} \
+            -t $ADMIN_PORTAL_IMAGE:latest \
+            -f Containerfile.admin-portal .
+
+      - name: Push admin portal image
+        run: |
+          podman push $ADMIN_PORTAL_IMAGE:${{ github.sha }}
+          podman push $ADMIN_PORTAL_IMAGE:latest
+
+      - name: Deploy admin portal to Ubuntu Server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            set -e
+
+            echo "${{ secrets.GHCR_TOKEN }}" | podman login ghcr.io -u manro7411 --password-stdin
+
+            podman pull ghcr.io/manro7411/admin-portal:latest
+
+            podman stop admin-portal || true
+            podman rm admin-portal || true
+
+            podman run -d \
+              --name admin-portal \
+              --restart=always \
+              -p 0.0.0.0:5175:5175 \
+              ghcr.io/manro7411/admin-portal:latest
+
+            podman ps --filter name=admin-portal
