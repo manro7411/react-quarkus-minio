@@ -1,16 +1,20 @@
-name: CD
+name: CD Backend
 
 on:
   push:
     branches:
       - main
+    paths:
+      - "backend/**"
+      - "Containerfile"
+      - ".github/workflows/cd-backend.yml"
 
 env:
-  IMAGE_NAME: ghcr.io/manro7411/react-quarkus-minio
+  BACKEND_IMAGE: ghcr.io/manro7411/react-quarkus-minio-backend
 
 jobs:
-  build-and-deploy:
-    name: Build and Deploy Frontend + Backend
+  build-and-deploy-backend:
+    name: Build and Deploy Backend
     runs-on: ubuntu-latest
 
     permissions:
@@ -30,19 +34,19 @@ jobs:
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u "${{ github.actor }}" --password-stdin
 
-      - name: Build image with Podman
+      - name: Build backend image
         run: |
           podman build \
-            -t $IMAGE_NAME:${{ github.sha }} \
-            -t $IMAGE_NAME:latest \
+            -t $BACKEND_IMAGE:${{ github.sha }} \
+            -t $BACKEND_IMAGE:latest \
             -f Containerfile .
 
-      - name: Push image to GHCR
+      - name: Push backend image
         run: |
-          podman push $IMAGE_NAME:${{ github.sha }}
-          podman push $IMAGE_NAME:latest
+          podman push $BACKEND_IMAGE:${{ github.sha }}
+          podman push $BACKEND_IMAGE:latest
 
-      - name: Deploy to Ubuntu Server
+      - name: Deploy backend to Ubuntu Server
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -53,15 +57,17 @@ jobs:
 
             echo "${{ secrets.GHCR_TOKEN }}" | podman login ghcr.io -u manro7411 --password-stdin
 
-            podman pull ghcr.io/manro7411/react-quarkus-minio:latest
+            podman pull ghcr.io/manro7411/react-quarkus-minio-backend:latest
 
-            podman stop react-quarkus-minio || true
-            podman rm react-quarkus-minio || true
+            podman stop react-quarkus-minio-backend || true
+            podman rm react-quarkus-minio-backend || true
 
             podman run -d \
-              --name react-quarkus-minio \
+              --name react-quarkus-minio-backend \
               --restart=always \
-              -p 8080:8080 \
+              -p 0.0.0.0:8080:8080 \
               -e APP_ENV=prod \
               -e CORS_ORIGINS="*" \
-              ghcr.io/manro7411/react-quarkus-minio:latest
+              ghcr.io/manro7411/react-quarkus-minio-backend:latest
+
+            podman ps --filter name=react-quarkus-minio-backend

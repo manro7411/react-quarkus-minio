@@ -17,7 +17,7 @@ public class GreetingResource {
     @GET
     @Path("/greet")
     @Produces(MediaType.TEXT_PLAIN)
-    public String hello() {
+    public String hellov2() {
         return "Hello from Nine";
     }
 }
