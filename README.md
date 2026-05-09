@@ -1,0 +1,1 @@
+# react-quarkus-minio
