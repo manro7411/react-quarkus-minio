@@ -56,7 +56,6 @@ jobs:
             set -e
 
             echo "${{ secrets.GHCR_TOKEN }}" | podman login ghcr.io -u manro7411 --password-stdin
-
             podman pull ghcr.io/manro7411/admin-portal:latest
 
             podman stop admin-portal || true
