@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - "backend/**"
-      - "Containerfile.bak"
+      - "Containerfile"
       - ".github/workflows/cd-backend.yml"
 
 env:
