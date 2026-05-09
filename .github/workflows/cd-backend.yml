@@ -62,7 +62,6 @@ jobs:
             podman stop react-quarkus-minio-backend || true
             podman rm react-quarkus-minio-backend || true
 
-
             podman run -d \
             --name react-quarkus-minio-backend \
             --restart=always \

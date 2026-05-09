@@ -5,7 +5,7 @@ WORKDIR /app/backend
 COPY backend/pom.xml ./pom.xml
 COPY backend/src ./src
 
-RUN mvn package -DskipTests
+RUN mvn package -Dmaven.test.skip=true
 
 
 FROM eclipse-temurin:21-jre
