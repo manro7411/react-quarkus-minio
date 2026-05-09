@@ -3,10 +3,10 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-COPY frontend/package*.json ./
+COPY user-portal/package*.json ./
 RUN npm ci
 
-COPY frontend/ ./
+COPY user-portal/ ./
 RUN npm run build
 
 EXPOSE 5173
