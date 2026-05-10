@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "frontend/**"
+      - "user-portal/**"
       - "Containerfile.frontend"
       - ".github/workflows/cd-user-portal.yml"
 
