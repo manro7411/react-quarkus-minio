@@ -11,6 +11,7 @@ on:
 
 env:
   ADMIN_PORTAL_IMAGE: ghcr.io/manro7411/admin-portal
+  CONTAINER_NAME: admin-portal
 
 jobs:
   build-and-deploy-admin-portal:
@@ -37,14 +38,16 @@ jobs:
       - name: Build admin portal image
         run: |
           podman build \
-            -t $ADMIN_PORTAL_IMAGE:${{ github.sha }} \
-            -t $ADMIN_PORTAL_IMAGE:latest \
+            --build-arg VITE_API_BASE_URL="${{ vars.VITE_API_BASE_URL }}" \
+            --build-arg VITE_SITE_KEY="${{ vars.VITE_SITE_KEY }}" \
+            -t "$ADMIN_PORTAL_IMAGE:${{ github.sha }}" \
+            -t "$ADMIN_PORTAL_IMAGE:latest" \
             -f Containerfile.admin-portal .
 
       - name: Push admin portal image
         run: |
-          podman push $ADMIN_PORTAL_IMAGE:${{ github.sha }}
-          podman push $ADMIN_PORTAL_IMAGE:latest
+          podman push "$ADMIN_PORTAL_IMAGE:${{ github.sha }}"
+          podman push "$ADMIN_PORTAL_IMAGE:latest"
 
       - name: Deploy admin portal to Ubuntu Server
         uses: appleboy/ssh-action@v1.0.3
@@ -55,17 +58,20 @@ jobs:
           script: |
             set -e
 
+            IMAGE="ghcr.io/manro7411/admin-portal:latest"
+            CONTAINER_NAME="admin-portal"
+
             echo "${{ secrets.GHCR_TOKEN }}" | podman login ghcr.io -u manro7411 --password-stdin
-            podman pull ghcr.io/manro7411/admin-portal:latest
 
-            podman stop admin-portal || true
-            podman rm admin-portal || true
+            podman pull "$IMAGE"
 
+            podman stop "$CONTAINER_NAME" || true
+            podman rm "$CONTAINER_NAME" || true
 
             podman run -d \
-              --name admin-portal \
+              --name "$CONTAINER_NAME" \
               --restart=always \
               -p 0.0.0.0:5175:5175 \
-              ghcr.io/manro7411/admin-portal:latest
+              "$IMAGE"
 
-            podman ps --filter name=admin-portal
+            podman ps --filter name="$CONTAINER_NAME"

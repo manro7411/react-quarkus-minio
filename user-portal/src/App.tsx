@@ -12,6 +12,10 @@ type FloatingHeart = {
   collected: boolean;
 };
 
+type UnavailablePageProps = {
+  status: string;
+};
+
 const TOTAL_HEARTS = 5;
 
 function createGameHearts(): FloatingHeart[] {
@@ -71,6 +75,10 @@ function App() {
         </div>
       </div>
     );
+  }
+
+  if (siteData.site?.status !== "ACTIVE") {
+    return <UnavailablePage status={siteData.site?.status || "MAINTENANCE"} />;
   }
 
   const hero = siteData.hero;
@@ -385,6 +393,42 @@ function App() {
   );
 }
 
+function UnavailablePage({ status }: UnavailablePageProps) {
+  const isMaintenance = status === "MAINTENANCE";
+
+  return (
+    <div className="unavailable-page-only">
+      <div className="unavailable-card-only">
+        <div className="unavailable-icon-only">
+          {isMaintenance ? "🛠" : "🔒"}
+        </div>
+
+        <p className="unavailable-eyebrow-only">
+          {isMaintenance ? "Temporarily unavailable" : "Website unavailable"}
+        </p>
+
+        <h1>
+          {isMaintenance
+            ? "We’re updating something special"
+            : "This page is unavailable"}
+        </h1>
+
+        <p>
+          {isMaintenance
+            ? "This love story is getting a little update. Please come back again soon."
+            : "This website is currently closed. Please come back again later."}
+        </p>
+
+        <div className="unavailable-hearts-only">
+          <span>♡</span>
+          <span>♡</span>
+          <span>♡</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 type UnlockHeartMiniGameProps = {
   finalTitle: string;
   finalMessage: string;
@@ -569,9 +613,7 @@ function UnlockHeartMiniGame({
                 ×
               </button>
 
-              {finalImageUrl && (
-                <img src={finalImageUrl} alt={finalTitle} />
-              )}
+              {finalImageUrl && <img src={finalImageUrl} alt={finalTitle} />}
 
               <h3>{finalTitle}</h3>
               <p>{finalMessage}</p>

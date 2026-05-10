@@ -19,6 +19,8 @@ type ToastState = {
   message: string;
 } | null;
 
+type SiteStatus = "ACTIVE" | "MAINTENANCE" | "INACTIVE";
+
 export default function ManagementPanel() {
   const heroImageInputRef = useRef<HTMLInputElement | null>(null);
   const finalSurpriseImageInputRef = useRef<HTMLInputElement | null>(null);
@@ -62,7 +64,11 @@ export default function ManagementPanel() {
     active: true,
   });
 
-  const [site, setSite] = useState({
+  const [site, setSite] = useState<{
+    title: string;
+    subtitle: string;
+    status: SiteStatus;
+  }>({
     title: "For My Love",
     subtitle: "",
     status: "ACTIVE",
@@ -87,6 +93,14 @@ export default function ManagementPanel() {
     window.setTimeout(() => {
       setToast(null);
     }, 2200);
+  }
+
+  function normalizeSiteStatus(value?: string): SiteStatus {
+    if (value === "MAINTENANCE" || value === "INACTIVE" || value === "ACTIVE") {
+      return value;
+    }
+
+    return "ACTIVE";
   }
 
   async function loadData() {
@@ -158,7 +172,7 @@ export default function ManagementPanel() {
         setSite({
           title: siteResult.value.title || "",
           subtitle: siteResult.value.subtitle || "",
-          status: siteResult.value.status || "ACTIVE",
+          status: normalizeSiteStatus(siteResult.value.status),
         });
       }
 
@@ -281,7 +295,7 @@ export default function ManagementPanel() {
     }, "Final surprise updated successfully 🎁");
   }
 
-  async function saveSite() {
+  async function saveSite(successMessage?: string) {
     await runSave(async () => {
       const updated = await updateAdminSite({
         title: site.title,
@@ -292,9 +306,44 @@ export default function ManagementPanel() {
       setSite({
         title: updated.title || "",
         subtitle: updated.subtitle || "",
-        status: updated.status || "ACTIVE",
+        status: normalizeSiteStatus(updated.status),
       });
-    }, "Website settings updated successfully ⚙");
+    }, successMessage || "Website access updated successfully ⚙");
+  }
+
+  async function setSiteStatusAndSave(nextStatus: SiteStatus) {
+    const nextSite = {
+      ...site,
+      status: nextStatus,
+    };
+
+    setSite(nextSite);
+
+    await runSave(async () => {
+      const updated = await updateAdminSite({
+        title: nextSite.title,
+        subtitle: nextSite.subtitle,
+        status: nextSite.status,
+      });
+
+      setSite({
+        title: updated.title || "",
+        subtitle: updated.subtitle || "",
+        status: normalizeSiteStatus(updated.status),
+      });
+    }, getStatusToastMessage(nextStatus));
+  }
+
+  function getStatusToastMessage(nextStatus: SiteStatus) {
+    if (nextStatus === "ACTIVE") {
+      return "User portal is now live 💗";
+    }
+
+    if (nextStatus === "MAINTENANCE") {
+      return "User portal is now in maintenance mode 🛠";
+    }
+
+    return "User portal is now unavailable 🔒";
   }
 
   async function handleHeroImageChange(files: FileList | null) {
@@ -431,6 +480,64 @@ export default function ManagementPanel() {
       )}
 
       {error && <div className="panel-error">{error}</div>}
+
+      <section className="panel-card access-panel">
+        <div className="panel-title">
+          <h3>🚦 Website Access</h3>
+          <span className={`access-pill ${site.status.toLowerCase()}`}>
+            {site.status}
+          </span>
+        </div>
+
+        <div className={`site-status-preview ${site.status.toLowerCase()}`}>
+          <strong>
+            {site.status === "ACTIVE" && "Website is live 💗"}
+            {site.status === "MAINTENANCE" && "Maintenance mode is on 🛠"}
+            {site.status === "INACTIVE" && "Website is unavailable 🔒"}
+          </strong>
+
+          <p>
+            {site.status === "ACTIVE" &&
+              "Visitors can access the user portal normally."}
+            {site.status === "MAINTENANCE" &&
+              "Visitors will see a temporary unavailable page while you update content."}
+            {site.status === "INACTIVE" &&
+              "Visitors cannot access the user portal content."}
+          </p>
+        </div>
+
+        <div className="access-actions">
+          <button
+            type="button"
+            className={`access-button live ${
+              site.status === "ACTIVE" ? "selected" : ""
+            }`}
+            onClick={() => setSiteStatusAndSave("ACTIVE")}
+          >
+            💗 Open Website
+          </button>
+
+          <button
+            type="button"
+            className={`access-button maintenance ${
+              site.status === "MAINTENANCE" ? "selected" : ""
+            }`}
+            onClick={() => setSiteStatusAndSave("MAINTENANCE")}
+          >
+            🛠 Maintenance
+          </button>
+
+          <button
+            type="button"
+            className={`access-button closed ${
+              site.status === "INACTIVE" ? "selected" : ""
+            }`}
+            onClick={() => setSiteStatusAndSave("INACTIVE")}
+          >
+            🔒 Close Website
+          </button>
+        </div>
+      </section>
 
       <section className="panel-card">
         <div className="panel-title">
@@ -851,17 +958,23 @@ export default function ManagementPanel() {
             onChange={(event) =>
               setSite((current) => ({
                 ...current,
-                status: event.target.value,
+                status: event.target.value as SiteStatus,
               }))
             }
           >
-            <option value="ACTIVE">ACTIVE</option>
-            <option value="INACTIVE">INACTIVE</option>
-            <option value="DRAFT">DRAFT</option>
+            <option value="ACTIVE">ACTIVE - Public website is open</option>
+            <option value="MAINTENANCE">
+              MAINTENANCE - Temporarily unavailable
+            </option>
+            <option value="INACTIVE">INACTIVE - Website is closed</option>
           </select>
         </label>
 
-        <button className="primary-button small" type="button" onClick={saveSite}>
+        <button
+          className="primary-button small"
+          type="button"
+          onClick={() => saveSite()}
+        >
           Save Changes
         </button>
       </section>
