@@ -1,6 +1,5 @@
 import { useState } from "react";
 import UnlockHeartMiniGameModal from "./UnlockHeartMiniGameModal";
-
 type FinalSurpriseSectionProps = {
   title: string;
   message: string;
