@@ -63,7 +63,7 @@ jobs:
             podman rm react-quarkus-minio-backend || true
 
             podman run -d \
-            --name react-quarkus-minio-backend \
+            --name backend-application \
             --restart=always \
             -p 0.0.0.0:8080:8080 \
             --env-file /app/react-quarkus-minio/backend/app.env \

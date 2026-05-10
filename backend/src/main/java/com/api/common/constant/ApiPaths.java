@@ -17,6 +17,7 @@ public final class ApiPaths {
     public static final String ADMIN_DASHBOARD = ADMIN + "/dashboard";
     public static final String ADMIN_GALLERY = ADMIN + "/gallery";
     public static final String ADMIN_MEDIA = ADMIN + "/media";
+    public static final String ADMIN_SITE = ADMIN + "/site";
 
     // Admin Content API
     public static final String ADMIN_HERO = ADMIN + "/hero";

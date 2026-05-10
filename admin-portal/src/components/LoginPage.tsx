@@ -1,8 +1,43 @@
+import { useState } from "react";
+import { loginAdmin } from "../services/authService";
+
 type LoginPageProps = {
   onLogin: () => void;
 };
 
 export default function LoginPage({ onLogin }: LoginPageProps) {
+  const [email, setEmail] = useState("admin@n9ne.cc");
+  const [password, setPassword] = useState("admin123");
+  const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    try {
+      setLoading(true);
+      setError("");
+
+      await loginAdmin({
+        email: email.trim(),
+        password,
+      });
+
+      if (!rememberMe) {
+        // ตอนนี้ token storage ใช้ localStorage อยู่
+        // ถ้าต้องการ rememberMe จริงแบบ sessionStorage ค่อยปรับ authStorage ต่อได้
+      }
+
+      onLogin();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Login failed");
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <main className="login-page">
       <section className="login-shell">
@@ -34,13 +69,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
           </div>
         </div>
 
-        <form
-          className="login-card"
-          onSubmit={(event) => {
-            event.preventDefault();
-            onLogin();
-          }}
-        >
+        <form className="login-card" onSubmit={handleSubmit}>
           <div className="login-card-logo">
             <div className="logo-heart">♡</div>
             <h1>For My Love</h1>
@@ -48,7 +77,9 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
           </div>
 
           <div className="login-title">
-            <h2>Welcome Back <span>❤</span></h2>
+            <h2>
+              Welcome Back <span>❤</span>
+            </h2>
             <p>Sign in to manage your surprise website</p>
           </div>
 
@@ -58,7 +89,11 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
               <span>✉</span>
               <input
                 type="email"
-                placeholder="admin@formylove.com"
+                placeholder="admin@n9ne.cc"
+                value={email}
+                autoComplete="email"
+                disabled={loading}
+                onChange={(event) => setEmail(event.target.value)}
               />
             </div>
           </label>
@@ -67,25 +102,46 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
             Password
             <div className="login-input">
               <span>🔒</span>
-              <input type="password" placeholder="Enter your password" />
-              <button type="button">◌</button>
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Enter your password"
+                value={password}
+                autoComplete="current-password"
+                disabled={loading}
+                onChange={(event) => setPassword(event.target.value)}
+              />
+              <button
+                type="button"
+                disabled={loading}
+                onClick={() => setShowPassword((current) => !current)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? "◉" : "◌"}
+              </button>
             </div>
           </label>
 
+          {error && <div className="login-error">{error}</div>}
+
           <div className="login-options">
             <label>
-              <input type="checkbox" defaultChecked />
+              <input
+                type="checkbox"
+                checked={rememberMe}
+                disabled={loading}
+                onChange={(event) => setRememberMe(event.target.checked)}
+              />
               Remember me
             </label>
 
             <a href="#forgot">Forgot password?</a>
           </div>
 
-          <button className="login-submit" type="submit">
-            ♡ Sign In
+          <button className="login-submit" type="submit" disabled={loading}>
+            {loading ? "Signing In..." : "♡ Sign In"}
           </button>
 
-          <button className="login-preview" type="button">
+          <button className="login-preview" type="button" disabled={loading}>
             👁 Preview Website
           </button>
 
@@ -96,11 +152,17 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
           </div>
 
           <div className="social-row">
-            <button type="button">G Continue with Google</button>
-            <button type="button"> Continue with Apple</button>
+            <button type="button" disabled={loading}>
+              G Continue with Google
+            </button>
+            <button type="button" disabled={loading}>
+               Continue with Apple
+            </button>
           </div>
 
-          <p className="login-secure">🛡 Protected admin access • Made with love 💗</p>
+          <p className="login-secure">
+            🛡 Protected admin access • Made with love 💗
+          </p>
         </form>
 
         <aside className="login-right">

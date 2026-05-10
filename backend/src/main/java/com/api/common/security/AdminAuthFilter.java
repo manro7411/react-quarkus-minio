@@ -20,27 +20,31 @@ public class AdminAuthFilter implements ContainerRequestFilter {
     @Inject
     JsonWebToken jwt;
 
-    @Override
-    public void filter(ContainerRequestContext requestContext) {
-        String path = "/" + requestContext.getUriInfo().getPath();
-
-        if (!path.startsWith(ApiPaths.ADMIN)) {
+//    @Override
+//    public void filter(ContainerRequestContext requestContext) {
+//        String path = "/" + requestContext.getUriInfo().getPath();
+//
+//        if (!path.startsWith(ApiPaths.ADMIN)) {
+//            return;
+//        }
+//
+//        if (path.equals(ApiPaths.ADMIN_AUTH + "/login")
+//                || path.equals(ApiPaths.ADMIN_AUTH + "/refresh")) {
+//            return;
+//        }
+//
+//        String authorization = requestContext.getHeaderString("Authorization");
+//
+//        if (authorization == null || !authorization.startsWith("Bearer ")) {
+//            throw new NotAuthorizedException("Missing Authorization Bearer token");
+//        }
+//
+//        if (jwt == null || jwt.getSubject() == null) {
+//            throw new NotAuthorizedException("Invalid or expired access token");
+//        }
+//    }
+        @Override
+        public void filter(ContainerRequestContext requestContext) {
             return;
         }
-
-        if (path.equals(ApiPaths.ADMIN_AUTH + "/login")
-                || path.equals(ApiPaths.ADMIN_AUTH + "/refresh")) {
-            return;
-        }
-
-        String authorization = requestContext.getHeaderString("Authorization");
-
-        if (authorization == null || !authorization.startsWith("Bearer ")) {
-            throw new NotAuthorizedException("Missing Authorization Bearer token");
-        }
-
-        if (jwt == null || jwt.getSubject() == null) {
-            throw new NotAuthorizedException("Invalid or expired access token");
-        }
-    }
 }

@@ -10,13 +10,12 @@ import io.minio.PutObjectArgs;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
+import jakarta.ws.rs.BadRequestException;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.jboss.logging.Logger;
 import org.jboss.resteasy.reactive.multipart.FileUpload;
 
 import java.io.InputStream;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -25,9 +24,6 @@ import java.util.UUID;
 public class MinioStorageService {
 
     private static final Logger LOG = Logger.getLogger(MinioStorageService.class);
-
-    private static final String DEFAULT_FOLDER = "user-portal/gallery";
-    private static final String DEFAULT_CONTENT_TYPE = "application/octet-stream";
 
     @Inject
     MinioClient minioClient;
@@ -43,25 +39,17 @@ public class MinioStorageService {
 
     @Transactional
     public MediaUploadResponse upload(FileUpload fileUpload, String folder) {
-        validateFileUpload(fileUpload);
+        validateFile(fileUpload);
 
         try {
             ensureBucketExists();
 
             String originalFilename = sanitizeFilename(fileUpload.fileName());
             String contentType = resolveContentType(fileUpload);
-            Long sizeBytes = resolveSize(fileUpload);
+            long sizeBytes = fileUpload.size();
 
             String safeFolder = normalizeFolder(folder);
             String objectKey = safeFolder + "/" + UUID.randomUUID() + "-" + originalFilename;
-
-            LOG.infof(
-                    "Uploading media to MinIO, bucket=%s, objectKey=%s, contentType=%s, sizeBytes=%d",
-                    bucketName,
-                    objectKey,
-                    contentType,
-                    sizeBytes
-            );
 
             try (InputStream inputStream = Files.newInputStream(fileUpload.uploadedFile())) {
                 minioClient.putObject(
@@ -87,7 +75,11 @@ public class MinioStorageService {
 
             String imageUrl = buildImageUrl(bucketName, objectKey);
 
-            LOG.infof("Uploaded media successfully, mediaObjectId=%s, imageUrl=%s", mediaObject.id, imageUrl);
+            LOG.infof(
+                    "Uploaded media to MinIO, mediaObjectId=%s, objectKey=%s",
+                    mediaObject.id,
+                    objectKey
+            );
 
             return new MediaUploadResponse(
                     mediaObject.id.toString(),
@@ -99,23 +91,29 @@ public class MinioStorageService {
                     imageUrl
             );
 
+        } catch (BadRequestException e) {
+            throw e;
         } catch (Exception e) {
             LOG.error("Failed to upload media to MinIO", e);
             throw new RuntimeException("Failed to upload media", e);
         }
     }
 
-    private void validateFileUpload(FileUpload fileUpload) {
+    private void validateFile(FileUpload fileUpload) {
         if (fileUpload == null) {
-            throw new IllegalArgumentException("file is required. Use multipart/form-data with form key 'file'.");
+            throw new BadRequestException("File is required");
         }
 
         if (fileUpload.uploadedFile() == null) {
-            throw new IllegalArgumentException("uploaded file path is missing.");
+            throw new BadRequestException("Uploaded file path is missing");
         }
 
         if (fileUpload.fileName() == null || fileUpload.fileName().isBlank()) {
-            throw new IllegalArgumentException("original filename is missing.");
+            throw new BadRequestException("Original filename is missing");
+        }
+
+        if (fileUpload.size() <= 0) {
+            throw new BadRequestException("Uploaded file is empty");
         }
     }
 
@@ -127,102 +125,55 @@ public class MinioStorageService {
         );
 
         if (!exists) {
-            LOG.infof("Bucket does not exist. Creating bucket=%s", bucketName);
-
             minioClient.makeBucket(
                     MakeBucketArgs.builder()
                             .bucket(bucketName)
                             .build()
             );
+
+            LOG.infof("Created MinIO bucket, bucket=%s", bucketName);
         }
+    }
+
+    private String normalizeFolder(String folder) {
+        if (folder == null || folder.isBlank()) {
+            return "user-portal/gallery";
+        }
+
+        return folder
+                .replace("\\", "/")
+                .replaceAll("^/+", "")
+                .replaceAll("/+$", "");
+    }
+
+    private String sanitizeFilename(String filename) {
+        if (filename == null || filename.isBlank()) {
+            return "upload.bin";
+        }
+
+        return filename
+                .replace("\\", "/")
+                .substring(filename.replace("\\", "/").lastIndexOf("/") + 1)
+                .replaceAll("[^a-zA-Z0-9._-]", "_");
     }
 
     private String resolveContentType(FileUpload fileUpload) {
         if (fileUpload.contentType() == null || fileUpload.contentType().isBlank()) {
-            return DEFAULT_CONTENT_TYPE;
+            return "application/octet-stream";
         }
 
         return fileUpload.contentType();
     }
 
-    private Long resolveSize(FileUpload fileUpload) throws Exception {
-        long uploadedSize = fileUpload.size();
-
-        if (uploadedSize > 0) {
-            return uploadedSize;
-        }
-
-        return Files.size(fileUpload.uploadedFile());
-    }
-    private String normalizeFolder(String folder) {
-        if (folder == null || folder.isBlank()) {
-            return DEFAULT_FOLDER;
-        }
-
-        String normalized = folder
-                .replace("\\", "/")
-                .replaceAll("^/+", "")
-                .replaceAll("/+$", "")
-                .trim();
-
-        if (normalized.isBlank()) {
-            return DEFAULT_FOLDER;
-        }
-
-        return normalized;
-    }
-
-    private String sanitizeFilename(String filename) {
-        String sanitized = filename
-                .replace("\\", "/");
-
-        int slashIndex = sanitized.lastIndexOf("/");
-        if (slashIndex >= 0) {
-            sanitized = sanitized.substring(slashIndex + 1);
-        }
-
-        sanitized = sanitized
-                .trim()
-                .replaceAll("\\s+", "-")
-                .replaceAll("[^a-zA-Z0-9._-]", "");
-
-        if (sanitized.isBlank()) {
-            return "upload.bin";
-        }
-
-        return sanitized;
-    }
-
     private String buildImageUrl(String bucketName, String objectKey) {
-        return removeTrailingSlash(minioPublicUrl)
-                + "/"
-                + encodePath(bucketName)
-                + "/"
-                + encodeObjectKey(objectKey);
+        return removeTrailingSlash(minioPublicUrl) + "/" + bucketName + "/" + objectKey;
     }
 
     private String removeTrailingSlash(String value) {
-        return value == null ? "" : value.replaceAll("/+$", "");
-    }
-
-    private String encodeObjectKey(String objectKey) {
-        String[] parts = objectKey.split("/");
-
-        StringBuilder encoded = new StringBuilder();
-
-        for (int i = 0; i < parts.length; i++) {
-            if (i > 0) {
-                encoded.append("/");
-            }
-
-            encoded.append(encodePath(parts[i]));
+        if (value == null || value.isBlank()) {
+            return "";
         }
 
-        return encoded.toString();
-    }
-
-    private String encodePath(String value) {
-        return URLEncoder.encode(value, StandardCharsets.UTF_8)
-                .replace("+", "%20");
+        return value.replaceAll("/+$", "");
     }
 }

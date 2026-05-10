@@ -58,4 +58,10 @@ public class PublicSiteController {
     public Response getMemories(@PathParam("siteKey") String siteKey) {
         return Response.ok(publicSiteService.getMemories(siteKey)).build();
     }
+
+    @GET
+    @Path("/{siteKey}/full")
+    public Response getFullSite(@PathParam("siteKey") String siteKey) {
+        return Response.ok(publicSiteService.getFullSite(siteKey)).build();
+    }
 }

@@ -63,7 +63,7 @@ jobs:
 
 
             podman run -d \
-              --name admin-portal \
+              --name admin-portal-01 \
               --restart=always \
               -p 0.0.0.0:5175:5175 \
               ghcr.io/manro7411/admin-portal:latest
