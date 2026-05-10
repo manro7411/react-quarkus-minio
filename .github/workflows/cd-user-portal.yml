@@ -64,7 +64,7 @@ jobs:
             podman rm react-quarkus-minio-frontend || true
 
             podman run -d \
-              --name user-portal \
+              --name user-portal1 \
               --restart=always \
               -p 0.0.0.0:5173:5173 \
               ghcr.io/manro7411/react-quarkus-minio-frontend:latest
