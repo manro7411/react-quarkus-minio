@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 type NavbarProps = {
   title?: string;
 };
@@ -5,23 +7,27 @@ type NavbarProps = {
 export default function Navbar({ title }: NavbarProps) {
   return (
     <header className="navbar">
-      <a className="brand" href="#home">
+      <NavLink className="brand" to="/">
         {title || "For My Love"} ♡
-      </a>
+      </NavLink>
 
       <nav className="nav-links">
-        <a className="active" href="#home">
+        <NavLink to="/" end>
           Home
-        </a>
-        <a href="#story">Our Story</a>
-        <a href="#memories">Memories</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#surprise">Surprise</a>
+        </NavLink>
+
+        <a href="/#story">Our Story</a>
+        <a href="/#memories">Memories</a>
+        <a href="/#gallery">Gallery</a>
+
+        <NavLink to="/polaroid">Polaroid</NavLink>
+
+        <a href="/#surprise">Surprise</a>
       </nav>
 
-      <button className="heart-button" type="button">
-        ♡
-      </button>
+      <NavLink className="heart-button polaroid-nav-button" to="/polaroid">
+        📸
+      </NavLink>
     </header>
   );
 }

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import {
@@ -20,8 +21,17 @@ import LetterModal from "./components/LetterModal";
 import GallerySection from "./components/GallerySection";
 import FinalSurpriseSection from "./components/FinalSurpriseSection";
 import UnlockHeartMiniGame from "./components/UnlockHeartMiniGame";
+import PolaroidPage from "./pages/PolaroidPage";
 
 function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
+}
+
+function AppRoutes() {
   const [siteData, setSiteData] = useState<PublicFullSiteResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -37,9 +47,7 @@ function App() {
       const sortA = a.sortOrder ?? 0;
       const sortB = b.sortOrder ?? 0;
 
-      if (sortA !== sortB) {
-        return sortA - sortB;
-      }
+      if (sortA !== sortB) return sortA - sortB;
 
       return getDateTime(b.memoryDate) - getDateTime(a.memoryDate);
     });
@@ -50,9 +58,7 @@ function App() {
       const sortA = a.sortOrder ?? 0;
       const sortB = b.sortOrder ?? 0;
 
-      if (sortA !== sortB) {
-        return sortA - sortB;
-      }
+      if (sortA !== sortB) return sortA - sortB;
 
       return getDateTime(b.photoDate) - getDateTime(a.photoDate);
     });
@@ -77,26 +83,6 @@ function App() {
     loadSiteData();
   }, [loadSiteData]);
 
-  function handleOpenLetter() {
-    setLetterOpen(true);
-  }
-
-  function handleCloseLetter() {
-    setLetterOpen(false);
-  }
-
-  function handleOpenMiniGame() {
-    setMiniGameOpen(true);
-  }
-
-  function handleCloseMiniGame() {
-    setMiniGameOpen(false);
-  }
-
-  function handleFinalUnlocked() {
-    setFinalUnlocked(true);
-  }
-
   if (loading) {
     return <LoadingPage />;
   }
@@ -120,15 +106,101 @@ function App() {
     );
   }
 
+  if (siteData.site?.status !== "ACTIVE") {
+    return (
+      <UnavailablePage status={siteData.site?.status || "MAINTENANCE"} />
+    );
+  }
+
+  return (
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <HomePage
+            siteData={siteData}
+            memories={memories}
+            gallery={gallery}
+            countdown={countdown}
+            letterOpen={letterOpen}
+            miniGameOpen={miniGameOpen}
+            finalUnlocked={finalUnlocked}
+            onOpenLetter={() => setLetterOpen(true)}
+            onCloseLetter={() => setLetterOpen(false)}
+            onOpenMiniGame={() => setMiniGameOpen(true)}
+            onCloseMiniGame={() => setMiniGameOpen(false)}
+            onFinalUnlocked={() => setFinalUnlocked(true)}
+          />
+        }
+      />
+
+      <Route
+        path="/polaroid"
+        element={<PolaroidPage siteData={siteData} />}
+      />
+
+      <Route
+        path="*"
+        element={
+          <HomePage
+            siteData={siteData}
+            memories={memories}
+            gallery={gallery}
+            countdown={countdown}
+            letterOpen={letterOpen}
+            miniGameOpen={miniGameOpen}
+            finalUnlocked={finalUnlocked}
+            onOpenLetter={() => setLetterOpen(true)}
+            onCloseLetter={() => setLetterOpen(false)}
+            onOpenMiniGame={() => setMiniGameOpen(true)}
+            onCloseMiniGame={() => setMiniGameOpen(false)}
+            onFinalUnlocked={() => setFinalUnlocked(true)}
+          />
+        }
+      />
+    </Routes>
+  );
+}
+
+type HomePageProps = {
+  siteData: PublicFullSiteResponse;
+  memories: PublicFullSiteResponse["memories"];
+  gallery: PublicFullSiteResponse["gallery"];
+  countdown: {
+    days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
+  };
+  letterOpen: boolean;
+  miniGameOpen: boolean;
+  finalUnlocked: boolean;
+  onOpenLetter: () => void;
+  onCloseLetter: () => void;
+  onOpenMiniGame: () => void;
+  onCloseMiniGame: () => void;
+  onFinalUnlocked: () => void;
+};
+
+function HomePage({
+  siteData,
+  memories,
+  gallery,
+  countdown,
+  letterOpen,
+  miniGameOpen,
+  finalUnlocked,
+  onOpenLetter,
+  onCloseLetter,
+  onOpenMiniGame,
+  onCloseMiniGame,
+  onFinalUnlocked,
+}: HomePageProps) {
   const site = siteData.site;
   const hero = siteData.hero;
   const countdownConfig = siteData.countdown;
   const loveLetter = siteData.loveLetter;
   const finalSurprise = siteData.finalSurprise;
-
-  if (site?.status !== "ACTIVE") {
-    return <UnavailablePage status={site?.status || "MAINTENANCE"} />;
-  }
 
   return (
     <div className="page">
@@ -144,19 +216,19 @@ function App() {
 
         <MemoriesSection memories={memories} />
 
-        <LetterSection loveLetter={loveLetter} onOpen={handleOpenLetter} />
+        <LetterSection loveLetter={loveLetter} onOpen={onOpenLetter} />
 
         <GallerySection gallery={gallery} />
 
         <FinalSurpriseSection
           finalSurprise={finalSurprise}
           finalUnlocked={finalUnlocked}
-          onOpenMiniGame={handleOpenMiniGame}
+          onOpenMiniGame={onOpenMiniGame}
         />
       </main>
 
       {letterOpen && (
-        <LetterModal loveLetter={loveLetter} onClose={handleCloseLetter} />
+        <LetterModal loveLetter={loveLetter} onClose={onCloseLetter} />
       )}
 
       {miniGameOpen && (
@@ -167,14 +239,16 @@ function App() {
             "This is my sweetest little promise from the heart."
           }
           finalImageUrl={finalSurprise?.imageUrl || undefined}
-          onClose={handleCloseMiniGame}
-          onUnlocked={handleFinalUnlocked}
+          onClose={onCloseMiniGame}
+          onUnlocked={onFinalUnlocked}
         />
       )}
 
       <footer>
         <p>Made with ♥ just for you</p>
-        <small>© 2026 {site?.title || "For My Love"}. All rights reserved.</small>
+        <small>
+          © 2026 {site?.title || "For My Love"}. All rights reserved.
+        </small>
       </footer>
     </div>
   );
