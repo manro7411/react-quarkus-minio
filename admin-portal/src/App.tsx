@@ -30,25 +30,33 @@ function App() {
         label: "Total Memories",
         value: dashboardStats?.totalMemories ?? 0,
         change: "Live data",
+        helper: "Created memories",
         icon: "💌",
+        tone: "pink",
       },
       {
         label: "Total Photos",
         value: dashboardStats?.totalPhotos ?? 0,
         change: "Live data",
+        helper: "Gallery photos",
         icon: "🖼️",
+        tone: "purple",
       },
       {
         label: "Favorite Photos",
         value: dashboardStats?.favoritePhotos ?? 0,
         change: "Live data",
+        helper: "Marked as favorite",
         icon: "💗",
+        tone: "green",
       },
       {
         label: "Hidden Photos",
         value: dashboardStats?.hiddenPhotos ?? 0,
         change: "Live data",
+        helper: "Hidden from public",
         icon: "🙈",
+        tone: "orange",
       },
     ],
     [dashboardStats]
@@ -99,7 +107,7 @@ function App() {
 
   return (
     <div className="admin-layout">
-      <Sidebar />
+      <Sidebar onLogout={handleLogout} />
 
       <main className="admin-main">
         <Topbar onLogout={handleLogout} />

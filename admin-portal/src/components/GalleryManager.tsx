@@ -27,9 +27,11 @@ function mapGalleryPhotoToPhotoItem(photo: GalleryPhoto): PhotoItem {
     date: photo.photoDate || "-",
     favorite: photo.favorite,
     hidden: photo.hidden,
-  } as PhotoItem;
+    selected: false,
+    tags: [],
+    sortOrder: photo.sortOrder,
+  };
 }
-
 export default function GalleryManager({ onEdit }: Props) {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 

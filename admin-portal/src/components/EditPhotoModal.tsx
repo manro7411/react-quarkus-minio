@@ -17,18 +17,18 @@ export default function EditPhotoModal({ photo, onClose, onSaved }: Props) {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    if (!photo) {
-      return;
-    }
+    useEffect(() => {
+      if (!photo) {
+        return;
+      }
 
-    setCaption(photo.title || "");
-    setPhotoDate(normalizeDate(photo.date));
-    setFavorite(Boolean(photo.favorite));
-    setHidden(Boolean(photo.hidden));
-    setSortOrder(Number(photo.sortOrder || 0));
-    setError("");
-  }, [photo]);
+      setCaption(photo.title || "");
+      setPhotoDate(normalizeDate(photo.date));
+      setFavorite(Boolean(photo.favorite));
+      setHidden(Boolean(photo.hidden));
+      setSortOrder(Number(photo.sortOrder ?? 0));
+      setError("");
+    }, [photo]);
 
   if (!photo) {
     return null;
@@ -95,12 +95,12 @@ export default function EditPhotoModal({ photo, onClose, onSaved }: Props) {
 
             <label>
               Sort Order
-              <input
-                type="number"
-                value={sortOrder}
-                disabled={saving}
-                onChange={(event) => setSortOrder(Number(event.target.value))}
-              />
+             <input
+               type="number"
+               value={sortOrder}
+               disabled={saving}
+               onChange={(event) => setSortOrder(Number(event.target.value))}
+             />
             </label>
 
             <label>
