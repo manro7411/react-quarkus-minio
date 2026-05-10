@@ -57,7 +57,6 @@ jobs:
             set -e
             
             echo "${{ secrets.GHCR_TOKEN }}" | podman login ghcr.io -u manro7411 --password-stdin
-
             podman pull ghcr.io/manro7411/react-quarkus-minio-frontend:latest
 
             podman stop react-quarkus-minio-frontend || true
