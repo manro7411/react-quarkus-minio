@@ -3232,3 +3232,957 @@ main {
     transform: scale(1.08);
   }
 }
+.proposal-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  overflow-y: auto;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.75), transparent 18%),
+    radial-gradient(circle at 86% 22%, rgba(255, 209, 224, 0.72), transparent 24%),
+    linear-gradient(135deg, rgba(255, 202, 215, 0.95), rgba(255, 235, 242, 0.98));
+  backdrop-filter: blur(10px);
+}
+
+.proposal-modal {
+  position: relative;
+  width: min(940px, 100%);
+  padding: clamp(14px, 2vw, 28px);
+}
+
+.proposal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(236, 120, 145, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #e55482;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.proposal-paper {
+  position: relative;
+  padding: clamp(28px, 5vw, 56px);
+  border-radius: 34px;
+  text-align: center;
+  background:
+    linear-gradient(rgba(255, 250, 245, 0.94), rgba(255, 250, 245, 0.94)),
+    radial-gradient(circle at 50% 0%, rgba(255, 199, 211, 0.36), transparent 36%);
+  border: 2px solid rgba(232, 142, 126, 0.44);
+  box-shadow:
+    0 34px 90px rgba(125, 63, 74, 0.22),
+    inset 0 0 0 8px rgba(255, 255, 255, 0.45);
+  color: #3d2b2f;
+}
+
+.proposal-paper::before,
+.proposal-paper::after {
+  content: "♡";
+  position: absolute;
+  color: rgba(232, 142, 126, 0.72);
+  font-size: 34px;
+}
+
+.proposal-paper::before {
+  top: 18px;
+  left: 24px;
+}
+
+.proposal-paper::after {
+  right: 24px;
+  bottom: 18px;
+}
+
+.proposal-top-heart {
+  font-size: 54px;
+  line-height: 1;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 12px 18px rgba(229, 84, 130, 0.22));
+}
+
+.proposal-title {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(36px, 6vw, 68px);
+  line-height: 1.05;
+  color: #3b252b;
+}
+
+.proposal-paper h2 {
+  margin: 8px 0 22px;
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(34px, 5vw, 58px);
+  font-weight: 400;
+  color: #e46d7f;
+}
+
+.proposal-intro {
+  margin: 0 auto 26px;
+  max-width: 660px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(16px, 2vw, 21px);
+  line-height: 1.65;
+  color: #4b3438;
+}
+
+.proposal-terms {
+  position: relative;
+  margin: 0 auto 26px;
+  max-width: 680px;
+  padding: 34px 34px 24px;
+  border-radius: 22px;
+  border: 1.5px solid rgba(232, 142, 126, 0.54);
+  background: rgba(255, 246, 239, 0.76);
+}
+
+.proposal-terms-title {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 260px;
+  padding: 9px 22px;
+  border-radius: 999px;
+  background: #ffe1da;
+  border: 1px solid rgba(232, 142, 126, 0.38);
+  font-family: "Playfair Display", serif;
+  font-size: 23px;
+  color: #5a3434;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.proposal-terms ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: love-terms;
+}
+
+.proposal-terms li {
+  counter-increment: love-terms;
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 0 10px 34px;
+  border-bottom: 1px dashed rgba(232, 142, 126, 0.28);
+  text-align: left;
+  font-family: "Playfair Display", serif;
+  font-size: 19px;
+}
+
+.proposal-terms li:last-child {
+  border-bottom: 0;
+}
+
+.proposal-terms li::before {
+  content: "♡";
+  display: grid;
+  place-items: center;
+  color: #e46d7f;
+  font-size: 28px;
+}
+
+.proposal-terms li::after {
+  content: counter(love-terms) ".";
+  position: absolute;
+  left: 54px;
+  color: #80565d;
+}
+
+.proposal-agreement h3 {
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 8px 34px;
+  border-radius: 999px;
+  background: #ffe1da;
+  border: 1px solid rgba(232, 142, 126, 0.35);
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  color: #5a3434;
+}
+
+.proposal-agreement p {
+  margin: 0 0 20px;
+  color: #5f4449;
+}
+
+.proposal-choice-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin: 0 auto 22px;
+  max-width: 700px;
+}
+
+.proposal-choice {
+  min-height: 64px;
+  border-radius: 16px;
+  border: 1.5px solid rgba(232, 142, 126, 0.45);
+  background: rgba(255, 255, 255, 0.58);
+  color: #4c3137;
+  font-family: "Playfair Display", serif;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.proposal-choice.yes {
+  background: rgba(255, 247, 249, 0.86);
+}
+
+.proposal-choice.soft {
+  background: rgba(255, 252, 248, 0.72);
+}
+
+.proposal-signature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin: 0 auto 18px;
+  max-width: 720px;
+}
+
+.proposal-signature-grid label {
+  display: grid;
+  gap: 8px;
+  text-align: left;
+  color: #d86778;
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+}
+
+.proposal-signature-grid input {
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid rgba(232, 142, 126, 0.42);
+  background: transparent;
+  padding: 10px 8px;
+  color: #3b252b;
+  font-family: "Great Vibes", cursive;
+  font-size: 30px;
+  outline: none;
+}
+
+.proposal-date-row {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #4b3438;
+  font-family: "Playfair Display", serif;
+}
+
+.proposal-accept-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 34px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f96b9b, #df2f6d);
+  color: #fff;
+  font-weight: 900;
+  box-shadow: 0 18px 42px rgba(229, 84, 130, 0.25);
+  cursor: pointer;
+}
+
+.proposal-accept-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.proposal-success {
+  margin: 20px auto 0;
+  max-width: 520px;
+  padding: 16px;
+  border-radius: 18px;
+  background: #fff1f7;
+  color: #ca2f68;
+  border: 1px solid rgba(236, 76, 130, 0.18);
+}
+
+.proposal-success span {
+  display: block;
+  font-size: 34px;
+}
+
+.proposal-success strong {
+  display: block;
+  margin: 4px 0;
+}
+
+.proposal-success p {
+  margin: 0;
+}
+
+.proposal-footer {
+  margin: 24px 0 0;
+  font-family: "Great Vibes", cursive;
+  font-size: 28px;
+  color: #d86778;
+}
+
+@media (max-width: 700px) {
+  .proposal-modal-backdrop {
+    padding: 14px;
+    align-items: start;
+  }
+
+  .proposal-paper {
+    padding: 28px 18px;
+    border-radius: 26px;
+  }
+
+  .proposal-choice-row,
+  .proposal-signature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .proposal-terms {
+    padding: 34px 18px 18px;
+  }
+
+  .proposal-terms-title {
+    min-width: 220px;
+    font-size: 19px;
+  }
+
+  .proposal-terms li {
+    font-size: 16px;
+  }
+
+  .proposal-signature-grid input {
+    font-size: 26px;
+  }
+}
+/* Mini game mobile layout polish: iPhone 12/13/15 */
+@media (max-width: 430px) {
+  .heart-game-backdrop {
+    padding: 8px;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+
+  .heart-game-modal {
+    width: 100%;
+    max-width: 390px;
+    min-height: auto;
+    margin: 0 auto;
+    padding: 18px 10px 14px;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+
+  .heart-game-header {
+    margin-bottom: 12px;
+  }
+
+  .heart-game-header span {
+    font-size: 11px;
+  }
+
+  .heart-game-header h2 {
+    font-size: 32px;
+    line-height: 1;
+  }
+
+  .heart-game-header p {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .heart-game-meter {
+    width: calc(100% - 10px);
+    margin: 0 auto 12px;
+    padding: 10px 12px;
+    gap: 8px;
+    border-radius: 22px;
+  }
+
+  .heart-meter-icons {
+    gap: 3px;
+  }
+
+  .heart-meter-icons span {
+    font-size: 22px;
+  }
+
+  .heart-meter-count strong {
+    font-size: 17px;
+  }
+
+  .heart-meter-count small {
+    font-size: 10px;
+  }
+
+  .heart-game-board {
+    position: relative;
+    height: 640px;
+    min-height: 640px;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 26px;
+  }
+
+  .heart-game-hint {
+    top: 16px;
+    right: 12px;
+    z-index: 8;
+    max-width: 136px;
+    padding: 9px 10px;
+    border-radius: 18px;
+  }
+
+  .heart-game-hint span {
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+  }
+
+  .heart-game-hint strong {
+    font-size: 12px;
+  }
+
+  .heart-game-hint p {
+    font-size: 12px;
+  }
+
+  .heart-game-gift {
+    position: absolute;
+    top: 185px;
+    left: 50%;
+    z-index: 3;
+    transform: translateX(-50%) scale(0.72);
+    transform-origin: top center;
+  }
+
+  .collect-heart {
+    width: 76px;
+    height: 76px;
+    z-index: 7;
+  }
+
+  .collect-heart span {
+    font-size: 38px;
+  }
+
+  .collect-heart small {
+    margin-top: 3px;
+    font-size: 10px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  /* Mobile-specific heart positions */
+  .collect-heart-1 {
+    top: 72px !important;
+    left: 20px !important;
+  }
+
+  .collect-heart-2 {
+    top: 230px !important;
+    left: 14px !important;
+  }
+
+  .collect-heart-3 {
+    top: 405px !important;
+    left: 20px !important;
+  }
+
+  .collect-heart-4 {
+    top: 150px !important;
+    left: auto !important;
+    right: 8px !important;
+  }
+
+  .collect-heart-5 {
+    top: 340px !important;
+    left: auto !important;
+    right: 10px !important;
+  }
+
+  .heart-game-unlock-card {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    z-index: 9;
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 24px;
+  }
+
+  .heart-game-lock-icon {
+    width: 46px;
+    height: 46px;
+    font-size: 20px;
+  }
+
+  .heart-game-unlock-card h3 {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  .heart-game-unlock-card p {
+    margin: 8px 0 14px;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .heart-game-unlock-card button {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 48px;
+    border-radius: 16px;
+    font-size: 14px;
+  }
+
+  .heart-game-footer {
+    display: none;
+  }
+}
+@media (max-width: 430px) {
+  .heart-game-board {
+    position: relative;
+    height: 660px;
+    min-height: 660px;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 26px;
+  }
+
+  .heart-game-gift {
+    position: absolute;
+    top: 165px;
+    left: 50%;
+    z-index: 3;
+    transform: translateX(-50%) scale(0.72);
+    transform-origin: top center;
+  }
+
+  .heart-game-unlock-card {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 6px;
+    z-index: 9;
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 24px;
+  }
+}
+@media (max-width: 430px) {
+  .heart-game-board {
+    position: relative;
+    height: 680px;
+    min-height: 680px;
+    padding: 14px;
+    overflow: hidden;
+    border-radius: 28px;
+  }
+
+  .heart-game-gift {
+    position: absolute;
+    left: 50%;
+    top: 145px;
+    transform: translateX(-50%) scale(0.76);
+    transform-origin: top center;
+    z-index: 3;
+  }
+
+  .heart-game-progress-card {
+    margin-bottom: 14px;
+  }
+
+  .heart-game-status-card {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 6;
+    max-width: 112px;
+    padding: 14px 12px;
+    border-radius: 20px;
+  }
+
+  .heart-game-floating-heart {
+    transform: scale(0.88);
+  }
+
+  .heart-game-unlock-card {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    width: auto;
+    max-width: none;
+    min-height: 168px;
+    padding: 18px 16px;
+    border-radius: 24px;
+    z-index: 8;
+
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .heart-game-unlock-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+
+  .heart-game-unlock-content h3 {
+    font-size: 17px;
+    line-height: 1.25;
+    margin: 0 0 6px;
+  }
+
+  .heart-game-unlock-content p {
+    font-size: 14px;
+    line-height: 1.45;
+    margin: 0 0 14px;
+  }
+
+  .heart-game-reveal-button {
+    width: 100%;
+    min-height: 48px;
+    border-radius: 16px;
+    font-size: 15px;
+  }
+}
+/* Perfect mobile layout for Unlock My Heart mini game */
+@media (max-width: 430px) {
+  .heart-game-backdrop {
+    padding: 8px;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+
+  .heart-game-modal {
+    width: 100%;
+    max-width: 390px;
+    margin: 0 auto;
+    padding: 18px 10px 14px;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+
+  .heart-game-close {
+    top: 10px;
+    right: 10px;
+    z-index: 20;
+  }
+
+  .heart-game-header {
+    margin-bottom: 12px;
+    padding: 0 28px;
+  }
+
+  .heart-game-header span {
+    font-size: 11px;
+  }
+
+  .heart-game-header h2 {
+    font-size: 32px;
+    line-height: 1;
+  }
+
+  .heart-game-header p {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .heart-game-meter {
+    width: calc(100% - 14px);
+    margin: 0 auto 12px;
+    padding: 10px 12px;
+    gap: 8px;
+    border-radius: 22px;
+  }
+
+  .heart-meter-icons {
+    gap: 3px;
+  }
+
+  .heart-meter-icons span {
+    font-size: 22px;
+  }
+
+  .heart-meter-count strong {
+    font-size: 17px;
+  }
+
+  .heart-meter-count small {
+    font-size: 10px;
+  }
+
+  .heart-game-board {
+    position: relative;
+    height: 680px;
+    min-height: 680px;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 28px;
+  }
+
+  .heart-game-hint {
+    top: 18px;
+    right: 14px;
+    z-index: 8;
+    max-width: 126px;
+    padding: 10px 11px;
+    border-radius: 20px;
+  }
+
+  .heart-game-hint span {
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+  }
+
+  .heart-game-hint strong {
+    font-size: 12px;
+    line-height: 1.15;
+  }
+
+  .heart-game-hint p {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .heart-game-gift {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    z-index: 3;
+    transform: translateX(-50%) scale(0.76);
+    transform-origin: top center;
+  }
+
+  .collect-heart {
+    width: 78px;
+    height: 78px;
+    z-index: 7;
+  }
+
+  .collect-heart span {
+    font-size: 38px;
+  }
+
+  .collect-heart small {
+    margin-top: 3px;
+    font-size: 10px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .collect-heart-1 {
+    top: 72px !important;
+    left: 24px !important;
+  }
+
+  .collect-heart-2 {
+    top: 260px !important;
+    left: 18px !important;
+  }
+
+  .collect-heart-3 {
+    top: 445px !important;
+    left: 34px !important;
+  }
+
+  .collect-heart-4 {
+    top: 122px !important;
+    left: auto !important;
+    right: 18px !important;
+  }
+
+  .collect-heart-5 {
+    top: 320px !important;
+    left: auto !important;
+    right: 22px !important;
+  }
+
+  .heart-game-unlock-card {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    width: auto;
+    max-width: none;
+    min-height: 160px;
+    z-index: 9;
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
+    padding: 16px;
+    border-radius: 24px;
+    box-sizing: border-box;
+  }
+
+  .heart-game-lock-icon {
+    width: 46px;
+    height: 46px;
+    font-size: 20px;
+  }
+
+  .heart-game-unlock-copy {
+    min-width: 0;
+  }
+
+  .heart-game-unlock-card h3 {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.25;
+  }
+
+  .heart-game-unlock-card p {
+    margin: 8px 0 14px;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .heart-game-unlock-card button {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 48px;
+    border-radius: 16px;
+    font-size: 14px;
+  }
+
+  .heart-game-footer {
+    display: none;
+  }
+}
+
+/* iPhone 12 / narrow width tuning */
+@media (max-width: 390px) {
+  .heart-game-board {
+    height: 690px;
+    min-height: 690px;
+  }
+
+  .heart-game-gift {
+    top: 148px;
+    transform: translateX(-50%) scale(0.72);
+  }
+
+  .heart-game-unlock-card {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .collect-heart-1 {
+    left: 18px !important;
+  }
+
+  .collect-heart-2 {
+    left: 14px !important;
+  }
+
+  .collect-heart-3 {
+    left: 22px !important;
+  }
+
+  .collect-heart-4 {
+    right: 12px !important;
+  }
+
+  .collect-heart-5 {
+    right: 14px !important;
+  }
+}
+
+/* Force unlock card center on mobile */
+@media (max-width: 430px) {
+  .heart-game-board {
+    position: relative !important;
+    height: 700px !important;
+    min-height: 700px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border-radius: 28px !important;
+  }
+
+  .heart-game-unlock-card {
+    position: absolute !important;
+
+    /* reset ค่าที่อาจค้างจาก desktop / css เก่า */
+    left: 50% !important;
+    right: auto !important;
+    bottom: 18px !important;
+    top: auto !important;
+
+    width: calc(100% - 32px) !important;
+    max-width: 330px !important;
+    min-width: 0 !important;
+
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+
+    z-index: 20 !important;
+    box-sizing: border-box !important;
+
+    display: grid !important;
+    grid-template-columns: 46px minmax(0, 1fr) !important;
+    gap: 12px !important;
+    align-items: start !important;
+
+    padding: 16px !important;
+    border-radius: 24px !important;
+  }
+
+  .heart-game-unlock-copy {
+    min-width: 0 !important;
+    text-align: left !important;
+  }
+
+  .heart-game-unlock-card h3 {
+    margin: 0 !important;
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+  }
+
+  .heart-game-unlock-card p {
+    margin: 8px 0 14px !important;
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+  }
+
+  .heart-game-unlock-card button {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    min-height: 48px !important;
+    border-radius: 16px !important;
+    font-size: 14px !important;
+  }
+
+  .heart-game-lock-icon {
+    width: 46px !important;
+    height: 46px !important;
+    font-size: 20px !important;
+  }
+}

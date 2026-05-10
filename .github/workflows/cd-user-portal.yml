@@ -59,6 +59,7 @@ jobs:
             set -e
 
             IMAGE="ghcr.io/manro7411/react-quarkus-minio-user-portal:latest"
+            
             CONTAINER_NAME="user-portal"
 
             echo "${{ secrets.GHCR_TOKEN }}" | podman login ghcr.io -u manro7411 --password-stdin

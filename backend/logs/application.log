@@ -1,158 +1,1405 @@
-2026-05-10 12:58:05.643 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/appdb (PostgreSQL 16.13)
-2026-05-10 12:58:05.834 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 8 migrations (execution time 00:00.058s)
-2026-05-10 12:58:06.114 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 8
-2026-05-10 12:58:06.127 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
-2026-05-10 12:58:06.413 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 2.691s. Listening on: http://0.0.0.0:8080
-2026-05-10 12:58:06.413 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2026-05-10 12:58:06.415 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
-2026-05-10 12:58:06.417 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-3) Live reload total time: 3.380s 
-2026-05-10 12:58:06.419 WARN  [io.sma.jwt.config] (vert.x-eventloop-thread-1) SRJWT03007: Public key is configured but either the secret key or key location are also configured and will be ignored
-2026-05-10 12:58:06.526 WARN  [com.api.com.exc.GlobalExceptionMapper] (vert.x-eventloop-thread-1) API error, status=404, path=/favicon.ico, message=HTTP 404 Not Found
-2026-05-10 13:18:59.087 WARN  [io.agr.pool] (agroal-21) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-10 13:18:59.090 WARN  [io.agr.pool] (agroal-21) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-10 13:21:26.117 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 13:21:26.118 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 13:21:26.142 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 13:21:26.159 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 13:21:26.172 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 13:21:26.199 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 13:21:26.230 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 13:21:26.242 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 13:21:26.273 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 13:21:26.273 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 13:21:26.284 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 13:21:26.296 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 13:21:26.308 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 13:21:26.329 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 13:21:26.352 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 13:21:26.363 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 13:22:29.683 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 13:22:29.684 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 13:22:29.698 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 13:22:29.714 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 13:22:29.726 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 13:22:29.753 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 13:22:29.779 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 13:22:29.793 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 13:22:29.834 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 13:22:29.836 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 13:22:29.848 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 13:22:29.861 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 13:22:29.877 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 13:22:29.904 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 13:22:29.926 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 13:22:29.940 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 13:23:25.674 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 13:23:25.675 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 13:23:25.687 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 13:23:25.700 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 13:23:25.710 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 13:23:25.733 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 13:23:25.761 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 13:23:25.775 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 13:23:25.820 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 13:23:25.821 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 13:23:25.833 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 13:23:25.847 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 13:23:25.859 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 13:23:25.881 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 13:23:25.909 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 13:23:25.924 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 13:25:25.139 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 13:25:25.140 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 13:25:25.151 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 13:25:25.170 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 13:25:25.179 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 13:25:25.207 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 13:25:25.232 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 13:25:25.244 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 13:25:25.299 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 13:25:25.300 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 13:25:25.309 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 13:25:25.320 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 13:25:25.333 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 13:25:25.354 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 13:25:25.378 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 13:25:25.391 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 13:29:47.625 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 13:29:47.626 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 13:29:47.640 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 13:29:47.653 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 13:29:47.665 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 13:29:47.690 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 13:29:47.711 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 13:29:47.721 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 13:40:00.641 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 13:40:00.642 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 13:40:00.657 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 13:40:00.677 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 13:40:00.689 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 13:40:00.711 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 13:40:00.737 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 13:40:00.749 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 14:38:58.095 WARN  [io.agr.pool] (agroal-21) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-10 14:38:58.099 WARN  [io.agr.pool] (agroal-21) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-10 14:50:56.374 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 14:50:56.376 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 14:50:56.396 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 14:50:56.410 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 14:50:56.420 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 14:50:56.444 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 14:50:56.468 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 14:50:56.480 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 14:50:56.507 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 14:50:56.508 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 14:50:56.520 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 14:50:56.530 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 14:50:56.540 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 14:50:56.562 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 14:50:56.602 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 14:50:56.614 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 14:51:00.579 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 14:51:00.579 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 14:51:00.590 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 14:51:00.602 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 14:51:00.612 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 14:51:00.632 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 14:51:00.654 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 14:51:00.666 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 14:51:00.694 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 14:51:00.694 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 14:51:00.705 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 14:51:00.717 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 14:51:00.729 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 14:51:00.753 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 14:51:00.781 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 14:51:00.797 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 14:51:11.341 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 14:51:11.341 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 14:51:11.350 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 14:51:11.361 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 14:51:11.373 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 14:51:11.395 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 14:51:11.423 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 14:51:11.435 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 14:51:11.464 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 14:51:11.465 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 14:51:11.479 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 14:51:11.492 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 14:51:11.506 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 14:51:11.529 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 14:51:11.552 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 14:51:11.563 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 14:51:18.038 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 14:51:18.038 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 14:51:18.048 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 14:51:18.058 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 14:51:18.069 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 14:51:18.091 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 14:51:18.111 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 14:51:18.121 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 14:51:18.146 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 14:51:18.147 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 14:51:18.158 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 14:51:18.170 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 14:51:18.182 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 14:51:18.204 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 14:51:18.226 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 14:51:18.236 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 21:55:42.256 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/appdb (PostgreSQL 16.13)
+2026-05-10 21:55:42.441 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 8 migrations (execution time 00:00.056s)
+2026-05-10 21:55:42.694 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 8
+2026-05-10 21:55:42.711 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
+2026-05-10 21:55:43.379 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 5.331s. Listening on: http://0.0.0.0:8080
+2026-05-10 21:55:43.380 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2026-05-10 21:55:43.380 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
+2026-05-10 21:59:08.078 WARN  [io.sma.jwt.config] (vert.x-eventloop-thread-0) SRJWT03007: Public key is configured but either the secret key or key location are also configured and will be ignored
+2026-05-10 22:00:11.911 WARN  [com.arj.ats.arjuna] (Transaction Reaper) ARJUNA012117: TransactionReaper::check processing TX 0:ffff7f000001:ea72:6a009d3f:0 in state  RUN
+2026-05-10 22:00:11.913 WARN  [com.arj.ats.arjuna] (Transaction Reaper) ARJUNA012117: TransactionReaper::check processing TX 0:ffff7f000001:ea72:6a009d3f:1 in state  RUN
+2026-05-10 22:00:11.915 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012095: Abort of action id 0:ffff7f000001:ea72:6a009d3f:0 invoked while multiple threads active within it.
+2026-05-10 22:00:11.920 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012381: Action id 0:ffff7f000001:ea72:6a009d3f:0 completed with multiple threads - thread executor-thread-1 was in progress with org.mindrot.jbcrypt.BCrypt.encipher(BCrypt.java:505)
+org.mindrot.jbcrypt.BCrypt.key(BCrypt.java:560)
+org.mindrot.jbcrypt.BCrypt.crypt_raw(BCrypt.java:624)
+org.mindrot.jbcrypt.BCrypt.hashpw(BCrypt.java:684)
+org.mindrot.jbcrypt.BCrypt.checkpw(BCrypt.java:764)
+com.api.admin.service.TokenService.lambda$revokeRefreshToken$2(TokenService.java:98)
+java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:178)
+java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1685)
+java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
+java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
+com.api.admin.service.TokenService.revokeRefreshToken(TokenService.java:99)
+com.api.admin.service.TokenService_Subclass.revokeRefreshToken$$superforward(Unknown Source)
+com.api.admin.service.TokenService_Subclass$2.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInCallerTx(TransactionalInterceptorBase.java:365)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:39)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.TokenService_Subclass.revokeRefreshToken(Unknown Source)
+com.api.admin.service.TokenService.rotateRefreshToken(TokenService.java:108)
+com.api.admin.service.TokenService_Subclass.rotateRefreshToken$$superforward(Unknown Source)
+com.api.admin.service.TokenService_Subclass$3.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInCallerTx(TransactionalInterceptorBase.java:365)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:39)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.TokenService_Subclass.rotateRefreshToken(Unknown Source)
+com.api.admin.service.TokenService_ClientProxy.rotateRefreshToken(Unknown Source)
+com.api.admin.service.AdminAuthService.refresh(AdminAuthService.java:161)
+com.api.admin.service.AdminAuthService_Subclass.refresh$$superforward(Unknown Source)
+com.api.admin.service.AdminAuthService_Subclass$1.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:166)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:137)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:37)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.AdminAuthService_Subclass.refresh(Unknown Source)
+com.api.admin.service.AdminAuthService_ClientProxy.refresh(Unknown Source)
+com.api.admin.controller.AdminAuthController.refresh(AdminAuthController.java:57)
+com.api.admin.controller.AdminAuthController_Subclass.refresh$$superforward(Unknown Source)
+com.api.admin.controller.AdminAuthController_Subclass$2.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.hibernate.validator.runtime.interceptor.AbstractMethodValidationInterceptor.validateMethodInvocation(AbstractMethodValidationInterceptor.java:73)
+io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor.validateMethodInvocation(ResteasyReactiveEndPointValidationInterceptor.java:21)
+io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.controller.AdminAuthController_Subclass.refresh(Unknown Source)
+com.api.admin.controller.AdminAuthController$quarkusrestinvoker$refresh_389b5564b22d36d9f6c9599d177c2e4985f8e8aa.invoke(Unknown Source)
+org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
+org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
+org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+java.base/java.lang.Thread.run(Thread.java:1583)
+
+2026-05-10 22:00:11.923 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012108: CheckedAction::check - atomic action 0:ffff7f000001:ea72:6a009d3f:0 aborting with 1 threads active!
+2026-05-10 22:00:11.940 WARN  [org.hib.orm.jta] (Transaction Reaper Worker 0) HHH90007020: Transaction afterCompletion called by a background thread; delaying afterCompletion processing until the original thread can handle it. [status=4]
+2026-05-10 22:00:11.940 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012121: TransactionReaper::doCancellations worker Thread[#100,Transaction Reaper Worker 0,5,main] successfully canceled TX 0:ffff7f000001:ea72:6a009d3f:0
+2026-05-10 22:00:11.941 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012095: Abort of action id 0:ffff7f000001:ea72:6a009d3f:1 invoked while multiple threads active within it.
+2026-05-10 22:00:11.942 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012381: Action id 0:ffff7f000001:ea72:6a009d3f:1 completed with multiple threads - thread executor-thread-2 was in progress with org.mindrot.jbcrypt.BCrypt.encipher(BCrypt.java:505)
+org.mindrot.jbcrypt.BCrypt.key(BCrypt.java:560)
+org.mindrot.jbcrypt.BCrypt.crypt_raw(BCrypt.java:624)
+org.mindrot.jbcrypt.BCrypt.hashpw(BCrypt.java:684)
+org.mindrot.jbcrypt.BCrypt.checkpw(BCrypt.java:764)
+com.api.admin.service.TokenService.lambda$revokeRefreshToken$2(TokenService.java:98)
+java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:178)
+java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1685)
+java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
+java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
+com.api.admin.service.TokenService.revokeRefreshToken(TokenService.java:99)
+com.api.admin.service.TokenService_Subclass.revokeRefreshToken$$superforward(Unknown Source)
+com.api.admin.service.TokenService_Subclass$2.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInCallerTx(TransactionalInterceptorBase.java:365)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:39)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.TokenService_Subclass.revokeRefreshToken(Unknown Source)
+com.api.admin.service.TokenService.rotateRefreshToken(TokenService.java:108)
+com.api.admin.service.TokenService_Subclass.rotateRefreshToken$$superforward(Unknown Source)
+com.api.admin.service.TokenService_Subclass$3.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInCallerTx(TransactionalInterceptorBase.java:365)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:39)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.TokenService_Subclass.rotateRefreshToken(Unknown Source)
+com.api.admin.service.TokenService_ClientProxy.rotateRefreshToken(Unknown Source)
+com.api.admin.service.AdminAuthService.refresh(AdminAuthService.java:161)
+com.api.admin.service.AdminAuthService_Subclass.refresh$$superforward(Unknown Source)
+com.api.admin.service.AdminAuthService_Subclass$1.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:166)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:137)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:37)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.AdminAuthService_Subclass.refresh(Unknown Source)
+com.api.admin.service.AdminAuthService_ClientProxy.refresh(Unknown Source)
+com.api.admin.controller.AdminAuthController.refresh(AdminAuthController.java:57)
+com.api.admin.controller.AdminAuthController_Subclass.refresh$$superforward(Unknown Source)
+com.api.admin.controller.AdminAuthController_Subclass$2.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.hibernate.validator.runtime.interceptor.AbstractMethodValidationInterceptor.validateMethodInvocation(AbstractMethodValidationInterceptor.java:73)
+io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor.validateMethodInvocation(ResteasyReactiveEndPointValidationInterceptor.java:21)
+io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.controller.AdminAuthController_Subclass.refresh(Unknown Source)
+com.api.admin.controller.AdminAuthController$quarkusrestinvoker$refresh_389b5564b22d36d9f6c9599d177c2e4985f8e8aa.invoke(Unknown Source)
+org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
+org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
+org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+java.base/java.lang.Thread.run(Thread.java:1583)
+
+2026-05-10 22:00:11.946 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012108: CheckedAction::check - atomic action 0:ffff7f000001:ea72:6a009d3f:1 aborting with 1 threads active!
+2026-05-10 22:00:11.957 WARN  [org.hib.orm.jta] (Transaction Reaper Worker 0) HHH90007020: Transaction afterCompletion called by a background thread; delaying afterCompletion processing until the original thread can handle it. [status=4]
+2026-05-10 22:00:11.957 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012121: TransactionReaper::doCancellations worker Thread[#100,Transaction Reaper Worker 0,5,main] successfully canceled TX 0:ffff7f000001:ea72:6a009d3f:1
+2026-05-10 22:00:13.390 WARN  [com.arj.ats.arjuna] (executor-thread-1) ARJUNA012077: Abort called on already aborted atomic action 0:ffff7f000001:ea72:6a009d3f:0
+2026-05-10 22:00:13.392 WARN  [com.arj.ats.arjuna] (executor-thread-2) ARJUNA012077: Abort called on already aborted atomic action 0:ffff7f000001:ea72:6a009d3f:1
+2026-05-10 22:00:13.395 ERROR [com.api.com.exc.GlobalExceptionMapper] (executor-thread-2) Unhandled API error
+
+Exception in AdminAuthController.java:57
+	  55      @Path("/refresh")
+	  56      public Response refresh(@Valid RefreshTokenRequest request) {
+	→ 57          return Response.ok(adminAuthService.refresh(request)).build();
+	  58      }
+	  59  
+
+
+
+Exception in AdminAuthController.java:57
+	  55      @Path("/refresh")
+	  56      public Response refresh(@Valid RefreshTokenRequest request) {
+	→ 57          return Response.ok(adminAuthService.refresh(request)).build();
+	  58      }
+	  59  
+
+: io.quarkus.arc.ArcUndeclaredThrowableException: Error invoking subclass method
+	at com.api.admin.service.AdminAuthService_Subclass.refresh(Unknown Source)
+	at com.api.admin.service.AdminAuthService_ClientProxy.refresh(Unknown Source)
+	at com.api.admin.controller.AdminAuthController.refresh(AdminAuthController.java:57)
+	at com.api.admin.controller.AdminAuthController_Subclass.refresh$$superforward(Unknown Source)
+	at com.api.admin.controller.AdminAuthController_Subclass$2.apply(Unknown Source)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+	at io.quarkus.hibernate.validator.runtime.interceptor.AbstractMethodValidationInterceptor.validateMethodInvocation(AbstractMethodValidationInterceptor.java:73)
+	at io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor.validateMethodInvocation(ResteasyReactiveEndPointValidationInterceptor.java:21)
+	at io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor_Bean.intercept(Unknown Source)
+	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+	at com.api.admin.controller.AdminAuthController_Subclass.refresh(Unknown Source)
+	at com.api.admin.controller.AdminAuthController$quarkusrestinvoker$refresh_389b5564b22d36d9f6c9599d177c2e4985f8e8aa.invoke(Unknown Source)
+	at org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+	at io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
+	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: jakarta.transaction.RollbackException: ARJUNA016102: The transaction is not active! Uid is 0:ffff7f000001:ea72:6a009d3f:1
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1305)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.BaseTransaction.commit(BaseTransaction.java:104)
+	at io.quarkus.narayana.jta.runtime.NotifyingTransactionManager.commit(NotifyingTransactionManager.java:70)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.endTransaction(TransactionalInterceptorBase.java:436)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:205)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:137)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:37)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+	... 27 more
+
+2026-05-10 22:00:13.395 ERROR [com.api.com.exc.GlobalExceptionMapper] (executor-thread-1) Unhandled API error
+
+Exception in AdminAuthController.java:57
+	  55      @Path("/refresh")
+	  56      public Response refresh(@Valid RefreshTokenRequest request) {
+	→ 57          return Response.ok(adminAuthService.refresh(request)).build();
+	  58      }
+	  59  
+
+
+
+Exception in AdminAuthController.java:57
+	  55      @Path("/refresh")
+	  56      public Response refresh(@Valid RefreshTokenRequest request) {
+	→ 57          return Response.ok(adminAuthService.refresh(request)).build();
+	  58      }
+	  59  
+
+: io.quarkus.arc.ArcUndeclaredThrowableException: Error invoking subclass method
+	at com.api.admin.service.AdminAuthService_Subclass.refresh(Unknown Source)
+	at com.api.admin.service.AdminAuthService_ClientProxy.refresh(Unknown Source)
+	at com.api.admin.controller.AdminAuthController.refresh(AdminAuthController.java:57)
+	at com.api.admin.controller.AdminAuthController_Subclass.refresh$$superforward(Unknown Source)
+	at com.api.admin.controller.AdminAuthController_Subclass$2.apply(Unknown Source)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+	at io.quarkus.hibernate.validator.runtime.interceptor.AbstractMethodValidationInterceptor.validateMethodInvocation(AbstractMethodValidationInterceptor.java:73)
+	at io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor.validateMethodInvocation(ResteasyReactiveEndPointValidationInterceptor.java:21)
+	at io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor_Bean.intercept(Unknown Source)
+	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+	at com.api.admin.controller.AdminAuthController_Subclass.refresh(Unknown Source)
+	at com.api.admin.controller.AdminAuthController$quarkusrestinvoker$refresh_389b5564b22d36d9f6c9599d177c2e4985f8e8aa.invoke(Unknown Source)
+	at org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+	at io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
+	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: jakarta.transaction.RollbackException: ARJUNA016102: The transaction is not active! Uid is 0:ffff7f000001:ea72:6a009d3f:0
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1305)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.BaseTransaction.commit(BaseTransaction.java:104)
+	at io.quarkus.narayana.jta.runtime.NotifyingTransactionManager.commit(NotifyingTransactionManager.java:70)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.endTransaction(TransactionalInterceptorBase.java:436)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:205)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:137)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:37)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+	... 27 more
+
+2026-05-10 22:00:24.822 WARN  [com.arj.ats.arjuna] (Transaction Reaper) ARJUNA012117: TransactionReaper::check processing TX 0:ffff7f000001:ea72:6a009d3f:c in state  RUN
+2026-05-10 22:00:24.824 WARN  [com.arj.ats.arjuna] (Transaction Reaper) ARJUNA012117: TransactionReaper::check processing TX 0:ffff7f000001:ea72:6a009d3f:d in state  RUN
+2026-05-10 22:00:24.826 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012095: Abort of action id 0:ffff7f000001:ea72:6a009d3f:c invoked while multiple threads active within it.
+2026-05-10 22:00:24.827 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012381: Action id 0:ffff7f000001:ea72:6a009d3f:c completed with multiple threads - thread executor-thread-7 was in progress with org.mindrot.jbcrypt.BCrypt.encipher(BCrypt.java:505)
+org.mindrot.jbcrypt.BCrypt.key(BCrypt.java:560)
+org.mindrot.jbcrypt.BCrypt.crypt_raw(BCrypt.java:625)
+org.mindrot.jbcrypt.BCrypt.hashpw(BCrypt.java:684)
+org.mindrot.jbcrypt.BCrypt.checkpw(BCrypt.java:764)
+com.api.admin.service.TokenService.lambda$revokeRefreshToken$2(TokenService.java:98)
+java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:178)
+java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1685)
+java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
+java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
+com.api.admin.service.TokenService.revokeRefreshToken(TokenService.java:99)
+com.api.admin.service.TokenService_Subclass.revokeRefreshToken$$superforward(Unknown Source)
+com.api.admin.service.TokenService_Subclass$2.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInCallerTx(TransactionalInterceptorBase.java:365)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:39)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.TokenService_Subclass.revokeRefreshToken(Unknown Source)
+com.api.admin.service.TokenService.rotateRefreshToken(TokenService.java:108)
+com.api.admin.service.TokenService_Subclass.rotateRefreshToken$$superforward(Unknown Source)
+com.api.admin.service.TokenService_Subclass$3.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInCallerTx(TransactionalInterceptorBase.java:365)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:39)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.TokenService_Subclass.rotateRefreshToken(Unknown Source)
+com.api.admin.service.TokenService_ClientProxy.rotateRefreshToken(Unknown Source)
+com.api.admin.service.AdminAuthService.refresh(AdminAuthService.java:161)
+com.api.admin.service.AdminAuthService_Subclass.refresh$$superforward(Unknown Source)
+com.api.admin.service.AdminAuthService_Subclass$1.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:166)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:137)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:37)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.AdminAuthService_Subclass.refresh(Unknown Source)
+com.api.admin.service.AdminAuthService_ClientProxy.refresh(Unknown Source)
+com.api.admin.controller.AdminAuthController.refresh(AdminAuthController.java:57)
+com.api.admin.controller.AdminAuthController_Subclass.refresh$$superforward(Unknown Source)
+com.api.admin.controller.AdminAuthController_Subclass$2.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.hibernate.validator.runtime.interceptor.AbstractMethodValidationInterceptor.validateMethodInvocation(AbstractMethodValidationInterceptor.java:73)
+io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor.validateMethodInvocation(ResteasyReactiveEndPointValidationInterceptor.java:21)
+io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.controller.AdminAuthController_Subclass.refresh(Unknown Source)
+com.api.admin.controller.AdminAuthController$quarkusrestinvoker$refresh_389b5564b22d36d9f6c9599d177c2e4985f8e8aa.invoke(Unknown Source)
+org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
+org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
+org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+java.base/java.lang.Thread.run(Thread.java:1583)
+
+2026-05-10 22:00:24.832 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012108: CheckedAction::check - atomic action 0:ffff7f000001:ea72:6a009d3f:c aborting with 1 threads active!
+2026-05-10 22:00:24.845 WARN  [org.hib.orm.jta] (Transaction Reaper Worker 0) HHH90007020: Transaction afterCompletion called by a background thread; delaying afterCompletion processing until the original thread can handle it. [status=4]
+2026-05-10 22:00:24.847 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012121: TransactionReaper::doCancellations worker Thread[#100,Transaction Reaper Worker 0,5,main] successfully canceled TX 0:ffff7f000001:ea72:6a009d3f:c
+2026-05-10 22:00:24.847 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012095: Abort of action id 0:ffff7f000001:ea72:6a009d3f:d invoked while multiple threads active within it.
+2026-05-10 22:00:24.851 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012381: Action id 0:ffff7f000001:ea72:6a009d3f:d completed with multiple threads - thread executor-thread-5 was in progress with org.mindrot.jbcrypt.BCrypt.encipher(BCrypt.java:505)
+org.mindrot.jbcrypt.BCrypt.key(BCrypt.java:560)
+org.mindrot.jbcrypt.BCrypt.crypt_raw(BCrypt.java:624)
+org.mindrot.jbcrypt.BCrypt.hashpw(BCrypt.java:684)
+org.mindrot.jbcrypt.BCrypt.checkpw(BCrypt.java:764)
+com.api.admin.service.TokenService.lambda$revokeRefreshToken$2(TokenService.java:98)
+java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:178)
+java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1685)
+java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
+java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
+com.api.admin.service.TokenService.revokeRefreshToken(TokenService.java:99)
+com.api.admin.service.TokenService_Subclass.revokeRefreshToken$$superforward(Unknown Source)
+com.api.admin.service.TokenService_Subclass$2.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInCallerTx(TransactionalInterceptorBase.java:365)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:39)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.TokenService_Subclass.revokeRefreshToken(Unknown Source)
+com.api.admin.service.TokenService.rotateRefreshToken(TokenService.java:108)
+com.api.admin.service.TokenService_Subclass.rotateRefreshToken$$superforward(Unknown Source)
+com.api.admin.service.TokenService_Subclass$3.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInCallerTx(TransactionalInterceptorBase.java:365)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:39)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.TokenService_Subclass.rotateRefreshToken(Unknown Source)
+com.api.admin.service.TokenService_ClientProxy.rotateRefreshToken(Unknown Source)
+com.api.admin.service.AdminAuthService.refresh(AdminAuthService.java:161)
+com.api.admin.service.AdminAuthService_Subclass.refresh$$superforward(Unknown Source)
+com.api.admin.service.AdminAuthService_Subclass$1.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:166)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:137)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:37)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.AdminAuthService_Subclass.refresh(Unknown Source)
+com.api.admin.service.AdminAuthService_ClientProxy.refresh(Unknown Source)
+com.api.admin.controller.AdminAuthController.refresh(AdminAuthController.java:57)
+com.api.admin.controller.AdminAuthController_Subclass.refresh$$superforward(Unknown Source)
+com.api.admin.controller.AdminAuthController_Subclass$2.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.hibernate.validator.runtime.interceptor.AbstractMethodValidationInterceptor.validateMethodInvocation(AbstractMethodValidationInterceptor.java:73)
+io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor.validateMethodInvocation(ResteasyReactiveEndPointValidationInterceptor.java:21)
+io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.controller.AdminAuthController_Subclass.refresh(Unknown Source)
+com.api.admin.controller.AdminAuthController$quarkusrestinvoker$refresh_389b5564b22d36d9f6c9599d177c2e4985f8e8aa.invoke(Unknown Source)
+org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
+org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
+org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+java.base/java.lang.Thread.run(Thread.java:1583)
+
+2026-05-10 22:00:24.855 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012108: CheckedAction::check - atomic action 0:ffff7f000001:ea72:6a009d3f:d aborting with 1 threads active!
+2026-05-10 22:00:24.870 WARN  [org.hib.orm.jta] (Transaction Reaper Worker 0) HHH90007020: Transaction afterCompletion called by a background thread; delaying afterCompletion processing until the original thread can handle it. [status=4]
+2026-05-10 22:00:24.871 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012121: TransactionReaper::doCancellations worker Thread[#100,Transaction Reaper Worker 0,5,main] successfully canceled TX 0:ffff7f000001:ea72:6a009d3f:d
+2026-05-10 22:00:27.237 WARN  [com.arj.ats.arjuna] (executor-thread-7) ARJUNA012077: Abort called on already aborted atomic action 0:ffff7f000001:ea72:6a009d3f:c
+2026-05-10 22:00:27.237 ERROR [com.api.com.exc.GlobalExceptionMapper] (executor-thread-7) Unhandled API error
+
+Exception in AdminAuthController.java:57
+	  55      @Path("/refresh")
+	  56      public Response refresh(@Valid RefreshTokenRequest request) {
+	→ 57          return Response.ok(adminAuthService.refresh(request)).build();
+	  58      }
+	  59  
+
+
+
+Exception in AdminAuthController.java:57
+	  55      @Path("/refresh")
+	  56      public Response refresh(@Valid RefreshTokenRequest request) {
+	→ 57          return Response.ok(adminAuthService.refresh(request)).build();
+	  58      }
+	  59  
+
+: io.quarkus.arc.ArcUndeclaredThrowableException: Error invoking subclass method
+	at com.api.admin.service.AdminAuthService_Subclass.refresh(Unknown Source)
+	at com.api.admin.service.AdminAuthService_ClientProxy.refresh(Unknown Source)
+	at com.api.admin.controller.AdminAuthController.refresh(AdminAuthController.java:57)
+	at com.api.admin.controller.AdminAuthController_Subclass.refresh$$superforward(Unknown Source)
+	at com.api.admin.controller.AdminAuthController_Subclass$2.apply(Unknown Source)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+	at io.quarkus.hibernate.validator.runtime.interceptor.AbstractMethodValidationInterceptor.validateMethodInvocation(AbstractMethodValidationInterceptor.java:73)
+	at io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor.validateMethodInvocation(ResteasyReactiveEndPointValidationInterceptor.java:21)
+	at io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor_Bean.intercept(Unknown Source)
+	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+	at com.api.admin.controller.AdminAuthController_Subclass.refresh(Unknown Source)
+	at com.api.admin.controller.AdminAuthController$quarkusrestinvoker$refresh_389b5564b22d36d9f6c9599d177c2e4985f8e8aa.invoke(Unknown Source)
+	at org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+	at io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
+	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: jakarta.transaction.RollbackException: ARJUNA016102: The transaction is not active! Uid is 0:ffff7f000001:ea72:6a009d3f:c
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1305)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.BaseTransaction.commit(BaseTransaction.java:104)
+	at io.quarkus.narayana.jta.runtime.NotifyingTransactionManager.commit(NotifyingTransactionManager.java:70)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.endTransaction(TransactionalInterceptorBase.java:436)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:205)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:137)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:37)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+	... 27 more
+
+2026-05-10 22:00:27.667 WARN  [com.arj.ats.arjuna] (executor-thread-5) ARJUNA012077: Abort called on already aborted atomic action 0:ffff7f000001:ea72:6a009d3f:d
+2026-05-10 22:00:27.668 ERROR [com.api.com.exc.GlobalExceptionMapper] (executor-thread-5) Unhandled API error
+
+Exception in AdminAuthController.java:57
+	  55      @Path("/refresh")
+	  56      public Response refresh(@Valid RefreshTokenRequest request) {
+	→ 57          return Response.ok(adminAuthService.refresh(request)).build();
+	  58      }
+	  59  
+
+
+
+Exception in AdminAuthController.java:57
+	  55      @Path("/refresh")
+	  56      public Response refresh(@Valid RefreshTokenRequest request) {
+	→ 57          return Response.ok(adminAuthService.refresh(request)).build();
+	  58      }
+	  59  
+
+: io.quarkus.arc.ArcUndeclaredThrowableException: Error invoking subclass method
+	at com.api.admin.service.AdminAuthService_Subclass.refresh(Unknown Source)
+	at com.api.admin.service.AdminAuthService_ClientProxy.refresh(Unknown Source)
+	at com.api.admin.controller.AdminAuthController.refresh(AdminAuthController.java:57)
+	at com.api.admin.controller.AdminAuthController_Subclass.refresh$$superforward(Unknown Source)
+	at com.api.admin.controller.AdminAuthController_Subclass$2.apply(Unknown Source)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+	at io.quarkus.hibernate.validator.runtime.interceptor.AbstractMethodValidationInterceptor.validateMethodInvocation(AbstractMethodValidationInterceptor.java:73)
+	at io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor.validateMethodInvocation(ResteasyReactiveEndPointValidationInterceptor.java:21)
+	at io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor_Bean.intercept(Unknown Source)
+	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+	at com.api.admin.controller.AdminAuthController_Subclass.refresh(Unknown Source)
+	at com.api.admin.controller.AdminAuthController$quarkusrestinvoker$refresh_389b5564b22d36d9f6c9599d177c2e4985f8e8aa.invoke(Unknown Source)
+	at org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+	at io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
+	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: jakarta.transaction.RollbackException: ARJUNA016102: The transaction is not active! Uid is 0:ffff7f000001:ea72:6a009d3f:d
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1305)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.BaseTransaction.commit(BaseTransaction.java:104)
+	at io.quarkus.narayana.jta.runtime.NotifyingTransactionManager.commit(NotifyingTransactionManager.java:70)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.endTransaction(TransactionalInterceptorBase.java:436)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:205)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:137)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:37)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+	... 27 more
+
+2026-05-10 22:00:27.852 WARN  [com.arj.ats.arjuna] (Transaction Reaper) ARJUNA012117: TransactionReaper::check processing TX 0:ffff7f000001:ea72:6a009d3f:18 in state  RUN
+2026-05-10 22:00:27.852 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012095: Abort of action id 0:ffff7f000001:ea72:6a009d3f:18 invoked while multiple threads active within it.
+2026-05-10 22:00:27.853 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012381: Action id 0:ffff7f000001:ea72:6a009d3f:18 completed with multiple threads - thread executor-thread-8 was in progress with org.mindrot.jbcrypt.BCrypt.encipher(BCrypt.java:505)
+org.mindrot.jbcrypt.BCrypt.key(BCrypt.java:554)
+org.mindrot.jbcrypt.BCrypt.crypt_raw(BCrypt.java:624)
+org.mindrot.jbcrypt.BCrypt.hashpw(BCrypt.java:684)
+org.mindrot.jbcrypt.BCrypt.checkpw(BCrypt.java:764)
+com.api.admin.service.TokenService.lambda$revokeRefreshToken$2(TokenService.java:98)
+java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:178)
+java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1685)
+java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
+java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
+com.api.admin.service.TokenService.revokeRefreshToken(TokenService.java:99)
+com.api.admin.service.TokenService_Subclass.revokeRefreshToken$$superforward(Unknown Source)
+com.api.admin.service.TokenService_Subclass$2.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInCallerTx(TransactionalInterceptorBase.java:365)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:39)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.TokenService_Subclass.revokeRefreshToken(Unknown Source)
+com.api.admin.service.TokenService.rotateRefreshToken(TokenService.java:108)
+com.api.admin.service.TokenService_Subclass.rotateRefreshToken$$superforward(Unknown Source)
+com.api.admin.service.TokenService_Subclass$3.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInCallerTx(TransactionalInterceptorBase.java:365)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:39)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.TokenService_Subclass.rotateRefreshToken(Unknown Source)
+com.api.admin.service.TokenService_ClientProxy.rotateRefreshToken(Unknown Source)
+com.api.admin.service.AdminAuthService.refresh(AdminAuthService.java:161)
+com.api.admin.service.AdminAuthService_Subclass.refresh$$superforward(Unknown Source)
+com.api.admin.service.AdminAuthService_Subclass$1.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:166)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:137)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:37)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.AdminAuthService_Subclass.refresh(Unknown Source)
+com.api.admin.service.AdminAuthService_ClientProxy.refresh(Unknown Source)
+com.api.admin.controller.AdminAuthController.refresh(AdminAuthController.java:57)
+com.api.admin.controller.AdminAuthController_Subclass.refresh$$superforward(Unknown Source)
+com.api.admin.controller.AdminAuthController_Subclass$2.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.hibernate.validator.runtime.interceptor.AbstractMethodValidationInterceptor.validateMethodInvocation(AbstractMethodValidationInterceptor.java:73)
+io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor.validateMethodInvocation(ResteasyReactiveEndPointValidationInterceptor.java:21)
+io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.controller.AdminAuthController_Subclass.refresh(Unknown Source)
+com.api.admin.controller.AdminAuthController$quarkusrestinvoker$refresh_389b5564b22d36d9f6c9599d177c2e4985f8e8aa.invoke(Unknown Source)
+org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
+org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
+org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+java.base/java.lang.Thread.run(Thread.java:1583)
+
+2026-05-10 22:00:27.854 WARN  [com.arj.ats.arjuna] (Transaction Reaper) ARJUNA012117: TransactionReaper::check processing TX 0:ffff7f000001:ea72:6a009d3f:1e in state  RUN
+2026-05-10 22:00:27.854 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012108: CheckedAction::check - atomic action 0:ffff7f000001:ea72:6a009d3f:18 aborting with 1 threads active!
+2026-05-10 22:00:27.864 WARN  [org.hib.orm.jta] (Transaction Reaper Worker 0) HHH90007020: Transaction afterCompletion called by a background thread; delaying afterCompletion processing until the original thread can handle it. [status=4]
+2026-05-10 22:00:27.864 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012121: TransactionReaper::doCancellations worker Thread[#100,Transaction Reaper Worker 0,5,main] successfully canceled TX 0:ffff7f000001:ea72:6a009d3f:18
+2026-05-10 22:00:27.865 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012095: Abort of action id 0:ffff7f000001:ea72:6a009d3f:1e invoked while multiple threads active within it.
+2026-05-10 22:00:27.865 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012381: Action id 0:ffff7f000001:ea72:6a009d3f:1e completed with multiple threads - thread executor-thread-6 was in progress with org.mindrot.jbcrypt.BCrypt.encipher(BCrypt.java:505)
+org.mindrot.jbcrypt.BCrypt.key(BCrypt.java:560)
+org.mindrot.jbcrypt.BCrypt.crypt_raw(BCrypt.java:625)
+org.mindrot.jbcrypt.BCrypt.hashpw(BCrypt.java:684)
+org.mindrot.jbcrypt.BCrypt.checkpw(BCrypt.java:764)
+com.api.admin.service.TokenService.lambda$revokeRefreshToken$2(TokenService.java:98)
+java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:178)
+java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1685)
+java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
+java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
+com.api.admin.service.TokenService.revokeRefreshToken(TokenService.java:99)
+com.api.admin.service.TokenService_Subclass.revokeRefreshToken$$superforward(Unknown Source)
+com.api.admin.service.TokenService_Subclass$2.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInCallerTx(TransactionalInterceptorBase.java:365)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:39)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.TokenService_Subclass.revokeRefreshToken(Unknown Source)
+com.api.admin.service.TokenService.rotateRefreshToken(TokenService.java:108)
+com.api.admin.service.TokenService_Subclass.rotateRefreshToken$$superforward(Unknown Source)
+com.api.admin.service.TokenService_Subclass$3.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInCallerTx(TransactionalInterceptorBase.java:365)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:39)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.TokenService_Subclass.rotateRefreshToken(Unknown Source)
+com.api.admin.service.TokenService_ClientProxy.rotateRefreshToken(Unknown Source)
+com.api.admin.service.AdminAuthService.refresh(AdminAuthService.java:161)
+com.api.admin.service.AdminAuthService_Subclass.refresh$$superforward(Unknown Source)
+com.api.admin.service.AdminAuthService_Subclass$1.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:166)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:137)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:37)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.AdminAuthService_Subclass.refresh(Unknown Source)
+com.api.admin.service.AdminAuthService_ClientProxy.refresh(Unknown Source)
+com.api.admin.controller.AdminAuthController.refresh(AdminAuthController.java:57)
+com.api.admin.controller.AdminAuthController_Subclass.refresh$$superforward(Unknown Source)
+com.api.admin.controller.AdminAuthController_Subclass$2.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.hibernate.validator.runtime.interceptor.AbstractMethodValidationInterceptor.validateMethodInvocation(AbstractMethodValidationInterceptor.java:73)
+io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor.validateMethodInvocation(ResteasyReactiveEndPointValidationInterceptor.java:21)
+io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.controller.AdminAuthController_Subclass.refresh(Unknown Source)
+com.api.admin.controller.AdminAuthController$quarkusrestinvoker$refresh_389b5564b22d36d9f6c9599d177c2e4985f8e8aa.invoke(Unknown Source)
+org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
+org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
+org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+java.base/java.lang.Thread.run(Thread.java:1583)
+
+2026-05-10 22:00:27.867 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012108: CheckedAction::check - atomic action 0:ffff7f000001:ea72:6a009d3f:1e aborting with 1 threads active!
+2026-05-10 22:00:27.878 WARN  [org.hib.orm.jta] (Transaction Reaper Worker 0) HHH90007020: Transaction afterCompletion called by a background thread; delaying afterCompletion processing until the original thread can handle it. [status=4]
+2026-05-10 22:00:27.878 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012121: TransactionReaper::doCancellations worker Thread[#100,Transaction Reaper Worker 0,5,main] successfully canceled TX 0:ffff7f000001:ea72:6a009d3f:1e
+2026-05-10 22:00:30.077 WARN  [com.arj.ats.arjuna] (executor-thread-6) ARJUNA012077: Abort called on already aborted atomic action 0:ffff7f000001:ea72:6a009d3f:1e
+2026-05-10 22:00:30.078 ERROR [com.api.com.exc.GlobalExceptionMapper] (executor-thread-6) Unhandled API error
+
+Exception in AdminAuthController.java:57
+	  55      @Path("/refresh")
+	  56      public Response refresh(@Valid RefreshTokenRequest request) {
+	→ 57          return Response.ok(adminAuthService.refresh(request)).build();
+	  58      }
+	  59  
+
+
+
+Exception in AdminAuthController.java:57
+	  55      @Path("/refresh")
+	  56      public Response refresh(@Valid RefreshTokenRequest request) {
+	→ 57          return Response.ok(adminAuthService.refresh(request)).build();
+	  58      }
+	  59  
+
+: io.quarkus.arc.ArcUndeclaredThrowableException: Error invoking subclass method
+	at com.api.admin.service.AdminAuthService_Subclass.refresh(Unknown Source)
+	at com.api.admin.service.AdminAuthService_ClientProxy.refresh(Unknown Source)
+	at com.api.admin.controller.AdminAuthController.refresh(AdminAuthController.java:57)
+	at com.api.admin.controller.AdminAuthController_Subclass.refresh$$superforward(Unknown Source)
+	at com.api.admin.controller.AdminAuthController_Subclass$2.apply(Unknown Source)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+	at io.quarkus.hibernate.validator.runtime.interceptor.AbstractMethodValidationInterceptor.validateMethodInvocation(AbstractMethodValidationInterceptor.java:73)
+	at io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor.validateMethodInvocation(ResteasyReactiveEndPointValidationInterceptor.java:21)
+	at io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor_Bean.intercept(Unknown Source)
+	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+	at com.api.admin.controller.AdminAuthController_Subclass.refresh(Unknown Source)
+	at com.api.admin.controller.AdminAuthController$quarkusrestinvoker$refresh_389b5564b22d36d9f6c9599d177c2e4985f8e8aa.invoke(Unknown Source)
+	at org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+	at io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
+	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: jakarta.transaction.RollbackException: ARJUNA016102: The transaction is not active! Uid is 0:ffff7f000001:ea72:6a009d3f:1e
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1305)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.BaseTransaction.commit(BaseTransaction.java:104)
+	at io.quarkus.narayana.jta.runtime.NotifyingTransactionManager.commit(NotifyingTransactionManager.java:70)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.endTransaction(TransactionalInterceptorBase.java:436)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:205)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:137)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:37)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+	... 27 more
+
+2026-05-10 22:00:30.538 WARN  [com.arj.ats.arjuna] (executor-thread-8) ARJUNA012077: Abort called on already aborted atomic action 0:ffff7f000001:ea72:6a009d3f:18
+2026-05-10 22:00:30.539 ERROR [com.api.com.exc.GlobalExceptionMapper] (executor-thread-8) Unhandled API error
+
+Exception in AdminAuthController.java:57
+	  55      @Path("/refresh")
+	  56      public Response refresh(@Valid RefreshTokenRequest request) {
+	→ 57          return Response.ok(adminAuthService.refresh(request)).build();
+	  58      }
+	  59  
+
+
+
+Exception in AdminAuthController.java:57
+	  55      @Path("/refresh")
+	  56      public Response refresh(@Valid RefreshTokenRequest request) {
+	→ 57          return Response.ok(adminAuthService.refresh(request)).build();
+	  58      }
+	  59  
+
+: io.quarkus.arc.ArcUndeclaredThrowableException: Error invoking subclass method
+	at com.api.admin.service.AdminAuthService_Subclass.refresh(Unknown Source)
+	at com.api.admin.service.AdminAuthService_ClientProxy.refresh(Unknown Source)
+	at com.api.admin.controller.AdminAuthController.refresh(AdminAuthController.java:57)
+	at com.api.admin.controller.AdminAuthController_Subclass.refresh$$superforward(Unknown Source)
+	at com.api.admin.controller.AdminAuthController_Subclass$2.apply(Unknown Source)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+	at io.quarkus.hibernate.validator.runtime.interceptor.AbstractMethodValidationInterceptor.validateMethodInvocation(AbstractMethodValidationInterceptor.java:73)
+	at io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor.validateMethodInvocation(ResteasyReactiveEndPointValidationInterceptor.java:21)
+	at io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor_Bean.intercept(Unknown Source)
+	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+	at com.api.admin.controller.AdminAuthController_Subclass.refresh(Unknown Source)
+	at com.api.admin.controller.AdminAuthController$quarkusrestinvoker$refresh_389b5564b22d36d9f6c9599d177c2e4985f8e8aa.invoke(Unknown Source)
+	at org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+	at io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
+	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: jakarta.transaction.RollbackException: ARJUNA016102: The transaction is not active! Uid is 0:ffff7f000001:ea72:6a009d3f:18
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1305)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.BaseTransaction.commit(BaseTransaction.java:104)
+	at io.quarkus.narayana.jta.runtime.NotifyingTransactionManager.commit(NotifyingTransactionManager.java:70)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.endTransaction(TransactionalInterceptorBase.java:436)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:205)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:137)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:37)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+	... 27 more
+
+2026-05-10 22:00:42.046 WARN  [com.arj.ats.arjuna] (Transaction Reaper) ARJUNA012117: TransactionReaper::check processing TX 0:ffff7f000001:ea72:6a009d3f:24 in state  RUN
+2026-05-10 22:00:42.047 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012095: Abort of action id 0:ffff7f000001:ea72:6a009d3f:24 invoked while multiple threads active within it.
+2026-05-10 22:00:42.047 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012381: Action id 0:ffff7f000001:ea72:6a009d3f:24 completed with multiple threads - thread executor-thread-4 was in progress with org.mindrot.jbcrypt.BCrypt.encipher(BCrypt.java:505)
+org.mindrot.jbcrypt.BCrypt.key(BCrypt.java:560)
+org.mindrot.jbcrypt.BCrypt.crypt_raw(BCrypt.java:624)
+org.mindrot.jbcrypt.BCrypt.hashpw(BCrypt.java:684)
+org.mindrot.jbcrypt.BCrypt.checkpw(BCrypt.java:764)
+com.api.admin.service.TokenService.lambda$revokeRefreshToken$2(TokenService.java:98)
+java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:178)
+java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1685)
+java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
+java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
+com.api.admin.service.TokenService.revokeRefreshToken(TokenService.java:99)
+com.api.admin.service.TokenService_Subclass.revokeRefreshToken$$superforward(Unknown Source)
+com.api.admin.service.TokenService_Subclass$2.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInCallerTx(TransactionalInterceptorBase.java:365)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:39)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.TokenService_Subclass.revokeRefreshToken(Unknown Source)
+com.api.admin.service.TokenService.rotateRefreshToken(TokenService.java:108)
+com.api.admin.service.TokenService_Subclass.rotateRefreshToken$$superforward(Unknown Source)
+com.api.admin.service.TokenService_Subclass$3.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInCallerTx(TransactionalInterceptorBase.java:365)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:39)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.TokenService_Subclass.rotateRefreshToken(Unknown Source)
+com.api.admin.service.TokenService_ClientProxy.rotateRefreshToken(Unknown Source)
+com.api.admin.service.AdminAuthService.refresh(AdminAuthService.java:161)
+com.api.admin.service.AdminAuthService_Subclass.refresh$$superforward(Unknown Source)
+com.api.admin.service.AdminAuthService_Subclass$1.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:166)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:137)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:37)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.AdminAuthService_Subclass.refresh(Unknown Source)
+com.api.admin.service.AdminAuthService_ClientProxy.refresh(Unknown Source)
+com.api.admin.controller.AdminAuthController.refresh(AdminAuthController.java:57)
+com.api.admin.controller.AdminAuthController_Subclass.refresh$$superforward(Unknown Source)
+com.api.admin.controller.AdminAuthController_Subclass$2.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.hibernate.validator.runtime.interceptor.AbstractMethodValidationInterceptor.validateMethodInvocation(AbstractMethodValidationInterceptor.java:73)
+io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor.validateMethodInvocation(ResteasyReactiveEndPointValidationInterceptor.java:21)
+io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.controller.AdminAuthController_Subclass.refresh(Unknown Source)
+com.api.admin.controller.AdminAuthController$quarkusrestinvoker$refresh_389b5564b22d36d9f6c9599d177c2e4985f8e8aa.invoke(Unknown Source)
+org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
+org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
+org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+java.base/java.lang.Thread.run(Thread.java:1583)
+
+2026-05-10 22:00:42.048 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012108: CheckedAction::check - atomic action 0:ffff7f000001:ea72:6a009d3f:24 aborting with 1 threads active!
+2026-05-10 22:00:42.058 WARN  [org.hib.orm.jta] (Transaction Reaper Worker 0) HHH90007020: Transaction afterCompletion called by a background thread; delaying afterCompletion processing until the original thread can handle it. [status=4]
+2026-05-10 22:00:42.059 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012121: TransactionReaper::doCancellations worker Thread[#100,Transaction Reaper Worker 0,5,main] successfully canceled TX 0:ffff7f000001:ea72:6a009d3f:24
+2026-05-10 22:00:42.215 WARN  [com.arj.ats.arjuna] (Transaction Reaper) ARJUNA012117: TransactionReaper::check processing TX 0:ffff7f000001:ea72:6a009d3f:2a in state  RUN
+2026-05-10 22:00:42.216 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012095: Abort of action id 0:ffff7f000001:ea72:6a009d3f:2a invoked while multiple threads active within it.
+2026-05-10 22:00:42.216 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012381: Action id 0:ffff7f000001:ea72:6a009d3f:2a completed with multiple threads - thread executor-thread-3 was in progress with org.mindrot.jbcrypt.BCrypt.encipher(BCrypt.java:505)
+org.mindrot.jbcrypt.BCrypt.key(BCrypt.java:560)
+org.mindrot.jbcrypt.BCrypt.crypt_raw(BCrypt.java:624)
+org.mindrot.jbcrypt.BCrypt.hashpw(BCrypt.java:684)
+org.mindrot.jbcrypt.BCrypt.checkpw(BCrypt.java:764)
+com.api.admin.service.TokenService.lambda$revokeRefreshToken$2(TokenService.java:98)
+java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:178)
+java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1685)
+java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
+java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647)
+com.api.admin.service.TokenService.revokeRefreshToken(TokenService.java:99)
+com.api.admin.service.TokenService_Subclass.revokeRefreshToken$$superforward(Unknown Source)
+com.api.admin.service.TokenService_Subclass$2.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInCallerTx(TransactionalInterceptorBase.java:365)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:39)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.TokenService_Subclass.revokeRefreshToken(Unknown Source)
+com.api.admin.service.TokenService.rotateRefreshToken(TokenService.java:108)
+com.api.admin.service.TokenService_Subclass.rotateRefreshToken$$superforward(Unknown Source)
+com.api.admin.service.TokenService_Subclass$3.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInCallerTx(TransactionalInterceptorBase.java:365)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:39)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.TokenService_Subclass.rotateRefreshToken(Unknown Source)
+com.api.admin.service.TokenService_ClientProxy.rotateRefreshToken(Unknown Source)
+com.api.admin.service.AdminAuthService.refresh(AdminAuthService.java:161)
+com.api.admin.service.AdminAuthService_Subclass.refresh$$superforward(Unknown Source)
+com.api.admin.service.AdminAuthService_Subclass$1.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:166)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:137)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:37)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.service.AdminAuthService_Subclass.refresh(Unknown Source)
+com.api.admin.service.AdminAuthService_ClientProxy.refresh(Unknown Source)
+com.api.admin.controller.AdminAuthController.refresh(AdminAuthController.java:57)
+com.api.admin.controller.AdminAuthController_Subclass.refresh$$superforward(Unknown Source)
+com.api.admin.controller.AdminAuthController_Subclass$2.apply(Unknown Source)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+io.quarkus.hibernate.validator.runtime.interceptor.AbstractMethodValidationInterceptor.validateMethodInvocation(AbstractMethodValidationInterceptor.java:73)
+io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor.validateMethodInvocation(ResteasyReactiveEndPointValidationInterceptor.java:21)
+io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor_Bean.intercept(Unknown Source)
+io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+com.api.admin.controller.AdminAuthController_Subclass.refresh(Unknown Source)
+com.api.admin.controller.AdminAuthController$quarkusrestinvoker$refresh_389b5564b22d36d9f6c9599d177c2e4985f8e8aa.invoke(Unknown Source)
+org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
+org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
+org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+java.base/java.lang.Thread.run(Thread.java:1583)
+
+2026-05-10 22:00:42.217 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012108: CheckedAction::check - atomic action 0:ffff7f000001:ea72:6a009d3f:2a aborting with 1 threads active!
+2026-05-10 22:00:42.229 WARN  [org.hib.orm.jta] (Transaction Reaper Worker 0) HHH90007020: Transaction afterCompletion called by a background thread; delaying afterCompletion processing until the original thread can handle it. [status=4]
+2026-05-10 22:00:42.229 WARN  [com.arj.ats.arjuna] (Transaction Reaper Worker 0) ARJUNA012121: TransactionReaper::doCancellations worker Thread[#100,Transaction Reaper Worker 0,5,main] successfully canceled TX 0:ffff7f000001:ea72:6a009d3f:2a
+2026-05-10 22:00:42.936 WARN  [com.arj.ats.arjuna] (executor-thread-4) ARJUNA012077: Abort called on already aborted atomic action 0:ffff7f000001:ea72:6a009d3f:24
+2026-05-10 22:00:42.936 WARN  [com.arj.ats.arjuna] (executor-thread-3) ARJUNA012077: Abort called on already aborted atomic action 0:ffff7f000001:ea72:6a009d3f:2a
+2026-05-10 22:00:42.937 ERROR [com.api.com.exc.GlobalExceptionMapper] (executor-thread-4) Unhandled API error
+
+Exception in AdminAuthController.java:57
+	  55      @Path("/refresh")
+	  56      public Response refresh(@Valid RefreshTokenRequest request) {
+	→ 57          return Response.ok(adminAuthService.refresh(request)).build();
+	  58      }
+	  59  
+
+
+
+Exception in AdminAuthController.java:57
+	  55      @Path("/refresh")
+	  56      public Response refresh(@Valid RefreshTokenRequest request) {
+	→ 57          return Response.ok(adminAuthService.refresh(request)).build();
+	  58      }
+	  59  
+
+: io.quarkus.arc.ArcUndeclaredThrowableException: Error invoking subclass method
+	at com.api.admin.service.AdminAuthService_Subclass.refresh(Unknown Source)
+	at com.api.admin.service.AdminAuthService_ClientProxy.refresh(Unknown Source)
+	at com.api.admin.controller.AdminAuthController.refresh(AdminAuthController.java:57)
+	at com.api.admin.controller.AdminAuthController_Subclass.refresh$$superforward(Unknown Source)
+	at com.api.admin.controller.AdminAuthController_Subclass$2.apply(Unknown Source)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+	at io.quarkus.hibernate.validator.runtime.interceptor.AbstractMethodValidationInterceptor.validateMethodInvocation(AbstractMethodValidationInterceptor.java:73)
+	at io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor.validateMethodInvocation(ResteasyReactiveEndPointValidationInterceptor.java:21)
+	at io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor_Bean.intercept(Unknown Source)
+	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+	at com.api.admin.controller.AdminAuthController_Subclass.refresh(Unknown Source)
+	at com.api.admin.controller.AdminAuthController$quarkusrestinvoker$refresh_389b5564b22d36d9f6c9599d177c2e4985f8e8aa.invoke(Unknown Source)
+	at org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+	at io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
+	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: jakarta.transaction.RollbackException: ARJUNA016102: The transaction is not active! Uid is 0:ffff7f000001:ea72:6a009d3f:24
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1305)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.BaseTransaction.commit(BaseTransaction.java:104)
+	at io.quarkus.narayana.jta.runtime.NotifyingTransactionManager.commit(NotifyingTransactionManager.java:70)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.endTransaction(TransactionalInterceptorBase.java:436)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:205)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:137)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:37)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+	... 27 more
+
+2026-05-10 22:00:42.937 ERROR [com.api.com.exc.GlobalExceptionMapper] (executor-thread-3) Unhandled API error
+
+Exception in AdminAuthController.java:57
+	  55      @Path("/refresh")
+	  56      public Response refresh(@Valid RefreshTokenRequest request) {
+	→ 57          return Response.ok(adminAuthService.refresh(request)).build();
+	  58      }
+	  59  
+
+
+
+Exception in AdminAuthController.java:57
+	  55      @Path("/refresh")
+	  56      public Response refresh(@Valid RefreshTokenRequest request) {
+	→ 57          return Response.ok(adminAuthService.refresh(request)).build();
+	  58      }
+	  59  
+
+: io.quarkus.arc.ArcUndeclaredThrowableException: Error invoking subclass method
+	at com.api.admin.service.AdminAuthService_Subclass.refresh(Unknown Source)
+	at com.api.admin.service.AdminAuthService_ClientProxy.refresh(Unknown Source)
+	at com.api.admin.controller.AdminAuthController.refresh(AdminAuthController.java:57)
+	at com.api.admin.controller.AdminAuthController_Subclass.refresh$$superforward(Unknown Source)
+	at com.api.admin.controller.AdminAuthController_Subclass$2.apply(Unknown Source)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
+	at io.quarkus.hibernate.validator.runtime.interceptor.AbstractMethodValidationInterceptor.validateMethodInvocation(AbstractMethodValidationInterceptor.java:73)
+	at io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor.validateMethodInvocation(ResteasyReactiveEndPointValidationInterceptor.java:21)
+	at io.quarkus.hibernate.validator.runtime.jaxrs.ResteasyReactiveEndPointValidationInterceptor_Bean.intercept(Unknown Source)
+	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+	at com.api.admin.controller.AdminAuthController_Subclass.refresh(Unknown Source)
+	at com.api.admin.controller.AdminAuthController$quarkusrestinvoker$refresh_389b5564b22d36d9f6c9599d177c2e4985f8e8aa.invoke(Unknown Source)
+	at org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+	at io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
+	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: jakarta.transaction.RollbackException: ARJUNA016102: The transaction is not active! Uid is 0:ffff7f000001:ea72:6a009d3f:2a
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1305)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.BaseTransaction.commit(BaseTransaction.java:104)
+	at io.quarkus.narayana.jta.runtime.NotifyingTransactionManager.commit(NotifyingTransactionManager.java:70)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.endTransaction(TransactionalInterceptorBase.java:436)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:205)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:137)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:37)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
+	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
+	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
+	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
+	... 27 more
+
+2026-05-10 22:00:59.942 INFO  [com.api.adm.ser.IpAllowlistService] (executor-thread-3) Admin login IP allowed, rawClientIp=0:0:0:0:0:0:0:1, normalizedClientIp=0:0:0:0:0:0:0:1
+2026-05-10 22:01:00.422 INFO  [com.api.adm.ser.AdminAuthService] (executor-thread-3) Admin login success, email=admin@n9ne.cc, clientIp=0:0:0:0:0:0:0:1
+2026-05-10 22:01:20.895 INFO  [com.api.med.ser.MinioStorageService] (executor-thread-4) Uploaded media to MinIO, mediaObjectId=3aab9395-ef87-4ed4-9a96-7a8d689581ef, objectKey=user-portal/memories/399a0f36-bfdb-4d81-9bcf-e66e7b6debba-Screenshot_2569-05-10_at_13.25.55.png
+2026-05-10 22:01:25.609 INFO  [com.api.adm.ser.AdminMemoryService] (executor-thread-9) Updated memory, id=8fdd4300-d61b-4d7d-873b-ccf785abb092
+2026-05-10 22:01:31.114 INFO  [com.api.adm.ser.AdminSiteService] (executor-thread-4) Updated site profile, siteKey=panpan, title=For My Love, status=ACTIVE
+2026-05-10 22:01:33.437 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-4) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:01:33.438 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-4) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:01:33.451 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-4) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:01:33.479 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-4) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:01:33.494 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-4) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:01:33.524 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-4) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:01:33.557 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-4) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:01:33.636 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-4) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:01:33.684 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-4) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:01:33.685 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-4) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:01:33.723 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-4) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:01:33.750 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-4) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:01:33.764 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-4) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:01:33.795 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-4) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:01:33.819 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-4) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:01:33.836 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-4) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:22:54.832 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:22:54.834 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:22:54.853 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:22:54.878 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:22:54.890 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:22:54.915 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:22:54.939 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:22:54.951 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:22:54.978 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:22:54.979 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:22:54.991 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:22:55.015 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:22:55.027 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:22:55.057 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:22:55.082 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:22:55.093 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:29:04.107 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:29:04.117 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:29:04.139 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:29:04.166 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:29:04.180 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:29:04.206 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:29:04.230 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:29:04.243 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:29:04.273 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:29:04.274 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:29:04.286 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:29:04.311 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:29:04.324 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:29:04.351 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:29:04.378 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:29:04.390 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-25) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:44:03.515 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:44:03.517 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:44:03.531 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:44:03.560 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:44:03.575 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:44:03.606 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:44:03.633 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:44:03.653 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:44:03.683 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:44:03.684 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:44:03.699 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:44:03.731 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:44:03.744 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:44:03.769 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:44:03.793 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:44:03.805 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:47:21.762 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:47:21.764 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:47:21.799 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:47:21.847 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:47:21.873 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:47:21.913 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:47:21.952 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:47:21.972 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:47:22.013 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:47:22.014 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:47:22.038 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:47:22.087 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:47:22.116 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:47:22.171 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:47:22.200 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:47:22.223 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:48:50.425 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:48:50.426 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:48:50.458 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:48:50.498 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:48:50.518 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:48:50.560 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:48:50.610 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:48:50.629 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:48:50.689 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:48:50.690 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:48:50.723 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:48:50.779 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:48:50.841 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:48:50.926 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:48:50.966 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:48:51.019 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:51:44.831 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:51:44.834 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:51:44.869 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:51:44.898 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:51:44.912 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:51:44.944 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:51:44.971 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:51:44.984 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:51:45.021 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:51:45.022 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:51:45.040 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:51:45.067 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:51:45.079 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:51:45.101 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:51:45.123 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:51:45.135 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:55:48.449 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:55:48.450 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:55:48.494 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:55:48.534 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:55:48.563 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:55:48.616 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:55:48.678 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:55:48.707 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:55:48.756 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:55:48.758 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:55:48.777 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:55:48.826 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:55:48.841 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:55:48.886 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:55:48.916 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:55:48.933 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:55:50.551 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:55:50.551 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:55:50.566 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:55:50.604 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:55:50.622 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:55:50.662 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:55:50.739 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:55:50.767 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:55:50.859 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:55:50.861 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:55:50.893 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:55:50.958 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:55:50.976 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:55:51.043 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-32) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:55:51.043 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-32) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:55:51.051 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:55:51.075 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-32) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:55:51.095 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:55:51.121 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-30) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:55:51.128 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-32) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:55:51.148 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-32) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:55:51.195 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-32) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:55:51.271 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-32) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:55:51.294 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-32) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 22:55:51.355 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-32) Fetching full public site from DB, siteKey=panpan
+2026-05-10 22:55:51.356 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-32) Fetching public site from DB, siteKey=panpan
+2026-05-10 22:55:51.368 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-32) Fetching public hero from DB, siteKey=panpan
+2026-05-10 22:55:51.402 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-32) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 22:55:51.431 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-32) Fetching public memories from DB, siteKey=panpan
+2026-05-10 22:55:51.496 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-32) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 22:55:51.551 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-32) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 22:55:51.579 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-32) Fetching public final surprise from DB, siteKey=panpan

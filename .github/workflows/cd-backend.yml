@@ -60,6 +60,7 @@ jobs:
             podman pull ghcr.io/manro7411/react-quarkus-minio-backend:latest
 
             podman stop react-quarkus-minio-backend || true
+            
             podman rm react-quarkus-minio-backend || true
 
             podman run -d \

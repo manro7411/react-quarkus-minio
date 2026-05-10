@@ -5,6 +5,7 @@ import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @ApplicationScoped
@@ -22,6 +23,10 @@ public class MemoryRepository implements PanacheRepositoryBase<Memory, UUID> {
                 "siteProfile.siteKey = ?1 order by sortOrder asc, memoryDate desc, createdAt desc",
                 siteKey
         ).list();
+    }
+
+    public Optional<Memory> findByIdOptional(UUID id) {
+        return find("id", id).firstResultOptional();
     }
 
     public long countBySiteKey(String siteKey) {

@@ -7,6 +7,7 @@ import StatCard from "./components/StatCard";
 import GalleryManager from "./components/GalleryManager";
 import ManagementPanel from "./components/ManagementPanel";
 import EditPhotoModal from "./components/EditPhotoModal";
+import MemoriesManager from "./components/MemoriesManager";
 import type { PhotoItem, StatItem } from "./types/admin";
 import { isLoggedIn } from "./services/authStorage";
 import { logoutAdmin } from "./services/authService";
@@ -15,10 +16,18 @@ import {
   type DashboardStatsResponse,
 } from "./services/dashboardService";
 
+type ToastState = {
+  type: "success" | "error";
+  message: string;
+} | null;
+
+const DEFAULT_MENU = "Gallery";
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(isLoggedIn());
+  const [activeMenu, setActiveMenu] = useState(DEFAULT_MENU);
   const [editingPhoto, setEditingPhoto] = useState<PhotoItem | null>(null);
-  const [toastVisible, setToastVisible] = useState(false);
+  const [toast, setToast] = useState<ToastState>(null);
   const [galleryReloadKey, setGalleryReloadKey] = useState(0);
   const [dashboardStats, setDashboardStats] =
     useState<DashboardStatsResponse | null>(null);
@@ -74,6 +83,14 @@ function App() {
     }
   }
 
+  function showToast(type: "success" | "error", message: string) {
+    setToast({ type, message });
+
+    window.setTimeout(() => {
+      setToast(null);
+    }, 2200);
+  }
+
   useEffect(() => {
     if (!isAuthenticated) {
       return;
@@ -94,11 +111,88 @@ function App() {
     setEditingPhoto(null);
     setGalleryReloadKey((current) => current + 1);
     loadDashboardStats();
-    setToastVisible(true);
+    showToast("success", "Photo saved successfully");
+  }
 
-    window.setTimeout(() => {
-      setToastVisible(false);
-    }, 1800);
+  function handleMemoryChanged() {
+    loadDashboardStats();
+    showToast("success", "Memories updated successfully");
+  }
+
+  function renderMainContent() {
+    if (activeMenu === "Dashboard") {
+      return (
+        <div className="dashboard-grid">
+          <div className="dashboard-left-stack">
+            <MemoriesManager
+              onChanged={handleMemoryChanged}
+              onToast={showToast}
+            />
+
+            <GalleryManager
+              reloadKey={galleryReloadKey}
+              onEdit={setEditingPhoto}
+            />
+          </div>
+
+          <ManagementPanel />
+        </div>
+      );
+    }
+
+    if (activeMenu === "Memories") {
+      return (
+        <div className="single-content-grid">
+          <MemoriesManager
+            onChanged={handleMemoryChanged}
+            onToast={showToast}
+          />
+        </div>
+      );
+    }
+
+    if (activeMenu === "Gallery") {
+      return (
+        <div className="single-content-grid">
+          <GalleryManager
+            reloadKey={galleryReloadKey}
+            onEdit={setEditingPhoto}
+          />
+        </div>
+      );
+    }
+
+    if (
+      activeMenu === "Hero Section" ||
+      activeMenu === "Countdown" ||
+      activeMenu === "Love Letter" ||
+      activeMenu === "Final Surprise" ||
+      activeMenu === "Settings"
+    ) {
+      return (
+        <div className="management-only-grid">
+          <ManagementPanel />
+        </div>
+      );
+    }
+
+    return (
+      <div className="dashboard-grid">
+        <div className="dashboard-left-stack">
+          <MemoriesManager
+            onChanged={handleMemoryChanged}
+            onToast={showToast}
+          />
+
+          <GalleryManager
+            reloadKey={galleryReloadKey}
+            onEdit={setEditingPhoto}
+          />
+        </div>
+
+        <ManagementPanel />
+      </div>
+    );
   }
 
   if (!isAuthenticated) {
@@ -107,7 +201,11 @@ function App() {
 
   return (
     <div className="admin-layout">
-      <Sidebar onLogout={handleLogout} />
+      <Sidebar
+        activeMenu={activeMenu}
+        onMenuChange={setActiveMenu}
+        onLogout={handleLogout}
+      />
 
       <main className="admin-main">
         <Topbar onLogout={handleLogout} />
@@ -123,13 +221,7 @@ function App() {
             ))}
           </div>
 
-          <div className="dashboard-grid">
-            <GalleryManager
-              reloadKey={galleryReloadKey}
-              onEdit={setEditingPhoto}
-            />
-            <ManagementPanel />
-          </div>
+          {renderMainContent()}
         </section>
       </main>
 
@@ -139,11 +231,13 @@ function App() {
         onSaved={handlePhotoSaved}
       />
 
-      {toastVisible && (
-        <div className="toast">
-          <span>✓</span>
-          <strong>Saved successfully</strong>
-          <button onClick={() => setToastVisible(false)}>×</button>
+      {toast && (
+        <div className={`toast ${toast.type}`}>
+          <span>{toast.type === "success" ? "✓" : "!"}</span>
+          <strong>{toast.message}</strong>
+          <button type="button" onClick={() => setToast(null)}>
+            ×
+          </button>
         </div>
       )}
     </div>

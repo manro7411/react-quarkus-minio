@@ -149,4 +149,11 @@ public class AdminMemoryService {
     private String removeTrailingSlash(String value) {
         return value == null ? "" : value.replaceAll("/+$", "");
     }
+
+    public MemoryResponse getMemory(UUID id) {
+        Memory memory = memoryRepository.findByIdOptional(id)
+                .orElseThrow(() -> new NotFoundException("Memory not found: " + id));
+
+        return toResponse(memory);
+    }
 }

@@ -25,13 +25,21 @@ export async function loginAdmin(payload: LoginRequest) {
   const response = await apiClient<LoginResponse>(API_ENDPOINTS.auth.login, {
     method: "POST",
     auth: false,
-    body: JSON.stringify(payload),
+    body: JSON.stringify({
+      email: payload.email.trim(),
+      password: payload.password,
+    }),
   });
 
+  if (!response.accessToken || !response.refreshToken) {
+    throw new Error("Login response is missing tokens");
+  }
+
   saveTokens(response.accessToken, response.refreshToken);
+
   saveAdminProfile({
-    displayName: response.displayName,
-    role: response.role,
+    displayName: response.displayName || "Admin",
+    role: response.role || "ADMIN",
   });
 
   return response;
@@ -46,10 +54,14 @@ export async function logoutAdmin() {
     return;
   }
 
-  apiClient<void>(API_ENDPOINTS.auth.logout, {
-    method: "POST",
-    body: JSON.stringify({ refreshToken }),
-  }).catch((error) => {
+  try {
+    await apiClient<void>(API_ENDPOINTS.auth.logout, {
+      method: "POST",
+      auth: false,
+      retryOnUnauthorized: false,
+      body: JSON.stringify({ refreshToken }),
+    });
+  } catch (error) {
     console.warn("Logout request failed:", error);
-  });
+  }
 }
