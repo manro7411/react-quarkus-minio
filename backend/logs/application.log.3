@@ -1,22 +1,28 @@
-2026-05-10 21:25:10.637 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/appdb (PostgreSQL 16.13)
-2026-05-10 21:25:10.811 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 8 migrations (execution time 00:00.055s)
-2026-05-10 21:25:11.044 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 8
-2026-05-10 21:25:11.058 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
-2026-05-10 21:25:11.716 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 5.087s. Listening on: http://0.0.0.0:8080
-2026-05-10 21:25:11.717 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2026-05-10 21:25:11.717 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
-2026-05-10 21:28:07.324 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Aesh InputStream Reader) variable ADMIN_MEMORIES is already defined in class com.api.common.constant.ApiPaths, line 31 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/common/constant/ApiPaths.java
-2026-05-10 21:28:07.326 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Aesh InputStream Reader) cannot find symbol
-  symbol:   method getMemory(java.util.UUID)
-  location: variable adminMemoryService of type com.api.admin.service.AdminMemoryService, line 31 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/admin/controller/AdminMemoryController.java
-2026-05-10 21:29:11.136 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Aesh InputStream Reader) cannot find symbol
-  symbol:   method getMemory(java.util.UUID)
-  location: variable adminMemoryService of type com.api.admin.service.AdminMemoryService, line 31 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/admin/controller/AdminMemoryController.java
-2026-05-10 21:29:15.796 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Aesh InputStream Reader) cannot find symbol
-  symbol:   method getMemory(java.util.UUID)
-  location: variable adminMemoryService of type com.api.admin.service.AdminMemoryService, line 31 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/admin/controller/AdminMemoryController.java
-2026-05-10 21:29:16.479 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Aesh InputStream Reader) cannot find symbol
-  symbol:   method getMemory(java.util.UUID)
-  location: variable adminMemoryService of type com.api.admin.service.AdminMemoryService, line 31 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/admin/controller/AdminMemoryController.java
-2026-05-10 21:29:45.705 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Restarting quarkus due to changes in AdminMemoryController.class, AdminMemoryService.class, ApiPaths.class, MemoryRepository.class.
-2026-05-10 21:29:45.747 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio stopped in 0.038s
+2026-05-10 21:29:47.647 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/appdb (PostgreSQL 16.13)
+2026-05-10 21:29:47.831 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 8 migrations (execution time 00:00.056s)
+2026-05-10 21:29:48.116 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 8
+2026-05-10 21:29:48.131 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
+2026-05-10 21:29:48.381 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 2.633s. Listening on: http://0.0.0.0:8080
+2026-05-10 21:29:48.382 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2026-05-10 21:29:48.382 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
+2026-05-10 21:29:48.382 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Live reload total time: 2.842s 
+2026-05-10 21:30:28.908 WARN  [io.sma.jwt.config] (vert.x-eventloop-thread-1) SRJWT03007: Public key is configured but either the secret key or key location are also configured and will be ignored
+2026-05-10 21:31:01.114 WARN  [com.api.com.exc.GlobalExceptionMapper] (vert.x-eventloop-thread-1) API error, status=404, path=/api/admin/memories , message=HTTP 404 Not Found
+2026-05-10 21:48:00.508 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
+2026-05-10 21:48:00.512 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
+2026-05-10 21:48:00.540 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
+2026-05-10 21:48:00.584 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 21:48:00.598 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
+2026-05-10 21:48:00.628 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 21:48:00.673 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 21:48:00.686 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 21:48:00.724 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
+2026-05-10 21:48:00.725 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
+2026-05-10 21:48:00.737 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
+2026-05-10 21:48:00.763 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
+2026-05-10 21:48:00.775 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
+2026-05-10 21:48:00.798 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
+2026-05-10 21:48:00.824 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
+2026-05-10 21:48:00.838 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
+2026-05-10 21:53:51.658 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-2) Restarting quarkus due to changes in AdminMemoryController.class.
+2026-05-10 21:53:51.699 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio stopped in 0.039s

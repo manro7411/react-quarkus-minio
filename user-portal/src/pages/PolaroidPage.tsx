@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import type { PublicFullSiteResponse } from "../services/publicSiteService";
 import Navbar from "../components/Navbar";
 import { SavePolaroidButton } from "../features/polaroid-export";
-import { CameraCapture } from "../features/polaroid-camera";
+import { PhotoUpload } from "../features/polaroid-upload";
 
 type PolaroidPageProps = {
   siteData: PublicFullSiteResponse;
@@ -10,7 +10,7 @@ type PolaroidPageProps = {
 
 type GalleryItem = PublicFullSiteResponse["gallery"][number];
 
-type CapturedPhoto = {
+type UploadedPhoto = {
   id: string;
   imageUrl: string;
   caption: string;
@@ -18,7 +18,7 @@ type CapturedPhoto = {
   sortOrder: number;
 };
 
-type PolaroidPhoto = GalleryItem | CapturedPhoto;
+type PolaroidPhoto = GalleryItem | UploadedPhoto;
 
 type TemplateStyle = {
   id: string;
@@ -87,7 +87,7 @@ export default function PolaroidPage({ siteData }: PolaroidPageProps) {
     });
   }, [siteData.gallery]);
 
-  const [capturedPhotos, setCapturedPhotos] = useState<CapturedPhoto[]>([]);
+  const [uploadedPhotos, setUploadedPhotos] = useState<UploadedPhoto[]>([]);
   const [selectedPhoto, setSelectedPhoto] = useState<PolaroidPhoto | null>(
     gallery[0] ?? null
   );
@@ -101,24 +101,24 @@ export default function PolaroidPage({ siteData }: PolaroidPageProps) {
   const [showDate, setShowDate] = useState(true);
 
   const allPhotos = useMemo(() => {
-    return [...capturedPhotos, ...gallery];
-  }, [capturedPhotos, gallery]);
+    return [...uploadedPhotos, ...gallery];
+  }, [uploadedPhotos, gallery]);
 
   const photoDate = selectedPhoto?.photoDate || "";
   const finalCaption = caption.trim() || "You + Me = Us";
 
-  function handleCameraCapture(imageDataUrl: string) {
+  function handlePhotoUpload(imageDataUrl: string, fileName?: string) {
     const now = new Date();
 
-    const newPhoto: CapturedPhoto = {
-      id: `captured-${now.getTime()}`,
+    const newPhoto: UploadedPhoto = {
+      id: `uploaded-${now.getTime()}`,
       imageUrl: imageDataUrl,
-      caption: "Our New Moment",
+      caption: fileName ? removeFileExtension(fileName) : "Our New Moment",
       photoDate: now.toISOString(),
       sortOrder: 0,
     };
 
-    setCapturedPhotos((current) => [newPhoto, ...current]);
+    setUploadedPhotos((current) => [newPhoto, ...current]);
     setSelectedPhoto(newPhoto);
     setCaption(newPhoto.caption);
     setShowDate(true);
@@ -129,7 +129,7 @@ export default function PolaroidPage({ siteData }: PolaroidPageProps) {
     setCaption(photo.caption || "You + Me = Us");
   }
 
-  function handleRetakeStyle() {
+  function handleResetStyle() {
     setSelectedTemplate(templates[0]);
     setSelectedFilter(filters[0]);
     setSelectedSticker("💗");
@@ -177,7 +177,7 @@ export default function PolaroidPage({ siteData }: PolaroidPageProps) {
             </h1>
 
             <p className="capture-description">
-              Take a sweet photo and turn it into a memory.
+              Upload a sweet photo and turn it into a romantic Polaroid memory.
             </p>
           </div>
 
@@ -187,7 +187,7 @@ export default function PolaroidPage({ siteData }: PolaroidPageProps) {
             <h3>Make it yours</h3>
 
             <p>
-              Take a new photo, add captions, choose stickers, and save it as a
+              Upload a photo, add captions, choose stickers, and save it as a
               romantic Polaroid.
             </p>
           </div>
@@ -208,7 +208,9 @@ export default function PolaroidPage({ siteData }: PolaroidPageProps) {
                   alt={selectedPhoto.caption || "Selected memory"}
                 />
               ) : (
-                <div className="camera-empty">No photo selected</div>
+                <div className="camera-empty">
+                  Upload a photo to preview your Polaroid
+                </div>
               )}
 
               <div className="camera-heart-outline">♡</div>
@@ -217,6 +219,7 @@ export default function PolaroidPage({ siteData }: PolaroidPageProps) {
 
             <div className="polaroid-caption-area">
               <p>{finalCaption}</p>
+
               {showDate && photoDate && (
                 <span>{formatDisplayDate(photoDate)}</span>
               )}
@@ -232,18 +235,18 @@ export default function PolaroidPage({ siteData }: PolaroidPageProps) {
                 fileName={`polaroid-${finalCaption}`}
                 className="capture-button primary"
               >
-                📸 Take Polaroid Photo
+                📸 Save Polaroid
               </SavePolaroidButton>
             ) : (
               <button className="capture-button primary" disabled>
-                📸 Take Polaroid Photo
+                📸 Save Polaroid
               </button>
             )}
 
             <button
               type="button"
               className="capture-button soft"
-              onClick={handleRetakeStyle}
+              onClick={handleResetStyle}
             >
               ↻ Reset Style
             </button>
@@ -260,6 +263,7 @@ export default function PolaroidPage({ siteData }: PolaroidPageProps) {
               type="button"
               className="capture-button outline pink"
               onClick={handleNextPhoto}
+              disabled={!allPhotos.length}
             >
               ✓ Use Next Photo
             </button>
@@ -267,9 +271,12 @@ export default function PolaroidPage({ siteData }: PolaroidPageProps) {
         </section>
 
         <aside className="capture-right-panel">
-          <div className="custom-panel">
-            <h2>✦ 0. Take New Photo 📸</h2>
-            <CameraCapture onCapture={handleCameraCapture} />
+          <div className="custom-panel upload-panel">
+            <div className="custom-panel-header">
+              <h2>✦ 0. Upload New Photo 🌸</h2>
+            </div>
+
+            <PhotoUpload onUpload={handlePhotoUpload} />
           </div>
 
           <div className="custom-panel">
@@ -292,6 +299,7 @@ export default function PolaroidPage({ siteData }: PolaroidPageProps) {
                     {selectedPhoto && (
                       <img src={selectedPhoto.imageUrl} alt={template.name} />
                     )}
+
                     <span>{template.accent}</span>
                   </div>
 
@@ -338,16 +346,19 @@ export default function PolaroidPage({ siteData }: PolaroidPageProps) {
                 onChange={(event) => setCaption(event.target.value)}
                 placeholder="You + Me = Us"
               />
+
               <span>{caption.length}/50</span>
             </div>
 
             <label className="date-toggle">
               <span>▣ Date Stamp</span>
+
               <input
                 type="checkbox"
                 checked={showDate}
                 onChange={(event) => setShowDate(event.target.checked)}
               />
+
               <b />
             </label>
           </div>
@@ -378,25 +389,34 @@ export default function PolaroidPage({ siteData }: PolaroidPageProps) {
           </div>
 
           <div className="memory-strip-list">
-            {allPhotos.slice(0, 8).map((item, index) => (
-              <button
-                key={item.id}
-                type="button"
-                className={`memory-strip-card rotate-${(index % 4) + 1} ${
-                  selectedPhoto?.id === item.id ? "active" : ""
-                }`}
-                onClick={() => handleSelectPhoto(item)}
-              >
-                <img src={item.imageUrl} alt={item.caption || "Memory"} />
-                <span>{item.caption || "Lovely Memory"} ♡</span>
-              </button>
-            ))}
+            {allPhotos.length > 0 ? (
+              allPhotos.slice(0, 8).map((item, index) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={`memory-strip-card rotate-${(index % 4) + 1} ${
+                    selectedPhoto?.id === item.id ? "active" : ""
+                  }`}
+                  onClick={() => handleSelectPhoto(item)}
+                >
+                  <img src={item.imageUrl} alt={item.caption || "Memory"} />
+
+                  <span>{item.caption || "Lovely Memory"} ♡</span>
+                </button>
+              ))
+            ) : (
+              <div className="memory-strip-empty">
+                <strong>No photos yet ♡</strong>
+                <p>Upload your first photo to create a Polaroid.</p>
+              </div>
+            )}
           </div>
 
           <button
             type="button"
             className="memory-strip-next"
             onClick={handleNextPhoto}
+            disabled={!allPhotos.length}
           >
             ›
           </button>
@@ -422,4 +442,8 @@ function formatDisplayDate(value?: string) {
     day: "numeric",
     year: "numeric",
   });
+}
+
+function removeFileExtension(fileName: string) {
+  return fileName.replace(/\.[^/.]+$/, "");
 }
