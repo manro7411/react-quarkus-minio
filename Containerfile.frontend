@@ -1,4 +1,3 @@
-cat > Containerfile.frontend <<'EOF'
 FROM node:20-alpine
 
 WORKDIR /app
@@ -7,6 +6,13 @@ COPY user-portal/package*.json ./
 RUN npm ci
 
 COPY user-portal/ ./
+
+ARG VITE_API_BASE_URL
+ARG VITE_SITE_KEY
+
+ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
+ENV VITE_SITE_KEY=$VITE_SITE_KEY
+
 RUN npm run build
 
 EXPOSE 5173

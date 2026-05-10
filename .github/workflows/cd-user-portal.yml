@@ -1,4 +1,4 @@
-name: CD Frontend
+name: CD User Portal
 
 on:
   push:
@@ -11,11 +11,11 @@ on:
 
 env:
   FRONTEND_IMAGE: ghcr.io/manro7411/react-quarkus-minio-user-portal
-
+  CONTAINER_NAME: user-portal
 
 jobs:
   build-and-deploy-frontend:
-    name: Build and Deploy Frontend Only
+    name: Build and Deploy User Portal
     runs-on: ubuntu-latest
 
     permissions:
@@ -38,6 +38,8 @@ jobs:
       - name: Build frontend image
         run: |
           podman build \
+            --build-arg VITE_API_BASE_URL=https://api.n9ne.cc \
+            --build-arg VITE_SITE_KEY=panpan \
             -t $FRONTEND_IMAGE:${{ github.sha }} \
             -t $FRONTEND_IMAGE:latest \
             -f Containerfile.frontend .
@@ -55,18 +57,21 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
             set -e
-            
-            echo "${{ secrets.GHCR_TOKEN }}" | podman login ghcr.io -u manro7411 --password-stdin
-            podman pull ghcr.io/manro7411/react-quarkus-minio-frontend:latest
 
-            podman stop react-quarkus-minio-frontend || true
-            
-            podman rm react-quarkus-minio-frontend || true
+            IMAGE="ghcr.io/manro7411/react-quarkus-minio-user-portal:latest"
+            CONTAINER_NAME="user-portal"
+
+            echo "${{ secrets.GHCR_TOKEN }}" | podman login ghcr.io -u manro7411 --password-stdin
+
+            podman pull $IMAGE
+
+            podman stop $CONTAINER_NAME || true
+            podman rm $CONTAINER_NAME || true
 
             podman run -d \
-              --name user-portal \
+              --name $CONTAINER_NAME \
               --restart=always \
               -p 0.0.0.0:5173:5173 \
-              ghcr.io/manro7411/react-quarkus-minio-frontend:latest
+              $IMAGE
 
-            podman ps --filter name=react-quarkus-minio-frontend
+            podman ps --filter name=$CONTAINER_NAME
