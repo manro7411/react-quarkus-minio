@@ -14,7 +14,7 @@ env:
   CONTAINER_NAME: user-portal
 
 jobs:
-  build-and-deploy-frontend:
+  build-and-deploy-user-portal:
     name: Build and Deploy User Portal
     runs-on: ubuntu-latest
 
@@ -35,21 +35,21 @@ jobs:
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u "${{ github.actor }}" --password-stdin
 
-      - name: Build frontend image
+      - name: Build user portal image
         run: |
           podman build \
-            --build-arg VITE_API_BASE_URL=https://api.n9ne.cc \
-            --build-arg VITE_SITE_KEY=panpan \
-            -t $FRONTEND_IMAGE:${{ github.sha }} \
-            -t $FRONTEND_IMAGE:latest \
+            --build-arg VITE_API_BASE_URL="${{ vars.VITE_API_BASE_URL }}" \
+            --build-arg VITE_SITE_KEY="${{ vars.VITE_SITE_KEY }}" \
+            -t "$FRONTEND_IMAGE:${{ github.sha }}" \
+            -t "$FRONTEND_IMAGE:latest" \
             -f Containerfile.frontend .
 
-      - name: Push frontend image
+      - name: Push user portal image
         run: |
-          podman push $FRONTEND_IMAGE:${{ github.sha }}
-          podman push $FRONTEND_IMAGE:latest
+          podman push "$FRONTEND_IMAGE:${{ github.sha }}"
+          podman push "$FRONTEND_IMAGE:latest"
 
-      - name: Deploy frontend to Ubuntu Server
+      - name: Deploy user portal to Ubuntu Server
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -63,16 +63,15 @@ jobs:
 
             echo "${{ secrets.GHCR_TOKEN }}" | podman login ghcr.io -u manro7411 --password-stdin
 
-            podman pull $IMAGE
+            podman pull "$IMAGE"
 
-            podman stop $CONTAINER_NAME || true
-            
-            podman rm $CONTAINER_NAME || true
+            podman stop "$CONTAINER_NAME" || true
+            podman rm "$CONTAINER_NAME" || true
 
             podman run -d \
-              --name $CONTAINER_NAME \
+              --name "$CONTAINER_NAME" \
               --restart=always \
               -p 0.0.0.0:5173:5173 \
-              $IMAGE
+              "$IMAGE"
 
-            podman ps --filter name=$CONTAINER_NAME
+            podman ps --filter name="$CONTAINER_NAME"
