@@ -64,7 +64,6 @@ jobs:
             echo "${{ secrets.GHCR_TOKEN }}" | podman login ghcr.io -u manro7411 --password-stdin
 
             podman network exists "$NETWORK_NAME" || podman network create "$NETWORK_NAME"
-
             podman pull "$IMAGE"
 
             podman stop "$CONTAINER_NAME" || true

@@ -5,12 +5,10 @@ WORKDIR /workspace
 
 COPY proposal-generator/pom.xml ./proposal-generator/pom.xml
 COPY proposal-generator/src ./proposal-generator/src
-COPY proposal-generator/.mvn ./proposal-generator/.mvn
-COPY proposal-generator/mvnw ./proposal-generator/mvnw
 
 WORKDIR /workspace/proposal-generator
 
-RUN chmod +x ./mvnw && ./mvnw package -DskipTests
+RUN mvn package -DskipTests
 
 
 # ---------- Runtime stage ----------
