@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport
+        xmlns="http://jasperreports.sourceforge.net/jasperreports"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+        name="love_proposal"
+        language="java"
+        pageWidth="595"
+        pageHeight="842"
+        orientation="Portrait"
+        columnWidth="595"
+        leftMargin="0"
+        rightMargin="0"
+        topMargin="0"
+        bottomMargin="0">
+
+    <parameter name="BACKGROUND_IMAGE" class="java.lang.String"/>
+    <parameter name="ASKED_BY" class="java.lang.String"/>
+    <parameter name="ACCEPTED_BY" class="java.lang.String"/>
+    <parameter name="ACCEPTED_DAY" class="java.lang.String"/>
+    <parameter name="ACCEPTED_MONTH" class="java.lang.String"/>
+    <parameter name="ACCEPTED_YEAR" class="java.lang.String"/>
+    <parameter name="DOCUMENT_CODE" class="java.lang.String"/>
+
+    <background>
+        <band height="842">
+            <image scaleImage="FillFrame">
+                <reportElement x="0" y="0" width="595" height="842"/>
+                <imageExpression><![CDATA[$P{BACKGROUND_IMAGE}]]></imageExpression>
+            </image>
+        </band>
+    </background>
+
+    <title>
+        <band height="842">
+
+            <!-- Asked by signature -->
+            <textField>
+                <reportElement x="90" y="724" width="185" height="28" forecolor="#3B252B"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Great Vibes" size="18"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{ASKED_BY}]]></textFieldExpression>
+            </textField>
+
+            <!-- Accepted by signature -->
+            <textField>
+                <reportElement x="355" y="724" width="195" height="28" forecolor="#3B252B"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Great Vibes" size="18"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{ACCEPTED_BY}]]></textFieldExpression>
+            </textField>
+
+            <!-- Day -->
+            <textField>
+                <reportElement x="220" y="765" width="40" height="22" forecolor="#3B252B"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Playfair Display" size="11" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{ACCEPTED_DAY}]]></textFieldExpression>
+            </textField>
+
+            <!-- Month -->
+            <textField>
+                <reportElement x="290" y="765" width="40" height="22" forecolor="#3B252B"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Playfair Display" size="11" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{ACCEPTED_MONTH}]]></textFieldExpression>
+            </textField>
+
+            <!-- Year -->
+            <textField>
+                <reportElement x="350" y="765" width="58" height="22" forecolor="#3B252B"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Playfair Display" size="11" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{ACCEPTED_YEAR}]]></textFieldExpression>
+            </textField>
+
+            <!-- Document code -->
+            <textField>
+                <reportElement x="185" y="792" width="225" height="10" forecolor="#C88D98"/>
+                <textElement textAlignment="Center">
+                    <font fontName="Poppins" size="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{DOCUMENT_CODE}]]></textFieldExpression>
+            </textField>
+
+        </band>
+    </title>
+</jasperReport>

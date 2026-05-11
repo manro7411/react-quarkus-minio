@@ -1,0 +1,32 @@
+# ---------- Build stage ----------
+FROM maven:3.9.9-eclipse-temurin-21 AS build
+
+WORKDIR /workspace
+
+COPY proposal-generator/pom.xml ./proposal-generator/pom.xml
+COPY proposal-generator/src ./proposal-generator/src
+COPY proposal-generator/.mvn ./proposal-generator/.mvn
+COPY proposal-generator/mvnw ./proposal-generator/mvnw
+
+WORKDIR /workspace/proposal-generator
+
+RUN chmod +x ./mvnw && ./mvnw package -DskipTests
+
+
+# ---------- Runtime stage ----------
+FROM eclipse-temurin:21-jre
+
+WORKDIR /app
+
+ENV JAVA_OPTS="-Djava.net.preferIPv4Stack=true"
+ENV QUARKUS_HTTP_HOST=0.0.0.0
+ENV QUARKUS_HTTP_PORT=9080
+
+COPY --from=build /workspace/proposal-generator/target/quarkus-app/lib/ ./lib/
+COPY --from=build /workspace/proposal-generator/target/quarkus-app/*.jar ./
+COPY --from=build /workspace/proposal-generator/target/quarkus-app/app/ ./app/
+COPY --from=build /workspace/proposal-generator/target/quarkus-app/quarkus/ ./quarkus/
+
+EXPOSE 9080
+
+CMD ["sh", "-c", "java $JAVA_OPTS -jar quarkus-run.jar"]

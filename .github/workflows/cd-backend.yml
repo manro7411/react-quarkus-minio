@@ -58,7 +58,6 @@ jobs:
             echo "${{ secrets.GHCR_TOKEN }}" | podman login ghcr.io -u manro7411 --password-stdin
             
             podman pull ghcr.io/manro7411/react-quarkus-minio-backend:latest
-
             podman stop react-quarkus-minio-backend || true
             
             podman rm react-quarkus-minio-backend || true
@@ -68,6 +67,9 @@ jobs:
             --restart=always \
             -p 0.0.0.0:8080:8080 \
             --env-file /app/react-quarkus-minio/backend/app.env \
+            -e PROPOSAL_GENERATOR_URL="http://proposal-generator:9080" \
+            -e PROPOSAL_PUBLIC_BASE_URL="${{ vars.PROPOSAL_PUBLIC_BASE_URL }}" \
+            -e PROPOSAL_SOURCE_SERVICE="backend-application" \
             -v /app/react-quarkus-minio/logs/backend:/app/logs \
             ghcr.io/manro7411/react-quarkus-minio-backend:latest
 

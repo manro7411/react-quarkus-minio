@@ -80,6 +80,11 @@
             <version>8.5.17</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-rest-client-jackson</artifactId>
+        </dependency>
+
         <!-- BCrypt password hashing -->
         <dependency>
             <groupId>org.mindrot</groupId>

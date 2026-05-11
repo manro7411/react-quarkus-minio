@@ -1,28 +1,168 @@
-2026-05-10 21:29:47.647 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/appdb (PostgreSQL 16.13)
-2026-05-10 21:29:47.831 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 8 migrations (execution time 00:00.056s)
-2026-05-10 21:29:48.116 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 8
-2026-05-10 21:29:48.131 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
-2026-05-10 21:29:48.381 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 2.633s. Listening on: http://0.0.0.0:8080
-2026-05-10 21:29:48.382 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2026-05-10 21:29:48.382 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
-2026-05-10 21:29:48.382 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Live reload total time: 2.842s 
-2026-05-10 21:30:28.908 WARN  [io.sma.jwt.config] (vert.x-eventloop-thread-1) SRJWT03007: Public key is configured but either the secret key or key location are also configured and will be ignored
-2026-05-10 21:31:01.114 WARN  [com.api.com.exc.GlobalExceptionMapper] (vert.x-eventloop-thread-1) API error, status=404, path=/api/admin/memories , message=HTTP 404 Not Found
-2026-05-10 21:48:00.508 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 21:48:00.512 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 21:48:00.540 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 21:48:00.584 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 21:48:00.598 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 21:48:00.628 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 21:48:00.673 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 21:48:00.686 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 21:48:00.724 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching full public site from DB, siteKey=panpan
-2026-05-10 21:48:00.725 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public site from DB, siteKey=panpan
-2026-05-10 21:48:00.737 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public hero from DB, siteKey=panpan
-2026-05-10 21:48:00.763 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public countdown from DB, siteKey=panpan
-2026-05-10 21:48:00.775 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public memories from DB, siteKey=panpan
-2026-05-10 21:48:00.798 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public gallery from DB, siteKey=panpan
-2026-05-10 21:48:00.824 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public love letter from DB, siteKey=panpan
-2026-05-10 21:48:00.838 INFO  [com.api.pub.ser.PublicSiteService] (executor-thread-1) Fetching public final surprise from DB, siteKey=panpan
-2026-05-10 21:53:51.658 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-2) Restarting quarkus due to changes in AdminMemoryController.class.
-2026-05-10 21:53:51.699 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio stopped in 0.039s
+2026-05-11 21:20:44.223 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/appdb (PostgreSQL 16.13)
+2026-05-11 21:20:44.452 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 8 migrations (execution time 00:00.082s)
+2026-05-11 21:20:44.783 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 8
+2026-05-11 21:20:44.799 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
+2026-05-11 21:20:45.507 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 2.803s. Listening on: http://localhost:8080
+2026-05-11 21:20:45.508 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2026-05-11 21:20:45.508 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-client, rest-client-jackson, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
+2026-05-11 21:20:45.509 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Live reload total time: 2.825s 
+2026-05-11 21:20:48.444 WARN  [io.sma.jwt.config] (vert.x-eventloop-thread-1) SRJWT03007: Public key is configured but either the secret key or key location are also configured and will be ignored
+2026-05-11 21:20:48.517 ERROR [com.api.com.exc.GlobalExceptionMapper] (executor-thread-1) Unhandled API error: jakarta.ws.rs.ProcessingException: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/127.0.0.1:9080
+	at org.jboss.resteasy.reactive.client.handlers.ClientSendRequestHandler$2.accept(ClientSendRequestHandler.java:249)
+	at org.jboss.resteasy.reactive.client.handlers.ClientSendRequestHandler$2.accept(ClientSendRequestHandler.java:241)
+	at io.smallrye.context.impl.wrappers.SlowContextualConsumer.accept(SlowContextualConsumer.java:21)
+	at io.smallrye.mutiny.helpers.UniCallbackSubscriber.onFailure(UniCallbackSubscriber.java:62)
+	at io.smallrye.mutiny.operators.uni.UniOperatorProcessor.onFailure(UniOperatorProcessor.java:55)
+	at org.jboss.resteasy.reactive.client.AsyncResultUni.lambda$subscribe$1(AsyncResultUni.java:37)
+	at io.vertx.core.impl.future.FutureImpl$4.onFailure(FutureImpl.java:188)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitFailure$1(FutureBase.java:75)
+	at io.vertx.core.impl.ContextImpl.execute(ContextImpl.java:312)
+	at io.vertx.core.impl.DuplicatedContext.execute(DuplicatedContext.java:168)
+	at io.vertx.core.impl.future.FutureBase.emitFailure(FutureBase.java:72)
+	at io.vertx.core.impl.future.FutureImpl.tryFail(FutureImpl.java:278)
+	at io.vertx.core.http.impl.HttpClientImpl.lambda$doRequest$4(HttpClientImpl.java:398)
+	at io.vertx.core.net.impl.pool.Endpoint.lambda$getConnection$0(Endpoint.java:52)
+	at io.vertx.core.http.impl.SharedClientHttpStreamEndpoint$Request.handle(SharedClientHttpStreamEndpoint.java:162)
+	at io.vertx.core.http.impl.SharedClientHttpStreamEndpoint$Request.handle(SharedClientHttpStreamEndpoint.java:123)
+	at io.vertx.core.impl.ContextImpl.emit(ContextImpl.java:342)
+	at io.vertx.core.impl.ContextImpl.emit(ContextImpl.java:335)
+	at io.vertx.core.net.impl.pool.SimpleConnectionPool$ConnectFailed$1.run(SimpleConnectionPool.java:380)
+	at io.vertx.core.net.impl.pool.Task.runNextTasks(Task.java:43)
+	at io.vertx.core.net.impl.pool.CombinerExecutor.submit(CombinerExecutor.java:91)
+	at io.vertx.core.net.impl.pool.SimpleConnectionPool.execute(SimpleConnectionPool.java:244)
+	at io.vertx.core.net.impl.pool.SimpleConnectionPool.lambda$connect$2(SimpleConnectionPool.java:258)
+	at io.vertx.core.http.impl.SharedClientHttpStreamEndpoint.lambda$connect$2(SharedClientHttpStreamEndpoint.java:104)
+	at io.vertx.core.impl.future.FutureImpl$4.onFailure(FutureImpl.java:188)
+	at io.vertx.core.impl.future.FutureBase.emitFailure(FutureBase.java:81)
+	at io.vertx.core.impl.future.FutureImpl.tryFail(FutureImpl.java:278)
+	at io.vertx.core.impl.future.Composition$1.onFailure(Composition.java:66)
+	at io.vertx.core.impl.future.FutureBase.emitFailure(FutureBase.java:81)
+	at io.vertx.core.impl.future.FailedFuture.addListener(FailedFuture.java:98)
+	at io.vertx.core.impl.future.Composition.onFailure(Composition.java:55)
+	at io.vertx.core.impl.future.FutureBase.emitFailure(FutureBase.java:81)
+	at io.vertx.core.impl.future.FutureImpl.tryFail(FutureImpl.java:278)
+	at io.vertx.core.impl.ContextImpl.emit(ContextImpl.java:342)
+	at io.vertx.core.impl.ContextImpl.emit(ContextImpl.java:335)
+	at io.vertx.core.net.impl.NetClientImpl.failed(NetClientImpl.java:351)
+	at io.vertx.core.net.impl.NetClientImpl.lambda$connectInternal2$6(NetClientImpl.java:323)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:604)
+	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:571)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:506)
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:650)
+	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:643)
+	at io.netty.util.concurrent.DefaultPromise.setFailure(DefaultPromise.java:124)
+	at io.vertx.core.net.impl.ChannelProvider.lambda$handleConnect$0(ChannelProvider.java:166)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:604)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:597)
+	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:573)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:506)
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:650)
+	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:643)
+	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:132)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:326)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:342)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/127.0.0.1:9080
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+2026-05-12 00:01:13.068 ERROR [io.qua.dep.dev.JavaCompilationProvider] (vert.x-worker-thread-4) class PublicGenerateProposalResponse is public, should be declared in a file named PublicGenerateProposalResponse.java, line 3 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/dto/GenerateProposalResponse.java
+2026-05-12 00:01:13.073 ERROR [io.qua.dep.dev.JavaCompilationProvider] (vert.x-worker-thread-4) cannot find symbol
+  symbol:   variable referenceNo
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 25 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:13.075 ERROR [io.qua.dep.dev.JavaCompilationProvider] (vert.x-worker-thread-4) cannot find symbol
+  symbol:   variable referenceNo
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 28 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:13.080 ERROR [io.qua.dep.dev.JavaCompilationProvider] (vert.x-worker-thread-4) cannot find symbol
+  symbol:   variable sizeBytes
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 31 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:13.083 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-4) File change detected: /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/resources/application.properties
+2026-05-12 00:01:17.102 ERROR [io.qua.dep.dev.JavaCompilationProvider] (vert.x-worker-thread-4) class PublicGenerateProposalResponse is public, should be declared in a file named PublicGenerateProposalResponse.java, line 3 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/dto/GenerateProposalResponse.java
+2026-05-12 00:01:17.104 ERROR [io.qua.dep.dev.JavaCompilationProvider] (vert.x-worker-thread-4) cannot find symbol
+  symbol:   variable referenceNo
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 25 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:17.104 ERROR [io.qua.dep.dev.JavaCompilationProvider] (vert.x-worker-thread-4) cannot find symbol
+  symbol:   variable referenceNo
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 28 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:17.105 ERROR [io.qua.dep.dev.JavaCompilationProvider] (vert.x-worker-thread-4) cannot find symbol
+  symbol:   variable sizeBytes
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 31 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:31.285 ERROR [io.qua.dep.dev.JavaCompilationProvider] (vert.x-worker-thread-4) class PublicGenerateProposalResponse is public, should be declared in a file named PublicGenerateProposalResponse.java, line 3 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/dto/GenerateProposalResponse.java
+2026-05-12 00:01:31.287 ERROR [io.qua.dep.dev.JavaCompilationProvider] (vert.x-worker-thread-4) cannot find symbol
+  symbol:   variable referenceNo
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 25 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:31.288 ERROR [io.qua.dep.dev.JavaCompilationProvider] (vert.x-worker-thread-4) cannot find symbol
+  symbol:   variable referenceNo
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 28 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:31.288 ERROR [io.qua.dep.dev.JavaCompilationProvider] (vert.x-worker-thread-4) cannot find symbol
+  symbol:   variable sizeBytes
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 31 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:35.484 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Live reload disabled
+2026-05-12 00:01:35.485 INFO  [io.qua.test] (Aesh InputStream Reader) Test output enabled
+2026-05-12 00:01:35.487 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Live reload enabled
+2026-05-12 00:01:35.492 INFO  [io.qua.test] (Aesh InputStream Reader) Test output disabled
+2026-05-12 00:01:35.565 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Aesh InputStream Reader) class PublicGenerateProposalResponse is public, should be declared in a file named PublicGenerateProposalResponse.java, line 3 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/dto/GenerateProposalResponse.java
+2026-05-12 00:01:35.566 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Aesh InputStream Reader) cannot find symbol
+  symbol:   variable referenceNo
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 25 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:35.567 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Aesh InputStream Reader) cannot find symbol
+  symbol:   variable referenceNo
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 28 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:35.567 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Aesh InputStream Reader) cannot find symbol
+  symbol:   variable sizeBytes
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 31 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:35.572 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Instrumentation based restart enabled
+2026-05-12 00:01:35.573 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Live reload disabled
+2026-05-12 00:01:35.574 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Instrumentation based restart disabled
+2026-05-12 00:01:35.704 INFO  [io.qua.test] (Aesh InputStream Reader) Test output enabled
+2026-05-12 00:01:35.704 INFO  [io.qua.test] (Aesh InputStream Reader) Test output disabled
+2026-05-12 00:01:35.774 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Test Compile Timer) class PublicGenerateProposalResponse is public, should be declared in a file named PublicGenerateProposalResponse.java, line 3 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/dto/GenerateProposalResponse.java
+2026-05-12 00:01:35.777 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Test Compile Timer) cannot find symbol
+  symbol:   variable referenceNo
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 25 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:35.779 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Test Compile Timer) cannot find symbol
+  symbol:   variable referenceNo
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 28 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:35.780 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Test Compile Timer) cannot find symbol
+  symbol:   variable sizeBytes
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 31 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:35.850 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Aesh InputStream Reader) class PublicGenerateProposalResponse is public, should be declared in a file named PublicGenerateProposalResponse.java, line 3 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/dto/GenerateProposalResponse.java
+2026-05-12 00:01:35.851 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Aesh InputStream Reader) cannot find symbol
+  symbol:   variable referenceNo
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 25 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:35.852 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Aesh InputStream Reader) cannot find symbol
+  symbol:   variable referenceNo
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 28 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:35.852 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Aesh InputStream Reader) cannot find symbol
+  symbol:   variable sizeBytes
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 31 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:35.853 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Live reload enabled
+2026-05-12 00:01:35.953 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Aesh InputStream Reader) class PublicGenerateProposalResponse is public, should be declared in a file named PublicGenerateProposalResponse.java, line 3 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/dto/GenerateProposalResponse.java
+2026-05-12 00:01:35.954 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Aesh InputStream Reader) cannot find symbol
+  symbol:   variable referenceNo
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 25 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:35.954 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Aesh InputStream Reader) cannot find symbol
+  symbol:   variable referenceNo
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 28 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java
+2026-05-12 00:01:35.955 ERROR [io.qua.dep.dev.JavaCompilationProvider] (Aesh InputStream Reader) cannot find symbol
+  symbol:   variable sizeBytes
+  location: variable internalResponse of type com.api.proposal.dto.GenerateProposalResponse, line 31 in /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/java/com/api/proposal/service/ProposalService.java

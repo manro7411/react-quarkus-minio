@@ -1,12 +1,70 @@
-2026-05-10 11:31:04.798 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/appdb (PostgreSQL 16.13)
-2026-05-10 11:31:04.974 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 8 migrations (execution time 00:00.058s)
-2026-05-10 11:31:05.180 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 8
-2026-05-10 11:31:05.193 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
-2026-05-10 11:31:05.840 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 5.627s. Listening on: http://0.0.0.0:8080
-2026-05-10 11:31:05.842 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2026-05-10 11:31:05.842 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
-2026-05-10 11:31:22.687 WARN  [io.sma.jwt.config] (vert.x-eventloop-thread-0) SRJWT03007: Public key is configured but either the secret key or key location are also configured and will be ignored
-2026-05-10 11:32:01.350 INFO  [com.api.adm.ser.AdminMediaService] (executor-thread-1) Deleted media object from MinIO, id=015f33cf-7471-4889-a7a3-44df73ad32ed, bucket=n9ne-media, objectKey=user-portal/gallery/heart-icon-3346.png
-2026-05-10 11:32:01.355 INFO  [com.api.adm.ser.AdminMediaService] (executor-thread-1) Deleted media object from database, id=015f33cf-7471-4889-a7a3-44df73ad32ed, bucket=n9ne-media, objectKey=user-portal/gallery/heart-icon-3346.png
-2026-05-10 11:35:44.507 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Restarting quarkus due to changes in GlobalExceptionMapper.class, ApiErrorResponse.class.
-2026-05-10 11:35:44.534 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio stopped in 0.026s
+2026-05-11 21:16:36.529 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/appdb (PostgreSQL 16.13)
+2026-05-11 21:16:36.706 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 8 migrations (execution time 00:00.060s)
+2026-05-11 21:16:37.043 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 8
+2026-05-11 21:16:37.059 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
+2026-05-11 21:16:37.292 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 2.389s. Listening on: http://0.0.0.0:8080
+2026-05-11 21:16:37.292 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2026-05-11 21:16:37.292 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-client, rest-client-jackson, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
+2026-05-11 21:16:37.293 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-3) Live reload total time: 2.523s 
+2026-05-11 21:16:37.295 WARN  [io.sma.jwt.config] (vert.x-eventloop-thread-0) SRJWT03007: Public key is configured but either the secret key or key location are also configured and will be ignored
+2026-05-11 21:16:37.305 ERROR [com.api.com.exc.GlobalExceptionMapper] (executor-thread-1) Unhandled API error
+
+Exception in PublicProposalController.java:27
+	  25      @Produces(MediaType.TEXT_PLAIN)
+	  26      public Response testConnection() {
+	→ 27          String result = proposalHealthClient.testConnection();
+	  28  
+	  29          return Response.ok(result)
+
+
+
+Exception in PublicProposalController.java:27
+	  25      @Produces(MediaType.TEXT_PLAIN)
+	  26      public Response testConnection() {
+	→ 27          String result = proposalHealthClient.testConnection();
+	  28  
+	  29          return Response.ok(result)
+
+: java.lang.RuntimeException: Error injecting com.api.proposal.client.ProposalGeneratorRestClient com.api.proposal.client.ProposalHealthClient.proposalGeneratorRestClient
+	at com.api.proposal.client.ProposalHealthClient_Bean.create(Unknown Source)
+	at com.api.proposal.client.ProposalHealthClient_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch46(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at com.api.proposal.client.ProposalHealthClient_ClientProxy.arc$delegate(Unknown Source)
+	at com.api.proposal.client.ProposalHealthClient_ClientProxy.testConnection(Unknown Source)
+	at com.api.proposal.controller.PublicProposalController.testConnection(PublicProposalController.java:27)
+	at com.api.proposal.controller.PublicProposalController$quarkusrestinvoker$testConnection_2baf736703fb8688b2db5fc46fd59d4f8722cbda.invoke(Unknown Source)
+	at org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+	at io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
+	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.IllegalArgumentException: Unable to determine the proper baseUrl/baseUri. Consider registering using @RegisterRestClient(baseUri="someuri"), @RegisterRestClient(configKey="orkey"), or by adding 'quarkus.rest-client.proposal-generator.url' or 'quarkus.rest-client.proposal-generator.uri' to your Quarkus configuration
+	at io.quarkus.rest.client.reactive.runtime.RestClientCDIDelegateBuilder.configureBaseUrl(RestClientCDIDelegateBuilder.java:440)
+	at io.quarkus.rest.client.reactive.runtime.RestClientCDIDelegateBuilder.configureBuilder(RestClientCDIDelegateBuilder.java:83)
+	at io.quarkus.rest.client.reactive.runtime.RestClientCDIDelegateBuilder.build(RestClientCDIDelegateBuilder.java:78)
+	at io.quarkus.rest.client.reactive.runtime.RestClientCDIDelegateBuilder.createDelegate(RestClientCDIDelegateBuilder.java:59)
+	at io.quarkus.rest.client.reactive.runtime.RestClientReactiveCDIWrapperBase.constructDelegate(RestClientReactiveCDIWrapperBase.java:75)
+	at io.quarkus.rest.client.reactive.runtime.RestClientReactiveCDIWrapperBase.<init>(RestClientReactiveCDIWrapperBase.java:29)
+	at com.api.proposal.client.ProposalGeneratorRestClient$$CDIWrapper.<init>(Unknown Source)
+	at com.api.proposal.client.ProposalGeneratorRestClient$$CDIWrapper_ClientProxy.<init>(Unknown Source)
+	at com.api.proposal.client.ProposalGeneratorRestClient$$CDIWrapper_Bean.proxy(Unknown Source)
+	at com.api.proposal.client.ProposalGeneratorRestClient$$CDIWrapper_Bean.get(Unknown Source)
+	at com.api.proposal.client.ProposalGeneratorRestClient$$CDIWrapper_Bean.get(Unknown Source)
+	... 25 more
+
+2026-05-11 21:17:49.066 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-5) File change detected: /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/resources/application.properties
+2026-05-11 21:17:49.068 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-5) Restarting quarkus due to changes in application.properties.
+2026-05-11 21:17:49.097 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio stopped in 0.029s
