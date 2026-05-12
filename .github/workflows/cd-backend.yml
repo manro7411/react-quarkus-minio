@@ -11,6 +11,8 @@ on:
 
 env:
   BACKEND_IMAGE: ghcr.io/manro7411/react-quarkus-minio-backend
+  CONTAINER_NAME: backend-application
+  NETWORK_NAME: app-network
 
 jobs:
   build-and-deploy-backend:
@@ -37,14 +39,14 @@ jobs:
       - name: Build backend image
         run: |
           podman build \
-            -t $BACKEND_IMAGE:${{ github.sha }} \
-            -t $BACKEND_IMAGE:latest \
+            -t "$BACKEND_IMAGE:${{ github.sha }}" \
+            -t "$BACKEND_IMAGE:latest" \
             -f Containerfile .
 
       - name: Push backend image
         run: |
-          podman push $BACKEND_IMAGE:${{ github.sha }}
-          podman push $BACKEND_IMAGE:latest
+          podman push "$BACKEND_IMAGE:${{ github.sha }}"
+          podman push "$BACKEND_IMAGE:latest"
 
       - name: Deploy backend to Ubuntu Server
         uses: appleboy/ssh-action@v1.0.3
@@ -55,22 +57,29 @@ jobs:
           script: |
             set -e
 
+            IMAGE="ghcr.io/manro7411/react-quarkus-minio-backend:latest"
+            CONTAINER_NAME="backend-application"
+            NETWORK_NAME="app-network"
+
             echo "${{ secrets.GHCR_TOKEN }}" | podman login ghcr.io -u manro7411 --password-stdin
-            
-            podman pull ghcr.io/manro7411/react-quarkus-minio-backend:latest
-            podman stop react-quarkus-minio-backend || true
-            
-            podman rm react-quarkus-minio-backend || true
+
+            podman network exists "$NETWORK_NAME" || podman network create "$NETWORK_NAME"
+
+            podman pull "$IMAGE"
+
+            podman stop "$CONTAINER_NAME" || true
+            podman rm "$CONTAINER_NAME" || true
 
             podman run -d \
-            --name backend-application \
-            --restart=always \
-            -p 0.0.0.0:8080:8080 \
-            --env-file /app/react-quarkus-minio/backend/app.env \
-            -e PROPOSAL_GENERATOR_URL="http://proposal-generator:9080" \
-            -e PROPOSAL_PUBLIC_BASE_URL="${{ vars.PROPOSAL_PUBLIC_BASE_URL }}" \
-            -e PROPOSAL_SOURCE_SERVICE="backend-application" \
-            -v /app/react-quarkus-minio/logs/backend:/app/logs \
-            ghcr.io/manro7411/react-quarkus-minio-backend:latest
+              --name "$CONTAINER_NAME" \
+              --network "$NETWORK_NAME" \
+              --restart=always \
+              -p 0.0.0.0:8080:8080 \
+              --env-file /app/react-quarkus-minio/backend/app.env \
+              -e PROPOSAL_GENERATOR_URL="http://proposal-generator:9080" \
+              -e PROPOSAL_PUBLIC_BASE_URL="${{ vars.PROPOSAL_PUBLIC_BASE_URL }}" \
+              -e PROPOSAL_SOURCE_SERVICE="backend-application" \
+              -v /app/react-quarkus-minio/logs/backend:/app/logs \
+              "$IMAGE"
 
-            podman ps --filter name=react-quarkus-minio-backend
+            podman ps --filter name="$CONTAINER_NAME"

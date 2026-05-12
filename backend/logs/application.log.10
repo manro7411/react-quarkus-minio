@@ -1,8 +1,105 @@
-2026-05-11 21:15:11.417 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/appdb (PostgreSQL 16.13)
-2026-05-11 21:15:11.598 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 8 migrations (execution time 00:00.059s)
-2026-05-11 21:15:11.835 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 8
-2026-05-11 21:15:11.848 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
-2026-05-11 21:15:12.528 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 5.468s. Listening on: http://0.0.0.0:8080
-2026-05-11 21:15:12.529 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2026-05-11 21:15:12.529 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-client, rest-client-jackson, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
-2026-05-11 21:15:37.826 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio stopped in 0.026s
+2026-05-12 00:55:37.702 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/appdb (PostgreSQL 16.13)
+2026-05-12 00:55:37.909 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 8 migrations (execution time 00:00.068s)
+2026-05-12 00:55:38.170 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 8
+2026-05-12 00:55:38.192 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
+2026-05-12 00:55:38.884 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 6.057s. Listening on: http://0.0.0.0:8080
+2026-05-12 00:55:38.885 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2026-05-12 00:55:38.886 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-client, rest-client-jackson, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
+2026-05-12 00:55:41.596 WARN  [io.sma.jwt.config] (vert.x-eventloop-thread-1) SRJWT03007: Public key is configured but either the secret key or key location are also configured and will be ignored
+2026-05-12 00:55:41.625 ERROR [com.api.com.exc.GlobalExceptionMapper] (executor-thread-1) Unhandled API error
+
+Exception in ProposalService.java:44
+	  42  
+	  43      public Response download(String referenceNo) {
+	→ 44          return proposalGeneratorClient.downloadProposal(referenceNo);
+	  45      }
+	  46  
+
+
+
+Exception in PublicProposalController.java:53
+	  51      @Produces("application/pdf")
+	  52      public Response downloadProposal(@PathParam("referenceNo") String referenceNo) {
+	→ 53          Response generatorResponse = proposalService.download(referenceNo);
+	  54  
+	  55          if (generatorResponse.getStatus() >= 400) {
+
+
+
+Exception in ProposalService.java:44
+	  42  
+	  43      public Response download(String referenceNo) {
+	→ 44          return proposalGeneratorClient.downloadProposal(referenceNo);
+	  45      }
+	  46  
+
+
+
+Exception in PublicProposalController.java:53
+	  51      @Produces("application/pdf")
+	  52      public Response downloadProposal(@PathParam("referenceNo") String referenceNo) {
+	→ 53          Response generatorResponse = proposalService.download(referenceNo);
+	  54  
+	  55          if (generatorResponse.getStatus() >= 400) {
+
+: java.lang.RuntimeException: Error injecting com.api.proposal.client.ProposalGeneratorRestClient com.api.proposal.client.ProposalGeneratorClient.proposalGeneratorRestClient
+	at com.api.proposal.client.ProposalGeneratorClient_Bean.create(Unknown Source)
+	at com.api.proposal.client.ProposalGeneratorClient_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch76(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at com.api.proposal.client.ProposalGeneratorClient_ClientProxy.arc$delegate(Unknown Source)
+	at com.api.proposal.client.ProposalGeneratorClient_ClientProxy.downloadProposal(Unknown Source)
+	at com.api.proposal.service.ProposalService.download(ProposalService.java:44)
+	at com.api.proposal.service.ProposalService_ClientProxy.download(Unknown Source)
+	at com.api.proposal.controller.PublicProposalController.downloadProposal(PublicProposalController.java:53)
+	at com.api.proposal.controller.PublicProposalController$quarkusrestinvoker$downloadProposal_01a8232f2175819addb4bd8af03f831f05dc3fbf.invoke(Unknown Source)
+	at org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+	at io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
+	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.IllegalArgumentException: Unable to determine the proper baseUrl/baseUri. Consider registering using @RegisterRestClient(baseUri="someuri"), @RegisterRestClient(configKey="orkey"), or by adding 'quarkus.rest-client.Containerfile.proposal-generator-generator.url' or 'quarkus.rest-client.Containerfile.proposal-generator-generator.uri' to your Quarkus configuration
+	at io.quarkus.rest.client.reactive.runtime.RestClientCDIDelegateBuilder.configureBaseUrl(RestClientCDIDelegateBuilder.java:440)
+	at io.quarkus.rest.client.reactive.runtime.RestClientCDIDelegateBuilder.configureBuilder(RestClientCDIDelegateBuilder.java:83)
+	at io.quarkus.rest.client.reactive.runtime.RestClientCDIDelegateBuilder.build(RestClientCDIDelegateBuilder.java:78)
+	at io.quarkus.rest.client.reactive.runtime.RestClientCDIDelegateBuilder.createDelegate(RestClientCDIDelegateBuilder.java:59)
+	at io.quarkus.rest.client.reactive.runtime.RestClientReactiveCDIWrapperBase.constructDelegate(RestClientReactiveCDIWrapperBase.java:75)
+	at io.quarkus.rest.client.reactive.runtime.RestClientReactiveCDIWrapperBase.<init>(RestClientReactiveCDIWrapperBase.java:29)
+	at com.api.proposal.client.ProposalGeneratorRestClient$$CDIWrapper.<init>(Unknown Source)
+	at com.api.proposal.client.ProposalGeneratorRestClient$$CDIWrapper_ClientProxy.<init>(Unknown Source)
+	at com.api.proposal.client.ProposalGeneratorRestClient$$CDIWrapper_Bean.proxy(Unknown Source)
+	at com.api.proposal.client.ProposalGeneratorRestClient$$CDIWrapper_Bean.get(Unknown Source)
+	at com.api.proposal.client.ProposalGeneratorRestClient$$CDIWrapper_Bean.get(Unknown Source)
+	... 27 more
+
+2026-05-12 01:59:44.366 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-12 01:59:44.371 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-12 03:14:28.365 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-12 03:14:28.369 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-12 04:31:33.385 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-12 04:31:33.387 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-12 05:48:38.888 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-12 05:48:38.893 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-12 07:02:57.138 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-12 07:02:57.140 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-12 08:01:40.848 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-12 08:01:40.854 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-12 09:17:48.584 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-12 09:17:48.586 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-12 10:34:17.657 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-12 10:34:17.885 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-12 21:07:34.279 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) File change detected: /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/resources/application.properties
+2026-05-12 21:07:34.281 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Restarting quarkus due to changes in application.properties, ProposalGeneratorRestClient.class.
+2026-05-12 21:07:34.326 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio stopped in 0.044s

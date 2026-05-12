@@ -1,4 +1,48 @@
-2026-05-11 21:19:36.481 ERROR [io.qua.dep.dev.IsolatedDevModeMain] (vert.x-worker-thread-2) Failed to start quarkus: io.quarkus.dev.appstate.ApplicationStartException: java.lang.RuntimeException: Failed to start quarkus
+2026-05-12 21:10:54.178 ERROR [io.qua.run.Application] (Quarkus Main Thread) Failed to start application: java.lang.RuntimeException: Failed to start quarkus
+	at io.quarkus.runner.ApplicationImpl.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:112)
+	at io.quarkus.runtime.ApplicationLifecycleManager.run(ApplicationLifecycleManager.java:127)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:79)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:50)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:143)
+	at io.quarkus.runner.GeneratedMain.main(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at io.quarkus.runner.bootstrap.StartupActionImpl$1.run(StartupActionImpl.java:163)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.flywaydb.core.internal.exception.sqlExceptions.FlywaySqlUnableToConnectToDbException: Unable to obtain connection from database: FATAL: password authentication failed for user "postgres"
+----------------------------------------------------------------------------------------------------
+SQL State  : 28P01
+Error Code : 0
+Message    : FATAL: password authentication failed for user "postgres"
+
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:78)
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:76)
+	at org.flywaydb.core.FlywayExecutor.init(FlywayExecutor.java:273)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:118)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:187)
+	at io.quarkus.flyway.runtime.FlywayRecorder.doStartActions(FlywayRecorder.java:150)
+	at io.quarkus.runner.recorded.FlywayProcessor$startActions1575138505.deploy_0(Unknown Source)
+	at io.quarkus.runner.recorded.FlywayProcessor$startActions1575138505.deploy(Unknown Source)
+	... 11 more
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgres"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:778)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:234)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290)
+	at org.postgresql.Driver.makeConnection(Driver.java:448)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:225)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:664)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:645)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	... 1 more
+
+2026-05-12 21:10:54.178 ERROR [io.qua.dep.dev.IsolatedDevModeMain] (vert.x-worker-thread-2) Failed to start quarkus: io.quarkus.dev.appstate.ApplicationStartException: java.lang.RuntimeException: Failed to start quarkus
 	at io.quarkus.dev.appstate.ApplicationStateNotification.waitForApplicationStart(ApplicationStateNotification.java:63)
 	at io.quarkus.runner.bootstrap.StartupActionImpl.runMainClass(StartupActionImpl.java:189)
 	at io.quarkus.deployment.dev.IsolatedDevModeMain.restartApp(IsolatedDevModeMain.java:207)
@@ -31,18 +75,35 @@ Caused by: java.lang.RuntimeException: Failed to start quarkus
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at io.quarkus.runner.bootstrap.StartupActionImpl$1.run(StartupActionImpl.java:163)
 	... 1 more
-Caused by: jakarta.enterprise.inject.spi.DeploymentException: io.quarkus.runtime.configuration.ConfigurationException: Failed to load config value of type class java.lang.String for: proposal.generator.url
+Caused by: org.flywaydb.core.internal.exception.sqlExceptions.FlywaySqlUnableToConnectToDbException: Unable to obtain connection from database: FATAL: password authentication failed for user "postgres"
+----------------------------------------------------------------------------------------------------
+SQL State  : 28P01
+Error Code : 0
+Message    : FATAL: password authentication failed for user "postgres"
 
-	at io.quarkus.arc.runtime.ConfigRecorder.validateConfigProperties(ConfigRecorder.java:70)
-	at io.quarkus.runner.recorded.ConfigBuildStep$validateRuntimeConfigProperty1282080724.deploy_0(Unknown Source)
-	at io.quarkus.runner.recorded.ConfigBuildStep$validateRuntimeConfigProperty1282080724.deploy(Unknown Source)
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:78)
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:76)
+	at org.flywaydb.core.FlywayExecutor.init(FlywayExecutor.java:273)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:118)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:187)
+	at io.quarkus.flyway.runtime.FlywayRecorder.doStartActions(FlywayRecorder.java:150)
+	at io.quarkus.runner.recorded.FlywayProcessor$startActions1575138505.deploy_0(Unknown Source)
+	at io.quarkus.runner.recorded.FlywayProcessor$startActions1575138505.deploy(Unknown Source)
 	... 11 more
-	Suppressed: java.util.NoSuchElementException: SRCFG00014: The config property proposal.generator.url is required but it could not be found in any config source
-		at io.smallrye.config.SmallRyeConfig.convertValue(SmallRyeConfig.java:455)
-		at io.smallrye.config.inject.ConfigProducerUtil.getValue(ConfigProducerUtil.java:101)
-		at io.quarkus.arc.runtime.ConfigRecorder.validateConfigProperties(ConfigRecorder.java:60)
-		... 13 more
-Caused by: io.quarkus.runtime.configuration.ConfigurationException: Failed to load config value of type class java.lang.String for: proposal.generator.url
-
-	... 14 more
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgres"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:778)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:234)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290)
+	at org.postgresql.Driver.makeConnection(Driver.java:448)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:225)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:664)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:645)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	... 1 more
 
