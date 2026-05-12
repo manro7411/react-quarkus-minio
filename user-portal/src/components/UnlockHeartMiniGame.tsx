@@ -195,6 +195,7 @@ export default function UnlockHeartMiniGame({
 
         {revealed && (
           <ProposalModal
+            finalTitle={finalTitle}
             finalMessage={finalMessage}
             finalImageUrl={finalImageUrl}
             askedBy={askedBy}
@@ -333,6 +334,7 @@ function GameBoard({
 }
 
 type ProposalModalProps = {
+  finalTitle: string;
   finalMessage: string;
   finalImageUrl?: string;
   askedBy: string;

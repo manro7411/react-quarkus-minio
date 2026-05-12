@@ -62,6 +62,7 @@ jobs:
             CONTAINER_NAME="user-portal"
             echo "${{ secrets.GHCR_TOKEN }}" | podman login ghcr.io -u manro7411 --password-stdin
             podman pull "$IMAGE"
+            
             podman stop "$CONTAINER_NAME" || true
             podman rm "$CONTAINER_NAME" || true
 
