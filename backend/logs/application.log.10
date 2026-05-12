@@ -1,105 +1,107 @@
-2026-05-12 00:55:37.702 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/appdb (PostgreSQL 16.13)
-2026-05-12 00:55:37.909 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 8 migrations (execution time 00:00.068s)
-2026-05-12 00:55:38.170 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 8
-2026-05-12 00:55:38.192 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
-2026-05-12 00:55:38.884 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 6.057s. Listening on: http://0.0.0.0:8080
-2026-05-12 00:55:38.885 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2026-05-12 00:55:38.886 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-client, rest-client-jackson, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
-2026-05-12 00:55:41.596 WARN  [io.sma.jwt.config] (vert.x-eventloop-thread-1) SRJWT03007: Public key is configured but either the secret key or key location are also configured and will be ignored
-2026-05-12 00:55:41.625 ERROR [com.api.com.exc.GlobalExceptionMapper] (executor-thread-1) Unhandled API error
-
-Exception in ProposalService.java:44
-	  42  
-	  43      public Response download(String referenceNo) {
-	→ 44          return proposalGeneratorClient.downloadProposal(referenceNo);
-	  45      }
-	  46  
-
-
-
-Exception in PublicProposalController.java:53
-	  51      @Produces("application/pdf")
-	  52      public Response downloadProposal(@PathParam("referenceNo") String referenceNo) {
-	→ 53          Response generatorResponse = proposalService.download(referenceNo);
-	  54  
-	  55          if (generatorResponse.getStatus() >= 400) {
-
-
-
-Exception in ProposalService.java:44
-	  42  
-	  43      public Response download(String referenceNo) {
-	→ 44          return proposalGeneratorClient.downloadProposal(referenceNo);
-	  45      }
-	  46  
-
-
-
-Exception in PublicProposalController.java:53
-	  51      @Produces("application/pdf")
-	  52      public Response downloadProposal(@PathParam("referenceNo") String referenceNo) {
-	→ 53          Response generatorResponse = proposalService.download(referenceNo);
-	  54  
-	  55          if (generatorResponse.getStatus() >= 400) {
-
-: java.lang.RuntimeException: Error injecting com.api.proposal.client.ProposalGeneratorRestClient com.api.proposal.client.ProposalGeneratorClient.proposalGeneratorRestClient
-	at com.api.proposal.client.ProposalGeneratorClient_Bean.create(Unknown Source)
-	at com.api.proposal.client.ProposalGeneratorClient_Bean.create(Unknown Source)
-	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
-	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
-	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
-	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch76(Unknown Source)
-	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
-	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
-	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
-	at com.api.proposal.client.ProposalGeneratorClient_ClientProxy.arc$delegate(Unknown Source)
-	at com.api.proposal.client.ProposalGeneratorClient_ClientProxy.downloadProposal(Unknown Source)
-	at com.api.proposal.service.ProposalService.download(ProposalService.java:44)
-	at com.api.proposal.service.ProposalService_ClientProxy.download(Unknown Source)
-	at com.api.proposal.controller.PublicProposalController.downloadProposal(PublicProposalController.java:53)
-	at com.api.proposal.controller.PublicProposalController$quarkusrestinvoker$downloadProposal_01a8232f2175819addb4bd8af03f831f05dc3fbf.invoke(Unknown Source)
-	at org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
-	at io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
-	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
-	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
-	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
-	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
-	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
-	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
-	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
-	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+2026-05-12 21:07:37.180 ERROR [io.qua.run.Application] (Quarkus Main Thread) Failed to start application: java.lang.RuntimeException: Failed to start quarkus
+	at io.quarkus.runner.ApplicationImpl.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:112)
+	at io.quarkus.runtime.ApplicationLifecycleManager.run(ApplicationLifecycleManager.java:127)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:79)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:50)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:143)
+	at io.quarkus.runner.GeneratedMain.main(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at io.quarkus.runner.bootstrap.StartupActionImpl$1.run(StartupActionImpl.java:163)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: java.lang.IllegalArgumentException: Unable to determine the proper baseUrl/baseUri. Consider registering using @RegisterRestClient(baseUri="someuri"), @RegisterRestClient(configKey="orkey"), or by adding 'quarkus.rest-client.Containerfile.proposal-generator-generator.url' or 'quarkus.rest-client.Containerfile.proposal-generator-generator.uri' to your Quarkus configuration
-	at io.quarkus.rest.client.reactive.runtime.RestClientCDIDelegateBuilder.configureBaseUrl(RestClientCDIDelegateBuilder.java:440)
-	at io.quarkus.rest.client.reactive.runtime.RestClientCDIDelegateBuilder.configureBuilder(RestClientCDIDelegateBuilder.java:83)
-	at io.quarkus.rest.client.reactive.runtime.RestClientCDIDelegateBuilder.build(RestClientCDIDelegateBuilder.java:78)
-	at io.quarkus.rest.client.reactive.runtime.RestClientCDIDelegateBuilder.createDelegate(RestClientCDIDelegateBuilder.java:59)
-	at io.quarkus.rest.client.reactive.runtime.RestClientReactiveCDIWrapperBase.constructDelegate(RestClientReactiveCDIWrapperBase.java:75)
-	at io.quarkus.rest.client.reactive.runtime.RestClientReactiveCDIWrapperBase.<init>(RestClientReactiveCDIWrapperBase.java:29)
-	at com.api.proposal.client.ProposalGeneratorRestClient$$CDIWrapper.<init>(Unknown Source)
-	at com.api.proposal.client.ProposalGeneratorRestClient$$CDIWrapper_ClientProxy.<init>(Unknown Source)
-	at com.api.proposal.client.ProposalGeneratorRestClient$$CDIWrapper_Bean.proxy(Unknown Source)
-	at com.api.proposal.client.ProposalGeneratorRestClient$$CDIWrapper_Bean.get(Unknown Source)
-	at com.api.proposal.client.ProposalGeneratorRestClient$$CDIWrapper_Bean.get(Unknown Source)
-	... 27 more
+Caused by: org.flywaydb.core.internal.exception.sqlExceptions.FlywaySqlUnableToConnectToDbException: Unable to obtain connection from database: FATAL: password authentication failed for user "postgres"
+----------------------------------------------------------------------------------------------------
+SQL State  : 28P01
+Error Code : 0
+Message    : FATAL: password authentication failed for user "postgres"
 
-2026-05-12 01:59:44.366 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-12 01:59:44.371 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-12 03:14:28.365 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-12 03:14:28.369 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-12 04:31:33.385 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-12 04:31:33.387 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-12 05:48:38.888 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-12 05:48:38.893 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-12 07:02:57.138 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-12 07:02:57.140 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-12 08:01:40.848 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-12 08:01:40.854 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-12 09:17:48.584 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-12 09:17:48.586 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-12 10:34:17.657 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-12 10:34:17.885 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Closing connection in incorrect state VALIDATION
-2026-05-12 21:07:34.279 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) File change detected: /Users/sleanz/Desktop/react-quarkus-minio/backend/src/main/resources/application.properties
-2026-05-12 21:07:34.281 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Restarting quarkus due to changes in application.properties, ProposalGeneratorRestClient.class.
-2026-05-12 21:07:34.326 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio stopped in 0.044s
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:78)
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:76)
+	at org.flywaydb.core.FlywayExecutor.init(FlywayExecutor.java:273)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:118)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:187)
+	at io.quarkus.flyway.runtime.FlywayRecorder.doStartActions(FlywayRecorder.java:150)
+	at io.quarkus.runner.recorded.FlywayProcessor$startActions1575138505.deploy_0(Unknown Source)
+	at io.quarkus.runner.recorded.FlywayProcessor$startActions1575138505.deploy(Unknown Source)
+	... 11 more
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgres"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:778)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:234)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290)
+	at org.postgresql.Driver.makeConnection(Driver.java:448)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:225)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:664)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:645)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	... 1 more
+
+2026-05-12 21:07:37.180 ERROR [io.qua.dep.dev.IsolatedDevModeMain] (Aesh InputStream Reader) Failed to start quarkus: io.quarkus.dev.appstate.ApplicationStartException: java.lang.RuntimeException: Failed to start quarkus
+	at io.quarkus.dev.appstate.ApplicationStateNotification.waitForApplicationStart(ApplicationStateNotification.java:63)
+	at io.quarkus.runner.bootstrap.StartupActionImpl.runMainClass(StartupActionImpl.java:189)
+	at io.quarkus.deployment.dev.IsolatedDevModeMain.restartApp(IsolatedDevModeMain.java:207)
+	at io.quarkus.deployment.dev.IsolatedDevModeMain.restartCallback(IsolatedDevModeMain.java:188)
+	at io.quarkus.deployment.dev.RuntimeUpdatesProcessor.doScan(RuntimeUpdatesProcessor.java:565)
+	at io.quarkus.deployment.console.ConsoleStateManager.forceRestart(ConsoleStateManager.java:175)
+	at io.quarkus.deployment.console.ConsoleStateManager.lambda$installBuiltins$0(ConsoleStateManager.java:112)
+	at io.quarkus.deployment.console.ConsoleStateManager$1.accept(ConsoleStateManager.java:77)
+	at io.quarkus.deployment.console.ConsoleStateManager$1.accept(ConsoleStateManager.java:49)
+	at io.quarkus.deployment.console.AeshConsole.lambda$setup$1(AeshConsole.java:281)
+	at org.aesh.terminal.EventDecoder.accept(EventDecoder.java:118)
+	at org.aesh.terminal.EventDecoder.accept(EventDecoder.java:31)
+	at org.aesh.terminal.io.Decoder.write(Decoder.java:133)
+	at org.aesh.readline.tty.terminal.TerminalConnection.openBlocking(TerminalConnection.java:216)
+	at org.aesh.readline.tty.terminal.TerminalConnection.openBlocking(TerminalConnection.java:203)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.RuntimeException: Failed to start quarkus
+	at io.quarkus.runner.ApplicationImpl.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:112)
+	at io.quarkus.runtime.ApplicationLifecycleManager.run(ApplicationLifecycleManager.java:127)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:79)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:50)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:143)
+	at io.quarkus.runner.GeneratedMain.main(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at io.quarkus.runner.bootstrap.StartupActionImpl$1.run(StartupActionImpl.java:163)
+	... 1 more
+Caused by: org.flywaydb.core.internal.exception.sqlExceptions.FlywaySqlUnableToConnectToDbException: Unable to obtain connection from database: FATAL: password authentication failed for user "postgres"
+----------------------------------------------------------------------------------------------------
+SQL State  : 28P01
+Error Code : 0
+Message    : FATAL: password authentication failed for user "postgres"
+
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:78)
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:76)
+	at org.flywaydb.core.FlywayExecutor.init(FlywayExecutor.java:273)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:118)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:187)
+	at io.quarkus.flyway.runtime.FlywayRecorder.doStartActions(FlywayRecorder.java:150)
+	at io.quarkus.runner.recorded.FlywayProcessor$startActions1575138505.deploy_0(Unknown Source)
+	at io.quarkus.runner.recorded.FlywayProcessor$startActions1575138505.deploy(Unknown Source)
+	... 11 more
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgres"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:778)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:234)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290)
+	at org.postgresql.Driver.makeConnection(Driver.java:448)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:225)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:664)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:645)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	... 1 more
+

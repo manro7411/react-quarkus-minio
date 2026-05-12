@@ -20,8 +20,9 @@ import java.util.Map;
 @ApplicationScoped
 public class ProposalJasperService {
 
-    private static final String TEMPLATE_PATH = "/templates/love-Containerfile.proposal-generator.jrxml";
-    private static final String BACKGROUND_IMAGE_PATH = "/images/Containerfile.proposal-generator-bg.png";
+    private static final String TEMPLATE_PATH = "/templates/love-proposal.jrxml";
+    private static final String BACKGROUND_IMAGE_PATH = "/images/proposal-bg.png";
+
     private static final DateTimeFormatter REQUEST_DATE_FORMAT =
             DateTimeFormatter.ofPattern("ddMMyyyy");
 
@@ -31,7 +32,6 @@ public class ProposalJasperService {
             URL backgroundUrl = loadBackgroundImage();
 
             JasperReport report = JasperCompileManager.compileReport(templateStream);
-
             Map<String, Object> params = buildParams(request, backgroundUrl);
 
             JasperPrint print = JasperFillManager.fillReport(
@@ -42,7 +42,7 @@ public class ProposalJasperService {
 
             return JasperExportManager.exportReportToPdf(print);
         } catch (Exception e) {
-            throw new RuntimeException("Failed to generate Containerfile.proposal-generator PDF", e);
+            throw new RuntimeException("Failed to generate proposal PDF", e);
         }
     }
 
@@ -142,6 +142,6 @@ public class ProposalJasperService {
     }
 
     private String valueOrDefault(String value, String defaultValue) {
-        return value == null || value.isBlank() ? defaultValue : value;
+        return value == null || value.isBlank() ? defaultValue : value.trim();
     }
 }

@@ -60,10 +60,13 @@ jobs:
             IMAGE="ghcr.io/manro7411/react-quarkus-minio-proposal-generator:latest"
             CONTAINER_NAME="proposal-generator"
             NETWORK_NAME="app-network"
+            LOG_DIR="/app/react-quarkus-minio/logs/proposal-generator"
 
             echo "${{ secrets.GHCR_TOKEN }}" | podman login ghcr.io -u manro7411 --password-stdin
 
             podman network exists "$NETWORK_NAME" || podman network create "$NETWORK_NAME"
+            mkdir -p "$LOG_DIR"
+
             podman pull "$IMAGE"
 
             podman stop "$CONTAINER_NAME" || true
@@ -71,6 +74,7 @@ jobs:
 
             podman run -d \
               --name "$CONTAINER_NAME" \
+              --network "$NETWORK_NAME" \
               --restart=always \
               -e DB_USERNAME="${{ secrets.PROPOSAL_DB_USERNAME }}" \
               -e DB_PASSWORD="${{ secrets.PROPOSAL_DB_PASSWORD }}" \
@@ -81,6 +85,12 @@ jobs:
               -e MINIO_BUCKET="${{ vars.MINIO_BUCKET }}" \
               -e MINIO_PROPOSAL_PREFIX="${{ vars.MINIO_PROPOSAL_PREFIX }}" \
               -e MINIO_PUBLIC_BASE_URL="http://proposal-generator:9080/internal/proposals/files" \
+              -e LOG_FILE_ENABLED="true" \
+              -e LOG_FILE_PATH="/app/logs/proposal-generator.log" \
+              -e LOG_FILE_LEVEL="INFO" \
+              -e ROOT_LOG_LEVEL="INFO" \
+              -e PROPOSAL_LOG_LEVEL="DEBUG" \
+              -v "$LOG_DIR:/app/logs" \
               "$IMAGE"
 
             podman ps --filter name="$CONTAINER_NAME"
