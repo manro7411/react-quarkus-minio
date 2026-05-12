@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
-import type { FloatingHeart, ProposalSignature } from "../types/site";
-import { downloadProposalPdf } from "../utils/proposalPdf";
+import type { FloatingHeart } from "../types/site";
 
 const TOTAL_HEARTS = 5;
+const PROPOSAL_API_URL = "http://api.n9ne.cc/api/public/proposals/generate";
 
 type UnlockHeartMiniGameProps = {
   finalTitle: string;
@@ -10,6 +10,25 @@ type UnlockHeartMiniGameProps = {
   finalImageUrl?: string;
   onClose: () => void;
   onUnlocked: () => void;
+};
+
+type GenerateProposalRequest = {
+  siteKey: string;
+  title: string;
+  subtitle: string;
+  message: string;
+  askedBy: string;
+  acceptedBy: string;
+  acceptedDate: string;
+};
+
+type GenerateProposalResponse = {
+  referenceNo: string;
+  fileName: string;
+  bucketName?: string;
+  objectKey?: string;
+  downloadUrl: string;
+  sizeBytes?: number;
 };
 
 function createGameHearts(): FloatingHeart[] {
@@ -20,6 +39,13 @@ function createGameHearts(): FloatingHeart[] {
     { id: 4, top: "28%", left: "82%", collected: false },
     { id: 5, top: "60%", left: "78%", collected: false },
   ];
+}
+
+function formatAcceptedDate(date = new Date()) {
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = String(date.getFullYear());
+  return `${day}${month}${year}`;
 }
 
 export default function UnlockHeartMiniGame({
@@ -34,7 +60,10 @@ export default function UnlockHeartMiniGame({
   const [askedBy, setAskedBy] = useState("");
   const [acceptedBy, setAcceptedBy] = useState("");
   const [proposalAccepted, setProposalAccepted] = useState(false);
-  const [savingPdf, setSavingPdf] = useState(false);
+  const [savingProposal, setSavingProposal] = useState(false);
+  const [proposalError, setProposalError] = useState("");
+  const [generatedProposalUrl, setGeneratedProposalUrl] = useState("");
+  const [generatedReferenceNo, setGeneratedReferenceNo] = useState("");
 
   const collectedCount = useMemo(() => {
     return hearts.filter((heart) => heart.collected).length;
@@ -52,41 +81,66 @@ export default function UnlockHeartMiniGame({
   }
 
   function revealFinalSurprise() {
-    if (!allCollected) {
-      return;
-    }
-
+    if (!allCollected) return;
     setRevealed(true);
     onUnlocked();
   }
 
   async function acceptProposal() {
-    if (!askedBy.trim() || !acceptedBy.trim() || savingPdf) {
+    if (!askedBy.trim() || !acceptedBy.trim() || savingProposal) {
       return;
     }
 
-    const proposal: ProposalSignature = {
-      title: finalTitle || "Official Love Proposal",
-      message:
-        finalMessage || "This is my sweetest little promise from the heart.",
-      askedBy: askedBy.trim(),
-      acceptedBy: acceptedBy.trim(),
-      acceptedAt: new Date().toISOString(),
-    };
-
     try {
-      setSavingPdf(true);
+      setSavingProposal(true);
+      setProposalError("");
+      setGeneratedProposalUrl("");
+      setGeneratedReferenceNo("");
 
-      localStorage.setItem("love_proposal_signature", JSON.stringify(proposal));
-      await downloadProposalPdf(proposal);
+      const payload: GenerateProposalRequest = {
+        siteKey: "panpan",
+        title: "Official Love Proposal",
+        subtitle: "Will you be my girlfriend?",
+        message: "This memo is a sweet little promise from my heart.",
+        askedBy: askedBy.trim(),
+        acceptedBy: acceptedBy.trim(),
+        acceptedDate: formatAcceptedDate(new Date()),
+      };
+
+      const response = await fetch(PROPOSAL_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(
+          errorText || `Failed to generate proposal. Status ${response.status}`
+        );
+      }
+
+      const data: GenerateProposalResponse = await response.json();
+
+      if (!data.downloadUrl) {
+        throw new Error("Backend did not return downloadUrl.");
+      }
 
       setProposalAccepted(true);
+      setGeneratedReferenceNo(data.referenceNo || "");
+      setGeneratedProposalUrl(data.downloadUrl);
+
       onUnlocked();
     } catch (error) {
-      console.error("Failed to save proposal PDF:", error);
-      window.alert("Failed to save PDF. Please try again.");
+      console.error("Failed to generate proposal:", error);
+      setProposalError(
+        error instanceof Error ? error.message : "Failed to generate proposal."
+      );
     } finally {
-      setSavingPdf(false);
+      setSavingProposal(false);
     }
   }
 
@@ -146,7 +200,10 @@ export default function UnlockHeartMiniGame({
             askedBy={askedBy}
             acceptedBy={acceptedBy}
             proposalAccepted={proposalAccepted}
-            savingPdf={savingPdf}
+            savingProposal={savingProposal}
+            proposalError={proposalError}
+            generatedProposalUrl={generatedProposalUrl}
+            generatedReferenceNo={generatedReferenceNo}
             onClose={onClose}
             onAskedByChange={setAskedBy}
             onAcceptedByChange={setAcceptedBy}
@@ -281,7 +338,10 @@ type ProposalModalProps = {
   askedBy: string;
   acceptedBy: string;
   proposalAccepted: boolean;
-  savingPdf: boolean;
+  savingProposal: boolean;
+  proposalError: string;
+  generatedProposalUrl: string;
+  generatedReferenceNo: string;
   onClose: () => void;
   onAskedByChange: (value: string) => void;
   onAcceptedByChange: (value: string) => void;
@@ -294,13 +354,16 @@ function ProposalModal({
   askedBy,
   acceptedBy,
   proposalAccepted,
-  savingPdf,
+  savingProposal,
+  proposalError,
+  generatedProposalUrl,
+  generatedReferenceNo,
   onClose,
   onAskedByChange,
   onAcceptedByChange,
   onAcceptProposal,
 }: ProposalModalProps) {
-  const canAccept = askedBy.trim() && acceptedBy.trim() && !savingPdf;
+  const canAccept = askedBy.trim() && acceptedBy.trim() && !savingProposal;
 
   return (
     <div className="proposal-modal-backdrop">
@@ -393,7 +456,7 @@ function ProposalModal({
 
           <div className="proposal-date-row">
             <span>Date:</span>
-            <strong>{new Date().toLocaleDateString()}</strong>
+            <strong>{new Date().toLocaleDateString("en-GB")}</strong>
           </div>
 
           <button
@@ -402,8 +465,15 @@ function ProposalModal({
             disabled={!canAccept}
             onClick={onAcceptProposal}
           >
-            {savingPdf ? "Preparing PDF..." : "💌 Sign & Accept Proposal"}
+            {savingProposal ? "Generating Proposal..." : "💌 Sign & Accept Proposal"}
           </button>
+
+          {proposalError && (
+            <div className="proposal-error">
+              <strong>Generate failed</strong>
+              <p>{proposalError}</p>
+            </div>
+          )}
 
           {proposalAccepted && (
             <div className="proposal-success">
@@ -412,7 +482,32 @@ function ProposalModal({
               <p>
                 {acceptedBy} signed this lovely promise with {askedBy}.
               </p>
-              <small>Your PDF has been downloaded.</small>
+              {generatedReferenceNo && (
+                <small>Reference No: {generatedReferenceNo}</small>
+              )}
+            </div>
+          )}
+
+          {generatedProposalUrl && (
+            <div className="proposal-preview-section">
+              <h4>Generated Proposal Document</h4>
+
+              <div className="proposal-preview-actions">
+                <a
+                  href={generatedProposalUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="proposal-view-link"
+                >
+                  Open Proposal PDF
+                </a>
+              </div>
+
+              <iframe
+                src={generatedProposalUrl}
+                title="Generated Proposal PDF"
+                className="proposal-pdf-frame"
+              />
             </div>
           )}
 
