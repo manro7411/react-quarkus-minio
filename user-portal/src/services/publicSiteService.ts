@@ -50,10 +50,14 @@ export type PublicLoveLetter = {
 };
 
 export type PublicFinalSurprise = {
+  id: string;
+  mediaObjectId?: string | null;
   title: string;
   message: string;
   buttonText: string;
+  active: boolean;
   imageUrl?: string | null;
+  updatedAt?: string;
 };
 
 export type PublicFullSiteResponse = {

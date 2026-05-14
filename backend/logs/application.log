@@ -25,3 +25,7 @@
 2026-05-14 22:27:48.647 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
 2026-05-14 22:29:48.691 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
 2026-05-14 22:29:48.693 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:37:51.224 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:37:51.225 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:43:48.494 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:43:48.496 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION

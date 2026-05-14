@@ -64,7 +64,6 @@ jobs:
             podman pull "$IMAGE"
             
             podman stop "$CONTAINER_NAME" || true
-            
             podman rm "$CONTAINER_NAME" || true
 
             podman run -d \
