@@ -65,13 +65,14 @@ public class AdminSiteService {
 
     private SiteResponse toResponse(SiteProfile siteProfile) {
         return new SiteResponse(
-                siteProfile.id != null ? siteProfile.id.toString() : null,
-                siteProfile.siteKey,
-                siteProfile.title,
-                siteProfile.subtitle,
-                siteProfile.status,
-                siteProfile.createdAt != null ? siteProfile.createdAt.toString() : null,
-                siteProfile.updatedAt != null ? siteProfile.updatedAt.toString() : null
+                siteProfile != null ? siteProfile.getId() : null,
+                siteProfile != null ? siteProfile.getTitle() : "",
+                siteProfile != null ? siteProfile.getSubtitle() : "",
+                siteProfile != null ? siteProfile.getStatus() : "ACTIVE",
+                siteProfile != null ? siteProfile.getCreatedAt() : null,
+                siteProfile != null ? siteProfile.getUpdatedAt() : null,
+                siteProfile != null ? siteProfile.getSomething() : null,
+                true
         );
     }
 }
