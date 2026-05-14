@@ -21,11 +21,21 @@ type ToastState = {
   message: string;
 } | null;
 
-const DEFAULT_MENU = "Gallery";
+type AdminMenu =
+  | "Dashboard"
+  | "Memories"
+  | "Gallery"
+  | "Hero Section"
+  | "Countdown"
+  | "Love Letter"
+  | "Final Surprise"
+  | "Settings";
+
+const DEFAULT_MENU: AdminMenu = "Gallery";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(isLoggedIn());
-  const [activeMenu, setActiveMenu] = useState(DEFAULT_MENU);
+  const [activeMenu, setActiveMenu] = useState<AdminMenu>(DEFAULT_MENU);
   const [editingPhoto, setEditingPhoto] = useState<PhotoItem | null>(null);
   const [toast, setToast] = useState<ToastState>(null);
   const [galleryReloadKey, setGalleryReloadKey] = useState(0);
@@ -119,63 +129,7 @@ function App() {
     showToast("success", "Memories updated successfully");
   }
 
-  function renderMainContent() {
-    if (activeMenu === "Dashboard") {
-      return (
-        <div className="dashboard-grid">
-          <div className="dashboard-left-stack">
-            <MemoriesManager
-              onChanged={handleMemoryChanged}
-              onToast={showToast}
-            />
-
-            <GalleryManager
-              reloadKey={galleryReloadKey}
-              onEdit={setEditingPhoto}
-            />
-          </div>
-
-          <ManagementPanel />
-        </div>
-      );
-    }
-
-    if (activeMenu === "Memories") {
-      return (
-        <div className="single-content-grid">
-          <MemoriesManager
-            onChanged={handleMemoryChanged}
-            onToast={showToast}
-          />
-        </div>
-      );
-    }
-
-    if (activeMenu === "Gallery") {
-      return (
-        <div className="single-content-grid">
-          <GalleryManager
-            reloadKey={galleryReloadKey}
-            onEdit={setEditingPhoto}
-          />
-        </div>
-      );
-    }
-
-    if (
-      activeMenu === "Hero Section" ||
-      activeMenu === "Countdown" ||
-      activeMenu === "Love Letter" ||
-      activeMenu === "Final Surprise" ||
-      activeMenu === "Settings"
-    ) {
-      return (
-        <div className="management-only-grid">
-          <ManagementPanel />
-        </div>
-      );
-    }
-
+  function renderDashboardContent() {
     return (
       <div className="dashboard-grid">
         <div className="dashboard-left-stack">
@@ -190,9 +144,62 @@ function App() {
           />
         </div>
 
-        <ManagementPanel />
+        <ManagementPanel activeMenu={activeMenu} />
       </div>
     );
+  }
+
+  function renderMemoriesContent() {
+    return (
+      <div className="single-content-grid">
+        <MemoriesManager
+          onChanged={handleMemoryChanged}
+          onToast={showToast}
+        />
+      </div>
+    );
+  }
+
+  function renderGalleryContent() {
+    return (
+      <div className="single-content-grid">
+        <GalleryManager
+          reloadKey={galleryReloadKey}
+          onEdit={setEditingPhoto}
+        />
+      </div>
+    );
+  }
+
+  function renderManagementContent() {
+    return (
+      <div className="management-only-grid">
+        <ManagementPanel activeMenu={activeMenu} />
+      </div>
+    );
+  }
+
+  function renderMainContent() {
+    switch (activeMenu) {
+      case "Dashboard":
+        return renderDashboardContent();
+
+      case "Memories":
+        return renderMemoriesContent();
+
+      case "Gallery":
+        return renderGalleryContent();
+
+      case "Hero Section":
+      case "Countdown":
+      case "Love Letter":
+      case "Final Surprise":
+      case "Settings":
+        return renderManagementContent();
+
+      default:
+        return renderDashboardContent();
+    }
   }
 
   if (!isAuthenticated) {
@@ -203,7 +210,7 @@ function App() {
     <div className="admin-layout">
       <Sidebar
         activeMenu={activeMenu}
-        onMenuChange={setActiveMenu}
+        onMenuChange={(menu) => setActiveMenu(menu as AdminMenu)}
         onLogout={handleLogout}
       />
 

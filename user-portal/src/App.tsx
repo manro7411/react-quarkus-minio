@@ -10,6 +10,7 @@ import {
 import { useCountdown } from "./hooks/useCountdown";
 import { getDateTime } from "./utils/date";
 
+import FlowerIntro from "./components/FlowerIntro";
 import LoadingPage from "./components/LoadingPage";
 import UnavailablePage from "./components/UnavailablePage";
 import Navbar from "./components/Navbar";
@@ -23,6 +24,8 @@ import FinalSurpriseSection from "./components/FinalSurpriseSection";
 import UnlockHeartMiniGame from "./components/UnlockHeartMiniGame";
 import PolaroidPage from "./pages/PolaroidPage";
 
+const FLOWER_INTRO_STORAGE_KEY = "flower_intro_done";
+
 function App() {
   return (
     <BrowserRouter>
@@ -32,6 +35,10 @@ function App() {
 }
 
 function AppRoutes() {
+  const [introDone, setIntroDone] = useState(() => {
+    return sessionStorage.getItem(FLOWER_INTRO_STORAGE_KEY) === "true";
+  });
+
   const [siteData, setSiteData] = useState<PublicFullSiteResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -47,7 +54,9 @@ function AppRoutes() {
       const sortA = a.sortOrder ?? 0;
       const sortB = b.sortOrder ?? 0;
 
-      if (sortA !== sortB) return sortA - sortB;
+      if (sortA !== sortB) {
+        return sortA - sortB;
+      }
 
       return getDateTime(b.memoryDate) - getDateTime(a.memoryDate);
     });
@@ -58,7 +67,9 @@ function AppRoutes() {
       const sortA = a.sortOrder ?? 0;
       const sortB = b.sortOrder ?? 0;
 
-      if (sortA !== sortB) return sortA - sortB;
+      if (sortA !== sortB) {
+        return sortA - sortB;
+      }
 
       return getDateTime(b.photoDate) - getDateTime(a.photoDate);
     });
@@ -82,6 +93,15 @@ function AppRoutes() {
   useEffect(() => {
     loadSiteData();
   }, [loadSiteData]);
+
+  function handleEnterWebsite() {
+    sessionStorage.setItem(FLOWER_INTRO_STORAGE_KEY, "true");
+    setIntroDone(true);
+  }
+
+  if (!introDone) {
+    return <FlowerIntro onEnter={handleEnterWebsite} />;
+  }
 
   if (loading) {
     return <LoadingPage />;

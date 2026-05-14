@@ -9,6 +9,7 @@ public class SiteResponse {
     public String status;
     public String createdAt;
     public String updatedAt;
+    public boolean finalSurpriseEnabled;
 
     public SiteResponse() {
     }
@@ -20,7 +21,8 @@ public class SiteResponse {
             String subtitle,
             String status,
             String createdAt,
-            String updatedAt
+            String updatedAt,
+            boolean finalSurpriseEnabled
     ) {
         this.id = id;
         this.siteKey = siteKey;
@@ -29,5 +31,6 @@ public class SiteResponse {
         this.status = status;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+        this. finalSurpriseEnabled = finalSurpriseEnabled;
     }
 }

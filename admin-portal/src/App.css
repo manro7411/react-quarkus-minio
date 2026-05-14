@@ -3099,3 +3099,18 @@ input {
   flex: 0 0 auto !important;
   margin-top: auto !important;
 }
+.switch span {
+  background: #d1d5db;
+}
+
+.switch input:checked + span {
+  background: linear-gradient(135deg, #a855f7, #c084fc);
+}
+
+.switch input:checked + span::before {
+  transform: translateX(28px);
+}
+
+.switch input:not(:checked) + span {
+  background: #d1d5db;
+}

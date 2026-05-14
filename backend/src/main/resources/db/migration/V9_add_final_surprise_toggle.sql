@@ -1,0 +1,2 @@
+ALTER TABLE sites
+ADD COLUMN IF NOT EXISTS final_surprise_enabled BOOLEAN NOT NULL DEFAULT true;

@@ -21,7 +21,23 @@ type ToastState = {
 
 type SiteStatus = "ACTIVE" | "MAINTENANCE" | "INACTIVE";
 
-export default function ManagementPanel() {
+type ManagementMenu =
+  | "Dashboard"
+  | "Memories"
+  | "Gallery"
+  | "Hero Section"
+  | "Countdown"
+  | "Love Letter"
+  | "Final Surprise"
+  | "Settings";
+
+type ManagementPanelProps = {
+  activeMenu?: ManagementMenu | string;
+};
+
+export default function ManagementPanel({
+  activeMenu = "Dashboard",
+}: ManagementPanelProps) {
   const heroImageInputRef = useRef<HTMLInputElement | null>(null);
   const finalSurpriseImageInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -455,8 +471,10 @@ export default function ManagementPanel() {
     loadData();
   }, []);
 
-  return (
-    <aside className="right-panel">
+
+  function renderStatus() {
+    return (
+      <>
       {toast && (
         <div className={`admin-toast ${toast.type}`}>
           <span>{toast.type === "success" ? "✓" : "!"}</span>
@@ -480,7 +498,12 @@ export default function ManagementPanel() {
       )}
 
       {error && <div className="panel-error">{error}</div>}
+      </>
+    );
+  }
 
+  function renderAccessPanel() {
+    return (
       <section className="panel-card access-panel">
         <div className="panel-title">
           <h3>🚦 Website Access</h3>
@@ -538,7 +561,11 @@ export default function ManagementPanel() {
           </button>
         </div>
       </section>
+    );
+  }
 
+  function renderHeroPanel() {
+    return (
       <section className="panel-card">
         <div className="panel-title">
           <h3>☆ Hero Section Management</h3>
@@ -651,7 +678,11 @@ export default function ManagementPanel() {
           </button>
         </div>
       </section>
+    );
+  }
 
+  function renderCountdownPanel() {
+    return (
       <section className="panel-card">
         <div className="panel-title">
           <h3>▧ Countdown Management</h3>
@@ -734,7 +765,11 @@ export default function ManagementPanel() {
           Save Countdown
         </button>
       </section>
+    );
+  }
 
+  function renderLoveLetterPanel() {
+    return (
       <section className="panel-card">
         <div className="panel-title">
           <h3>♡ Love Letter Management</h3>
@@ -815,11 +850,19 @@ export default function ManagementPanel() {
           </button>
         </div>
       </section>
+    );
+  }
 
+  function renderFinalSurprisePanel() {
+    return (
       <section className="panel-card final-panel">
         <div className="panel-title">
           <h3>🎁 Final Surprise Management</h3>
-          <label className="switch">
+          <label
+            className={`switch ${
+              finalSurprise.active ? "switch-on" : "switch-off"
+            }`}
+          >
             <input
               type="checkbox"
               checked={finalSurprise.active}
@@ -832,6 +875,23 @@ export default function ManagementPanel() {
             />
             <span></span>
           </label>
+        </div>
+
+        <div
+          className={`final-surprise-access-preview ${
+            finalSurprise.active ? "enabled" : "disabled"
+          }`}
+        >
+          <strong>
+            {finalSurprise.active
+              ? "Final Surprise is open 💝"
+              : "Final Surprise is closed 🔒"}
+          </strong>
+          <p>
+            {finalSurprise.active
+              ? "Visitors can open the final surprise mini game."
+              : "Visitors will not be able to open the final surprise."}
+          </p>
         </div>
 
         <label>
@@ -918,7 +978,11 @@ export default function ManagementPanel() {
           </button>
         </div>
       </section>
+    );
+  }
 
+  function renderSettingsPanel() {
+    return (
       <section className="panel-card settings-card">
         <div className="panel-title">
           <h3>⚙ Settings</h3>
@@ -978,6 +1042,46 @@ export default function ManagementPanel() {
           Save Changes
         </button>
       </section>
+    );
+  }
+
+  function renderPanelByMenu() {
+    switch (activeMenu) {
+      case "Hero Section":
+        return renderHeroPanel();
+
+      case "Countdown":
+        return renderCountdownPanel();
+
+      case "Love Letter":
+        return renderLoveLetterPanel();
+
+      case "Final Surprise":
+        return renderFinalSurprisePanel();
+
+      case "Settings":
+        return renderSettingsPanel();
+
+      case "Dashboard":
+      default:
+        return (
+          <>
+            {renderAccessPanel()}
+            {renderHeroPanel()}
+            {renderCountdownPanel()}
+            {renderLoveLetterPanel()}
+            {renderFinalSurprisePanel()}
+            {renderSettingsPanel()}
+          </>
+        );
+    }
+  }
+
+  return (
+    <aside className="right-panel">
+      {renderStatus()}
+      {renderPanelByMenu()}
     </aside>
   );
+
 }

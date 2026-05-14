@@ -1,10 +1,11 @@
-2026-05-12 22:36:28.386 WARN  [io.qua.config] (Quarkus Main Thread) The "quarkus.log.file.enable" config property is deprecated and should not be used anymore.
-2026-05-12 22:36:28.389 WARN  [io.qua.config] (Quarkus Main Thread) The "quarkus.hibernate-orm.database.generation" config property is deprecated and should not be used anymore.
-2026-05-12 22:36:28.389 WARN  [io.qua.config] (Quarkus Main Thread) The "quarkus.log.console.enable" config property is deprecated and should not be used anymore.
-2026-05-12 22:36:28.698 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/proposal_db (PostgreSQL 16.13)
-2026-05-12 22:36:28.888 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 2 migrations (execution time 00:00.055s)
-2026-05-12 22:36:29.106 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 2
-2026-05-12 22:36:29.116 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
-2026-05-12 22:36:29.686 INFO  [io.quarkus] (Quarkus Main Thread) proposal-generator 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 3.781s. Listening on: http://0.0.0.0:9080
-2026-05-12 22:36:29.686 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2026-05-12 22:36:29.687 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-jackson, smallrye-context-propagation, vertx]
+2026-05-14 20:45:31.164 WARN  [io.qua.config] (Quarkus Main Thread) The "quarkus.log.file.enable" config property is deprecated and should not be used anymore.
+2026-05-14 20:45:31.165 WARN  [io.qua.config] (Quarkus Main Thread) The "quarkus.hibernate-orm.database.generation" config property is deprecated and should not be used anymore.
+2026-05-14 20:45:31.165 WARN  [io.qua.config] (Quarkus Main Thread) The "quarkus.log.console.enable" config property is deprecated and should not be used anymore.
+2026-05-14 20:45:31.306 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/proposal_db (PostgreSQL 16.13)
+2026-05-14 20:45:31.543 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 2 migrations (execution time 00:00.069s)
+2026-05-14 20:45:31.776 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 2
+2026-05-14 20:45:31.792 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
+2026-05-14 20:45:31.935 INFO  [io.quarkus] (Quarkus Main Thread) proposal-generator 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 1.668s. Listening on: http://0.0.0.0:9080
+2026-05-14 20:45:31.935 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2026-05-14 20:45:31.936 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-jackson, smallrye-context-propagation, vertx]
+2026-05-14 20:45:31.936 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Live reload total time: 1.994s 

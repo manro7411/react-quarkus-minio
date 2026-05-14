@@ -1,8 +1,27 @@
-2026-05-12 21:55:07.851 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/appdb (PostgreSQL 16.13)
-2026-05-12 21:55:08.049 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 8 migrations (execution time 00:00.073s)
-2026-05-12 21:55:08.277 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 8
-2026-05-12 21:55:08.291 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
-2026-05-12 21:55:09.222 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 7.228s. Listening on: http://0.0.0.0:8080
-2026-05-12 21:55:09.224 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2026-05-12 21:55:09.225 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-client, rest-client-jackson, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
-2026-05-12 21:55:28.064 WARN  [io.sma.jwt.config] (vert.x-eventloop-thread-1) SRJWT03007: Public key is configured but either the secret key or key location are also configured and will be ignored
+2026-05-14 20:45:23.883 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/appdb (PostgreSQL 16.13)
+2026-05-14 20:45:23.884 INFO  [org.fly.cor.int.res.ResourceNameValidator] (Quarkus Main Thread) 1 SQL migrations were detected but not run because they did not follow the filename convention.
+2026-05-14 20:45:23.885 INFO  [org.fly.cor.int.res.ResourceNameValidator] (Quarkus Main Thread) Set 'validateMigrationNaming' to true to fail fast and see a list of the invalid file names.
+2026-05-14 20:45:24.397 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 8 migrations (execution time 00:00.173s)
+2026-05-14 20:45:25.179 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 8
+2026-05-14 20:45:25.204 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
+2026-05-14 20:45:25.829 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 4.201s. Listening on: http://0.0.0.0:8080
+2026-05-14 20:45:25.829 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2026-05-14 20:45:25.829 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-client, rest-client-jackson, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
+2026-05-14 20:45:25.830 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Live reload total time: 4.279s 
+2026-05-14 20:45:25.830 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Live reload took more than 4 seconds, you may want to enable instrumentation based reload (quarkus.live-reload.instrumentation=true). This allows small changes to take effect without restarting Quarkus.
+2026-05-14 21:23:23.993 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 21:23:24.002 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 21:25:23.938 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 21:25:23.941 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:03:10.870 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:03:10.884 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:11:59.633 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:11:59.636 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:15:49.436 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:15:49.439 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:17:48.558 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:17:48.559 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:27:48.646 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:27:48.647 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:29:48.691 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:29:48.693 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION

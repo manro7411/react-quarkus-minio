@@ -7,4 +7,6 @@ public class SiteUpdateRequest {
     public String subtitle;
 
     public String status;
+
+    public Boolean finalSurpriseEnabled;
 }

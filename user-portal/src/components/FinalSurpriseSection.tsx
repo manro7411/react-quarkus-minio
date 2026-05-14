@@ -11,10 +11,14 @@ export default function FinalSurpriseSection({
   finalUnlocked,
   onOpenMiniGame,
 }: FinalSurpriseSectionProps) {
+  const isFinalSurpriseActive = finalSurprise?.active ?? false;
+
   return (
     <section
       id="surprise"
-      className="final-section"
+      className={`final-section ${
+        isFinalSurpriseActive ? "active" : "inactive"
+      }`}
       style={
         finalSurprise?.imageUrl
           ? {
@@ -29,19 +33,30 @@ export default function FinalSurpriseSection({
         <h2>
           {finalSurprise?.title || "Are you ready for your final surprise?"}
         </h2>
+
         <p>{finalSurprise?.message || "The best is yet to come..."}</p>
 
         <button
           className="primary-button"
           type="button"
           onClick={onOpenMiniGame}
+          disabled={!isFinalSurpriseActive}
         >
-          {finalUnlocked
-            ? "Open Final Surprise Again 💖"
-            : finalSurprise?.buttonText || "Reveal Final Surprise 🎁"}
+          {!isFinalSurpriseActive
+            ? "Final Surprise is closed 🔒"
+            : finalUnlocked
+              ? "Open Final Surprise Again 💖"
+              : finalSurprise?.buttonText || "Reveal Final Surprise 🎁"}
         </button>
 
-        {finalUnlocked && (
+        {!isFinalSurpriseActive && (
+          <div className="final-unlocked-note">
+            <span>🔒</span>
+            <p>Final Surprise is currently closed.</p>
+          </div>
+        )}
+
+        {isFinalSurpriseActive && finalUnlocked && (
           <div className="final-unlocked-note">
             <span>💖</span>
             <p>Your final surprise has been unlocked.</p>
