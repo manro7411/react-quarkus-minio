@@ -1,110 +1,35 @@
-2026-05-12 21:11:34.854 ERROR [io.qua.dep.dev.IsolatedDevModeMain] (vert.x-worker-thread-2) Failed to start quarkus: io.quarkus.dev.appstate.ApplicationStartException: java.lang.RuntimeException: Failed to start quarkus
-	at io.quarkus.dev.appstate.ApplicationStateNotification.waitForApplicationStart(ApplicationStateNotification.java:63)
-	at io.quarkus.runner.bootstrap.StartupActionImpl.runMainClass(StartupActionImpl.java:189)
-	at io.quarkus.deployment.dev.IsolatedDevModeMain.restartApp(IsolatedDevModeMain.java:207)
-	at io.quarkus.deployment.dev.IsolatedDevModeMain.restartCallback(IsolatedDevModeMain.java:188)
-	at io.quarkus.deployment.dev.RuntimeUpdatesProcessor.doScan(RuntimeUpdatesProcessor.java:565)
-	at io.quarkus.deployment.dev.RuntimeUpdatesProcessor.doScan(RuntimeUpdatesProcessor.java:459)
-	at io.quarkus.vertx.http.runtime.devmode.VertxHttpHotReplacementSetup$6.call(VertxHttpHotReplacementSetup.java:171)
-	at io.quarkus.vertx.http.runtime.devmode.VertxHttpHotReplacementSetup$6.call(VertxHttpHotReplacementSetup.java:159)
-	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$4(ContextImpl.java:192)
-	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:270)
-	at io.vertx.core.impl.ContextImpl$1.execute(ContextImpl.java:221)
-	at io.vertx.core.impl.WorkerTask.run(WorkerTask.java:56)
-	at org.jboss.threads.ContextHandler$1.runWith(ContextHandler.java:18)
-	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
-	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
-	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
-	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
-	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
-	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: java.lang.RuntimeException: Failed to start quarkus
-	at io.quarkus.runner.ApplicationImpl.doStart(Unknown Source)
-	at io.quarkus.runtime.Application.start(Application.java:112)
-	at io.quarkus.runtime.ApplicationLifecycleManager.run(ApplicationLifecycleManager.java:127)
-	at io.quarkus.runtime.Quarkus.run(Quarkus.java:79)
-	at io.quarkus.runtime.Quarkus.run(Quarkus.java:50)
-	at io.quarkus.runtime.Quarkus.run(Quarkus.java:143)
-	at io.quarkus.runner.GeneratedMain.main(Unknown Source)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at io.quarkus.runner.bootstrap.StartupActionImpl$1.run(StartupActionImpl.java:163)
-	... 1 more
-Caused by: org.flywaydb.core.internal.exception.sqlExceptions.FlywaySqlUnableToConnectToDbException: Unable to obtain connection from database: FATAL: password authentication failed for user "postgres"
-----------------------------------------------------------------------------------------------------
-SQL State  : 28P01
-Error Code : 0
-Message    : FATAL: password authentication failed for user "postgres"
-
-	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:78)
-	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:76)
-	at org.flywaydb.core.FlywayExecutor.init(FlywayExecutor.java:273)
-	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:118)
-	at org.flywaydb.core.Flyway.migrate(Flyway.java:187)
-	at io.quarkus.flyway.runtime.FlywayRecorder.doStartActions(FlywayRecorder.java:150)
-	at io.quarkus.runner.recorded.FlywayProcessor$startActions1575138505.deploy_0(Unknown Source)
-	at io.quarkus.runner.recorded.FlywayProcessor$startActions1575138505.deploy(Unknown Source)
-	... 11 more
-Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgres"
-	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:778)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:234)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290)
-	at org.postgresql.Driver.makeConnection(Driver.java:448)
-	at org.postgresql.Driver.connect(Driver.java:298)
-	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:225)
-	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:664)
-	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:645)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	... 1 more
-
-2026-05-12 21:11:34.854 ERROR [io.qua.run.Application] (Quarkus Main Thread) Failed to start application: java.lang.RuntimeException: Failed to start quarkus
-	at io.quarkus.runner.ApplicationImpl.doStart(Unknown Source)
-	at io.quarkus.runtime.Application.start(Application.java:112)
-	at io.quarkus.runtime.ApplicationLifecycleManager.run(ApplicationLifecycleManager.java:127)
-	at io.quarkus.runtime.Quarkus.run(Quarkus.java:79)
-	at io.quarkus.runtime.Quarkus.run(Quarkus.java:50)
-	at io.quarkus.runtime.Quarkus.run(Quarkus.java:143)
-	at io.quarkus.runner.GeneratedMain.main(Unknown Source)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at io.quarkus.runner.bootstrap.StartupActionImpl$1.run(StartupActionImpl.java:163)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: org.flywaydb.core.internal.exception.sqlExceptions.FlywaySqlUnableToConnectToDbException: Unable to obtain connection from database: FATAL: password authentication failed for user "postgres"
-----------------------------------------------------------------------------------------------------
-SQL State  : 28P01
-Error Code : 0
-Message    : FATAL: password authentication failed for user "postgres"
-
-	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:78)
-	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:76)
-	at org.flywaydb.core.FlywayExecutor.init(FlywayExecutor.java:273)
-	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:118)
-	at org.flywaydb.core.Flyway.migrate(Flyway.java:187)
-	at io.quarkus.flyway.runtime.FlywayRecorder.doStartActions(FlywayRecorder.java:150)
-	at io.quarkus.runner.recorded.FlywayProcessor$startActions1575138505.deploy_0(Unknown Source)
-	at io.quarkus.runner.recorded.FlywayProcessor$startActions1575138505.deploy(Unknown Source)
-	... 11 more
-Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgres"
-	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:778)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:234)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:290)
-	at org.postgresql.Driver.makeConnection(Driver.java:448)
-	at org.postgresql.Driver.connect(Driver.java:298)
-	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:225)
-	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:664)
-	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:645)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	... 1 more
-
+2026-05-14 20:45:23.883 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/appdb (PostgreSQL 16.13)
+2026-05-14 20:45:23.884 INFO  [org.fly.cor.int.res.ResourceNameValidator] (Quarkus Main Thread) 1 SQL migrations were detected but not run because they did not follow the filename convention.
+2026-05-14 20:45:23.885 INFO  [org.fly.cor.int.res.ResourceNameValidator] (Quarkus Main Thread) Set 'validateMigrationNaming' to true to fail fast and see a list of the invalid file names.
+2026-05-14 20:45:24.397 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 8 migrations (execution time 00:00.173s)
+2026-05-14 20:45:25.179 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 8
+2026-05-14 20:45:25.204 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
+2026-05-14 20:45:25.829 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 4.201s. Listening on: http://0.0.0.0:8080
+2026-05-14 20:45:25.829 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2026-05-14 20:45:25.829 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-client, rest-client-jackson, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
+2026-05-14 20:45:25.830 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Live reload total time: 4.279s 
+2026-05-14 20:45:25.830 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Live reload took more than 4 seconds, you may want to enable instrumentation based reload (quarkus.live-reload.instrumentation=true). This allows small changes to take effect without restarting Quarkus.
+2026-05-14 21:23:23.993 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 21:23:24.002 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 21:25:23.938 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 21:25:23.941 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:03:10.870 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:03:10.884 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:11:59.633 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:11:59.636 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:15:49.436 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:15:49.439 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:17:48.558 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:17:48.559 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:27:48.646 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:27:48.647 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:29:48.691 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:29:48.693 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:37:51.224 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:37:51.225 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:43:48.494 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 22:43:48.496 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 23:21:48.834 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 23:21:48.840 WARN  [io.agr.pool] (agroal-41) Datasource '<default>': Closing connection in incorrect state VALIDATION
+2026-05-14 23:23:56.158 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Restarting quarkus due to changes in PublicSiteService.class, HeroSectionRepository.class, AdminRefreshTokenRepository.class, LoginResponse.class, GlobalExceptionMapper.class, RefreshTokenRequest.class, GalleryPhotoCreateRequest.class, LoveLetterRepository.class, ProposalService.class, AdminDashboardController.class, AdminGalleryService.class, PublicGenerateProposalResponse.class, PublicSiteResponse.class, CountdownRepository.class, MediaUploadResponse.class, AdminSiteController.class, GenerateProposalRequest.class, RegisterRequest.class, PublicHeroResponse.class, PublicMemoryResponse.class, PublicFinalSurpriseResponse.class, MinioStorageService.class, TokenService.class, PublicLoveLetterResponse.class, SiteUpdateRequest.class, AdminAllowedIpRepository.class, Memory.class, GalleryPhoto.class, IpAllowlistService.class, ApiErrorResponse.class, SiteProfile.class, AdminHeroController.class, AdminLoveLetterController.class, Countdown.class, AdminCountdownController.class, LoginRequest.class, AdminDashboardService.class, AdminFinalSurpriseController.class, AdminAuthService.class, ApiPaths.class, PublicFullSiteResponse.class, MemoryUpdateRequest.class, AdminGalleryController.class, CountdownResponse.class, AdminRefreshToken.class, GalleryPhotoUpdateRequest.class, MinioConfig.class, GreetingResource.class, AdminUserRepository.class, ProposalStorageService.class, MemoryCreateRequest.class, ProposalGeneratorRestClient.class, ProposalGeneratorClient.class, AdminAuthFilter.class, PublicEndpoint.class, PublicSiteController.class, SiteResponse.class, MediaObject.class, LoveLetter.class, GalleryPhotoRepository.class, ProposalHealthClient.class, HeroResponse.class, MemoryResponse.class, FinalSurprise.class, PublicGalleryPhotoResponse.class, AdminUser.class, GalleryPhotoResponse.class, RegisterResponse.class, MediaObjectRepository.class, AdminMediaController.class, AdminContentService.class, SiteProfileRepository.class, MediaObjectResponse.class, FinalSurpriseRepository.class, LoveLetterUpdateRequest.class, PublicProposalController.class, ClientIpUtil.class, HeroSection.class, FinalSurpriseResponse.class, LoveLetterResponse.class, FinalSurpriseUpdateRequest.class, AdminAuthController.class, HealthController.class, AdminAllowedIp.class, DashboardStatsResponse.class, AdminMemoryService.class, AdminSiteService.class, MemoryRepository.class, AdminMediaService.class, GeneratePasswordHash.class, HeroUpdateRequest.class, PublicCountdownResponse.class, LogoutRequest.class, AdminMemoryController.class, CountdownUpdateRequest.class, GenerateProposalResponse.class.
+2026-05-14 23:23:56.197 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio stopped in 0.037s

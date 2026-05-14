@@ -1,64 +1,12 @@
-2026-05-14 00:42:20.047 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/appdb (PostgreSQL 16.13)
-2026-05-14 00:42:20.050 INFO  [org.fly.cor.int.res.ResourceNameValidator] (Quarkus Main Thread) 1 SQL migrations were detected but not run because they did not follow the filename convention.
-2026-05-14 00:42:20.051 INFO  [org.fly.cor.int.res.ResourceNameValidator] (Quarkus Main Thread) Set 'validateMigrationNaming' to true to fail fast and see a list of the invalid file names.
-2026-05-14 00:42:20.287 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 8 migrations (execution time 00:00.069s)
-2026-05-14 00:42:20.548 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 8
-2026-05-14 00:42:20.564 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
-2026-05-14 00:42:20.824 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 2.837s. Listening on: http://0.0.0.0:8080
-2026-05-14 00:42:20.824 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2026-05-14 00:42:20.825 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-client, rest-client-jackson, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
-2026-05-14 00:42:20.825 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Live reload total time: 3.130s 
-2026-05-14 00:43:27.808 WARN  [io.sma.jwt.config] (vert.x-eventloop-thread-1) SRJWT03007: Public key is configured but either the secret key or key location are also configured and will be ignored
-2026-05-14 00:43:27.819 WARN  [com.api.com.exc.GlobalExceptionMapper] (vert.x-eventloop-thread-1) API error, status=404, path=/api/admin/final-surprise , message=HTTP 404 Not Found
-2026-05-14 00:43:33.775 ERROR [com.api.com.exc.GlobalExceptionMapper] (executor-thread-1) Unhandled API error
-
-Exception in AdminContentService.java:181
-	  179                  .orElseGet(() -> createDefaultFinalSurprise(getDefaultSiteProfile()));
-	  180  
-	→ 181          if (request.mediaObjectId != null) {
-	  182              finalSurprise.mediaObject = findMediaObject(request.mediaObjectId);
-	  183          }
-
-
-
-Exception in AdminFinalSurpriseController.java:30
-	  28      @PUT
-	  29      public Response updateFinalSurprise(FinalSurpriseUpdateRequest request) {
-	→ 30          return Response.ok(adminContentService.updateFinalSurprise(request)).build();
-	  31      }
-	  32  }
-
-: java.lang.NoSuchFieldError: Class com.api.admin.dto.request.FinalSurpriseUpdateRequest does not have member field 'java.util.UUID mediaObjectId'
-	at com.api.admin.service.AdminContentService.updateFinalSurprise(AdminContentService.java:181)
-	at com.api.admin.service.AdminContentService_Subclass.updateFinalSurprise$$superforward(Unknown Source)
-	at com.api.admin.service.AdminContentService_Subclass$1.apply(Unknown Source)
-	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:73)
-	at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:62)
-	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:166)
-	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:137)
-	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:37)
-	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:81)
-	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:31)
-	at io.quarkus.narayana.jta.runtime.interceptor.TransactionalInterceptorRequired_Bean.intercept(Unknown Source)
-	at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
-	at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:30)
-	at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:27)
-	at com.api.admin.service.AdminContentService_Subclass.updateFinalSurprise(Unknown Source)
-	at com.api.admin.service.AdminContentService_ClientProxy.updateFinalSurprise(Unknown Source)
-	at com.api.admin.controller.AdminFinalSurpriseController.updateFinalSurprise(AdminFinalSurpriseController.java:30)
-	at com.api.admin.controller.AdminFinalSurpriseController$quarkusrestinvoker$updateFinalSurprise_473034ff4a4342250a36b80e69006b169c1de432.invoke(Unknown Source)
-	at org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
-	at io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:190)
-	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
-	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:677)
-	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
-	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
-	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
-	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
-	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
-	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-
-2026-05-14 00:45:04.494 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Restarting quarkus due to changes in FinalSurpriseUpdateRequest.class.
-2026-05-14 00:45:04.523 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio stopped in 0.027s
+2026-05-14 23:58:13.663 INFO  [org.fly.cor.FlywayExecutor] (Quarkus Main Thread) Database: jdbc:postgresql://119.59.103.227:5432/appdb (PostgreSQL 16.13)
+2026-05-14 23:58:13.664 INFO  [org.fly.cor.int.res.ResourceNameValidator] (Quarkus Main Thread) 1 SQL migrations were detected but not run because they did not follow the filename convention.
+2026-05-14 23:58:13.664 INFO  [org.fly.cor.int.res.ResourceNameValidator] (Quarkus Main Thread) Set 'validateMigrationNaming' to true to fail fast and see a list of the invalid file names.
+2026-05-14 23:58:15.849 INFO  [org.fly.cor.int.com.DbValidate] (Quarkus Main Thread) Successfully validated 8 migrations (execution time 00:00.902s)
+2026-05-14 23:58:20.282 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Current version of schema "public": 8
+2026-05-14 23:58:20.395 INFO  [org.fly.cor.int.com.DbMigrate] (Quarkus Main Thread) Schema "public" is up to date. No migration necessary.
+2026-05-14 23:58:22.024 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.35.2) started in 11.002s. Listening on: http://0.0.0.0:8080
+2026-05-14 23:58:22.025 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2026-05-14 23:58:22.025 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-client, rest-client-jackson, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
+2026-05-14 23:58:22.025 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Live reload total time: 11.081s 
+2026-05-14 23:58:22.033 INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (Aesh InputStream Reader) Restarting as requested by the user.
+2026-05-14 23:58:22.063 INFO  [io.quarkus] (Quarkus Main Thread) react-quarkus-minio stopped in 0.029s

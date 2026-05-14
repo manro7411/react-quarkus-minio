@@ -50,7 +50,7 @@ export type PublicLoveLetter = {
 };
 
 export type PublicFinalSurprise = {
-  id: string;
+  id?: string;
   mediaObjectId?: string | null;
   title: string;
   message: string;
@@ -70,20 +70,67 @@ export type PublicFullSiteResponse = {
   finalSurprise: PublicFinalSurprise | null;
 };
 
+type RawPublicFinalSurprise = Omit<PublicFinalSurprise, "active"> & {
+  active?: boolean | string | number | null;
+};
+
+type RawPublicFullSiteResponse = Omit<
+  PublicFullSiteResponse,
+  "finalSurprise"
+> & {
+  finalSurprise?: RawPublicFinalSurprise | null;
+};
+
 function normalizeBaseUrl(value: string) {
   return value.replace(/\/+$/, "");
 }
 
-export async function getPublicFullSite() {
-  const response = await fetch(
-    `${normalizeBaseUrl(API_BASE_URL)}/api/public/site/${SITE_KEY}/full`,
-    {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-      },
-    }
-  );
+function normalizeBoolean(value: unknown) {
+  if (typeof value === "boolean") {
+    return value;
+  }
+
+  if (typeof value === "string") {
+    return value.toLowerCase() === "true";
+  }
+
+  if (typeof value === "number") {
+    return value === 1;
+  }
+
+  return false;
+}
+
+function normalizeFinalSurprise(
+  finalSurprise?: RawPublicFinalSurprise | null
+): PublicFinalSurprise | null {
+  if (!finalSurprise) {
+    return null;
+  }
+
+  return {
+    id: finalSurprise.id,
+    mediaObjectId: finalSurprise.mediaObjectId ?? null,
+    title: finalSurprise.title || "Are you ready for your final surprise?",
+    message: finalSurprise.message || "The best is yet to come...",
+    buttonText: finalSurprise.buttonText || "Reveal Final Surprise",
+    active: normalizeBoolean(finalSurprise.active),
+    imageUrl: finalSurprise.imageUrl ?? null,
+    updatedAt: finalSurprise.updatedAt,
+  };
+}
+
+export async function getPublicFullSite(): Promise<PublicFullSiteResponse> {
+  const url = `${normalizeBaseUrl(
+    API_BASE_URL
+  )}/api/public/site/${SITE_KEY}/full`;
+
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+    },
+  });
 
   if (!response.ok) {
     let message = `Failed to load public site: ${response.status}`;
@@ -93,6 +140,7 @@ export async function getPublicFullSite() {
       message = error.message || error.error || message;
     } catch {
       const text = await response.text();
+
       if (text) {
         message = text;
       }
@@ -101,13 +149,23 @@ export async function getPublicFullSite() {
     throw new Error(message);
   }
 
-  const data = (await response.json()) as PublicFullSiteResponse;
+  const data = (await response.json()) as RawPublicFullSiteResponse;
 
-  return {
+  const normalizedData: PublicFullSiteResponse = {
     ...data,
     memories: [...(data.memories ?? [])].sort(sortBySortOrderAndDate),
     gallery: [...(data.gallery ?? [])].sort(sortBySortOrderAndDate),
+    finalSurprise: normalizeFinalSurprise(data.finalSurprise),
   };
+
+  console.log("PUBLIC FULL SITE DATA", normalizedData);
+  console.log("PUBLIC FINAL SURPRISE", normalizedData.finalSurprise);
+  console.log(
+    "PUBLIC FINAL SURPRISE ACTIVE",
+    normalizedData.finalSurprise?.active
+  );
+
+  return normalizedData;
 }
 
 function sortBySortOrderAndDate<

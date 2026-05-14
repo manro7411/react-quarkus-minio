@@ -311,6 +311,31 @@ export default function ManagementPanel({
     }, "Final surprise updated successfully 🎁");
   }
 
+async function toggleFinalSurpriseActive(nextActive: boolean) {
+  setFinalSurprise((current) => ({
+    ...current,
+    active: nextActive,
+  }));
+
+  await runSave(async () => {
+    const updated = await updateFinalSurprise({
+      title: finalSurprise.title,
+      message: finalSurprise.message,
+      buttonText: finalSurprise.buttonText,
+      active: nextActive,
+    });
+
+    setFinalSurprise({
+      title: updated.title || "",
+      message: updated.message || "",
+      buttonText: updated.buttonText || "",
+      active: updated.active ?? false,
+    });
+
+    setFinalSurpriseImageUrl(updated.imageUrl || finalSurpriseImageUrl);
+  }, nextActive ? "Final Surprise opened 💝" : "Final Surprise closed 🔒");
+}
+
   async function saveSite(successMessage?: string) {
     await runSave(async () => {
       const updated = await updateAdminSite({
@@ -863,16 +888,12 @@ export default function ManagementPanel({
               finalSurprise.active ? "switch-on" : "switch-off"
             }`}
           >
-            <input
-              type="checkbox"
-              checked={finalSurprise.active}
-              onChange={(event) =>
-                setFinalSurprise((current) => ({
-                  ...current,
-                  active: event.target.checked,
-                }))
-              }
-            />
+           <input
+             type="checkbox"
+             checked={finalSurprise.active}
+             disabled={status === "saving"}
+             onChange={(event) => toggleFinalSurpriseActive(event.target.checked)}
+           />
             <span></span>
           </label>
         </div>

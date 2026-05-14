@@ -54,9 +54,7 @@ function AppRoutes() {
       const sortA = a.sortOrder ?? 0;
       const sortB = b.sortOrder ?? 0;
 
-      if (sortA !== sortB) {
-        return sortA - sortB;
-      }
+      if (sortA !== sortB) return sortA - sortB;
 
       return getDateTime(b.memoryDate) - getDateTime(a.memoryDate);
     });
@@ -67,9 +65,7 @@ function AppRoutes() {
       const sortA = a.sortOrder ?? 0;
       const sortB = b.sortOrder ?? 0;
 
-      if (sortA !== sortB) {
-        return sortA - sortB;
-      }
+      if (sortA !== sortB) return sortA - sortB;
 
       return getDateTime(b.photoDate) - getDateTime(a.photoDate);
     });
@@ -154,10 +150,7 @@ function AppRoutes() {
         }
       />
 
-      <Route
-        path="/polaroid"
-        element={<PolaroidPage siteData={siteData} />}
-      />
+      <Route path="/polaroid" element={<PolaroidPage siteData={siteData} />} />
 
       <Route
         path="*"
@@ -222,6 +215,16 @@ function HomePage({
   const loveLetter = siteData.loveLetter;
   const finalSurprise = siteData.finalSurprise;
 
+  const finalSurpriseActive = finalSurprise?.active ?? false;
+
+  function handleOpenFinalSurprise() {
+    if (!finalSurpriseActive) {
+      return;
+    }
+
+    onOpenMiniGame();
+  }
+
   return (
     <div className="page">
       <Navbar title={site?.title} />
@@ -243,7 +246,7 @@ function HomePage({
         <FinalSurpriseSection
           finalSurprise={finalSurprise}
           finalUnlocked={finalUnlocked}
-          onOpenMiniGame={onOpenMiniGame}
+          onOpenMiniGame={handleOpenFinalSurprise}
         />
       </main>
 
@@ -251,7 +254,7 @@ function HomePage({
         <LetterModal loveLetter={loveLetter} onClose={onCloseLetter} />
       )}
 
-      {miniGameOpen && (
+      {finalSurpriseActive && miniGameOpen && (
         <UnlockHeartMiniGame
           finalTitle={finalSurprise?.title || "Official Love Proposal"}
           finalMessage={

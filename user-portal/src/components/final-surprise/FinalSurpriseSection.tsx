@@ -1,58 +1,75 @@
-import { useState } from "react";
-import UnlockHeartMiniGameModal from "./UnlockHeartMiniGameModal";
+import type { PublicFullSiteResponse } from "../../services/publicSiteService";
+
 type FinalSurpriseSectionProps = {
-  title: string;
-  message: string;
-  buttonText?: string;
-  imageUrl?: string;
+  finalSurprise: PublicFullSiteResponse["finalSurprise"];
+  finalUnlocked: boolean;
+  onOpenMiniGame: () => void;
 };
 
 export default function FinalSurpriseSection({
-  title,
-  message,
-  buttonText = "Reveal Final Surprise",
-  imageUrl,
+  finalSurprise,
+  finalUnlocked,
+  onOpenMiniGame,
 }: FinalSurpriseSectionProps) {
-  const [miniGameOpen, setMiniGameOpen] = useState(false);
-  const [isUnlocked, setIsUnlocked] = useState(false);
+  const isFinalSurpriseActive = finalSurprise?.active === true;
 
   return (
-    <>
-      <section className="final-surprise-section" id="surprise">
-        <div className="final-surprise-copy">
-          <h2>{title}</h2>
-          <p>{message}</p>
+    <section
+      id="surprise"
+      className={`final-section ${
+        isFinalSurpriseActive ? "active" : "inactive"
+      }`}
+      style={
+        finalSurprise?.imageUrl
+          ? {
+              backgroundImage: `linear-gradient(rgba(255, 240, 247, 0.84), rgba(255, 228, 239, 0.9)), url(${finalSurprise.imageUrl})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }
+          : undefined
+      }
+    >
+      <div>
+        <h2>
+          {finalSurprise?.title || "Are you ready for your final surprise?"}
+        </h2>
 
-          <button
-            type="button"
-            className="primary-romantic-button"
-            onClick={() => setMiniGameOpen(true)}
-          >
-            {buttonText}
-          </button>
+        <p>{finalSurprise?.message || "The best is yet to come..."}</p>
 
-          {isUnlocked && (
-            <div className="final-surprise-success">
-              <span>💖</span>
-              <p>Mini game completed! Final surprise unlocked.</p>
-            </div>
-          )}
-        </div>
+        <button
+          className="primary-button"
+          type="button"
+          onClick={onOpenMiniGame}
+          disabled={!isFinalSurpriseActive}
+        >
+          {!isFinalSurpriseActive
+            ? "Final Surprise is closed 🔒"
+            : finalUnlocked
+              ? "Open Final Surprise Again 💖"
+              : finalSurprise?.buttonText || "Reveal Final Surprise 🎁"}
+        </button>
 
-        <div className="final-surprise-visual">
-          {imageUrl ? (
-            <img src={imageUrl} alt="Final Surprise" />
-          ) : (
-            <div className="final-surprise-fallback-gift">🎁</div>
-          )}
-        </div>
-      </section>
+        {!isFinalSurpriseActive && (
+          <div className="final-unlocked-note">
+            <span>🔒</span>
+            <p>Final Surprise is currently closed.</p>
+          </div>
+        )}
 
-      <UnlockHeartMiniGameModal
-        open={miniGameOpen}
-        onClose={() => setMiniGameOpen(false)}
-        onUnlocked={() => setIsUnlocked(true)}
-      />
-    </>
+        {isFinalSurpriseActive && finalUnlocked && (
+          <div className="final-unlocked-note">
+            <span>💖</span>
+            <p>Your final surprise has been unlocked.</p>
+          </div>
+        )}
+      </div>
+
+      <div className="mini-gift">
+        <div className="mini-gift-box"></div>
+        <div className="mini-gift-lid"></div>
+        <div className="mini-ribbon-x"></div>
+        <div className="mini-ribbon-y"></div>
+      </div>
+    </section>
   );
 }

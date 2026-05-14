@@ -11,7 +11,18 @@ export default function FinalSurpriseSection({
   finalUnlocked,
   onOpenMiniGame,
 }: FinalSurpriseSectionProps) {
-  const isFinalSurpriseActive = finalSurprise?.active ?? false;
+  const isFinalSurpriseActive = finalSurprise?.active === true;
+
+  console.log("finalSurprise", finalSurprise);
+  console.log("isFinalSurpriseActive", isFinalSurpriseActive);
+
+  function handleOpenMiniGame() {
+    if (!isFinalSurpriseActive) {
+      return;
+    }
+
+    onOpenMiniGame();
+  }
 
   return (
     <section
@@ -39,7 +50,7 @@ export default function FinalSurpriseSection({
         <button
           className="primary-button"
           type="button"
-          onClick={onOpenMiniGame}
+          onClick={handleOpenMiniGame}
           disabled={!isFinalSurpriseActive}
         >
           {!isFinalSurpriseActive

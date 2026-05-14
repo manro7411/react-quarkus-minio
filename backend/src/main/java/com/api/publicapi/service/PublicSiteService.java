@@ -168,6 +168,7 @@ public class PublicSiteService {
                 finalSurprise.title,
                 finalSurprise.message,
                 finalSurprise.buttonText,
+                Boolean.TRUE.equals(finalSurprise.active),
                 imageUrl
         );
     }
